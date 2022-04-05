@@ -5,13 +5,13 @@
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-    <title>BizLand Bootstrap Template - Index</title>
+    <title>Futsal Cilacap</title>
     <meta content="" name="description">
     <meta content="" name="keywords">
 
     <!-- Favicons -->
-    <link href="<?= base_url() ?>asset/corporate/assets/img/favicon.png" rel="icon">
-    <link href="<?= base_url() ?>asset/corporate/assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+    <link href="<?=base_url('asset/image/futsal_cilacap.png')?>" rel="icon">
+    <link href="<?=base_url('asset/image/futsal_cilacap.png')?>" rel="apple-touch-icon">
 
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Roboto:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
@@ -27,12 +27,6 @@
     <!-- Template Main CSS File -->
     <link href="<?= base_url() ?>asset/corporate/assets/css/style.css" rel="stylesheet">
 
-    <!-- =======================================================
-  * Template Name: BizLand - v3.7.0
-  * Template URL: https://bootstrapmade.com/bizland-bootstrap-business-template/
-  * Author: BootstrapMade.com
-  * License: https://bootstrapmade.com/license/
-  ======================================================== -->
 </head>
 
 <body>
@@ -68,7 +62,7 @@
                     <li><a class="nav-link scrollto" href="<?=site_url('acara')?>">Event</a></li>
                     <li><a class="nav-link scrollto" href="<?=site_url('lapangan')?>">Lapangan</a></li>
                     <?php if ($this->session->isLogin == true) { ?>
-                        <li class="dropdown"><a href="#"><span><?= $this->session->name ?></span> <i class="bi bi-chevron-down"></i></a>
+                        <li class="nav-link dropdown"><a href="#"><span><?= $this->session->name ?></span> <i class="bi bi-chevron-down"></i></a>
                             <ul>
                                 <li><a href="<?= site_url('transaksi') ?>">My Booking</a></li>
                                 <li><a href="<?= site_url('login/logout') ?>">Logout</a></li>

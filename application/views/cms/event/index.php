@@ -38,7 +38,7 @@
                                                 <tr>
                                                     <td><?= $no; ?></td>
                                                     <td><?= $key->title; ?></td>
-                                                    <td><?= $key->date; ?></td>
+                                                    <td><?= $key->start; ?> - <?= $key->end; ?></td>
                                                     <td>
                                                         <a type="button" class="btn btn-warning btn-sm text-white" href="<?= base_url() ?>cms/event/edit/<?= $key->id ?>"><i class="fa fa-pen"></i></a>
                                                         <a type="button" class="btn btn-danger btn-sm text-white" onclick="hapus(<?= $key->id ?>)"><i class="fa fa-trash"></i></a>

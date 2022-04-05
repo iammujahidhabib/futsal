@@ -28,6 +28,9 @@ class Login extends CI_Controller
 			if (count($login) == 1) {
 				$session = $login[0];
 				$session['isLogin'] = TRUE;
+				$user = $this->M_templates->view_where('player', ['account_id' => $login[0]['id']])->row();
+				$session['name'] = $user->name;
+				// print_r($user);
 				$this->session->set_userdata($session);
 				redirect('home');
 			} else {
@@ -54,6 +57,8 @@ class Login extends CI_Controller
 			if (count($login) == 1) {
 				$session = $login[0];
 				$session['isLogin'] = TRUE;
+				$user = $this->M_templates->view_where('field', ['account_id' => $login[0]['id']])->row();
+				$session['name'] = $user->name;
 				$this->session->set_userdata($session);
 				redirect('cms/dashboard/field');
 			} else {

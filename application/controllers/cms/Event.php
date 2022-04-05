@@ -41,22 +41,24 @@ class Event extends CI_Controller
                 $data['poster'] = "default.png";
             }
 
-            $config = array(
-                'upload_path' => './asset/form/event/',
-                'overwrite' => false,
-                'remove_spaces' => true,
-                'allowed_types' => 'doc|docx|pdf',
-                'max_size' => 20000,
-                'xss_clean' => true,
-            );
-            $this->load->library('upload');
-            $this->upload->initialize($config);
-            if ($this->upload->do_upload('form')) {
-                // if ($_FILES['file']['name'] != "") {
-                $file_data = $this->upload->data();
-                $data['form'] = $file_data['file_name'];
-            } else {
-                $data['form'] = "default.docx";
+            if ($_FILES['form']['name'] != "") {
+                $config = array(
+                    'upload_path' => './asset/form/event/',
+                    'overwrite' => false,
+                    'remove_spaces' => true,
+                    'allowed_types' => 'doc|docx|pdf',
+                    'max_size' => 20000,
+                    'xss_clean' => true,
+                );
+                $this->load->library('upload');
+                $this->upload->initialize($config);
+                if ($this->upload->do_upload('form')) {
+                    // if ($_FILES['file']['name'] != "") {
+                    $file_data = $this->upload->data();
+                    $data['form'] = $file_data['file_name'];
+                } else {
+                    $data['form'] = "default.docx";
+                }
             }
             $this->M_templates->insert('event', $data);
             redirect('cms/event');

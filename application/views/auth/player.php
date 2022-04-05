@@ -16,12 +16,20 @@
             </div>
             <div class="form-check">
             </div>
-            <button type="submit" class="btn btn-primary">Login</button>
-            <a class="btn btn-secondary float-right" href="<?= site_url('login/admin') ?>">Login Admin</a>
-            <a class="btn btn-secondary float-right" href="<?= site_url('login/field') ?>">Login Lapangan</a>
+            <button type="submit" class="btn w-100 btn-primary float-right">Login</button>
+            <br>
+            <br>
+            <p>Belum punya akun?</p>
+            <a class="btn btn-secondary w-100" href="<?= site_url('login/register') ?>">Daftar</a>
+            <br>
+            <br>
+            <p>Login Sebagai</p>
+            <center>
+                <a class="btn btn-secondary float-right" href="<?= site_url('login/admin') ?>">Login Admin</a>
+                <a class="btn btn-secondary float-right" href="<?= site_url('login/field') ?>">Login Lapangan</a>
+            </center>
         </form>
         <br>
-        <a class="btn btn-secondary float-right" href="<?= site_url('login/register') ?>">Daftar</a>
 
     </div>
 </section><!-- End Hero -->

@@ -32,7 +32,7 @@
 							<div class="form-group row">
 								<label for="inp-form" class="col-sm-2 col-form-label">Form</label>
 								<div class="col-sm-10">
-									<input required type="file" class="form-control" name="form" id="inp-form">
+									<input type="file" class="form-control" name="form" id="inp-form">
 								</div>
 							</div>
 							<div class="form-group row">
@@ -53,11 +53,11 @@
 									<textarea class="form-control" name="desc" id="inp-desc"></textarea>
 								</div>
 							</div>
-							<input required type="hidden" class="form-control" name="writer_id" id="inp-writer_id" value="<?=$this->session->id?>">
+							<input required type="hidden" class="form-control" name="field_id" id="inp-writer_id" value="<?=$this->session->id?>">
 							<div class="form-group row">
 								<label for="inp-submit" class="col-sm-2 col-form-label"></label>
 								<div class="col-sm-10">
-									<input type="submit" name="submit" class="btn btn-primary btn-block" value="Create">
+									<button type="submit" class="btn btn-primary btn-block">Submit</button>
 								</div>
 							</div>
 						</form>

@@ -45,6 +45,13 @@
               <p>Booking</p>
             </a>
           </li>
+          <li class="nav-item">
+            <a href="<?= base_url() ?>cms/type" class="nav-link <?php if ($this->session->func == 'dailytimesheetcreate') { ?> active<?php } ?>">
+              <!-- <i class="far fa-clipboard nav-icon"></i> -->
+              <i class="fa fa-circle nav-icon"></i>
+              <p>Field & Price</p>
+            </a>
+          </li>
         <?php } ?>
         <li class="nav-item">
           <a href="<?= base_url() ?>cms/event" class="nav-link <?php if ($this->session->func == 'dailytimesheetcreate') { ?> active<?php } ?>">

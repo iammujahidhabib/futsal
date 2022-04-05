@@ -15,14 +15,10 @@ class Dashboard extends CI_Controller
     }
     public function index()
     {
-        if ($this->session->role == 'admin') {
+        if ($this->session->role == 1) {
             redirect("cms/dashboard/admin");
-        } elseif ($this->session->role == 'field') {
+        } elseif ($this->session->role == 2) {
             redirect("cms/dashboard/field");
-        } elseif ($this->session->role == 'school') {
-            redirect("cms/dashboard/school");
-        } elseif ($this->session->role == 'eventorganizer') {
-            redirect("cms/dashboard/eventorganizer");
         } else {
             redirect("login/logout");
         }

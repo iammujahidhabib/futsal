@@ -25,10 +25,10 @@
 							</div>
 							<div class="form-group row">
 								<div class="col-sm-4">
-									<img src="<?= base_url() ?>assets/image/event/<?= $event->poster ?>" class="img-fluid">
+									<label for="inp-poster" class="col-sm-2 col-form-label">Poster</label>
 								</div>
 								<div class="col-sm-8 row">
-									<label for="inp-poster" class="col-sm-2 col-form-label">Poster</label>
+									<img src="<?= base_url() ?>asset/image/event/<?= $event->poster ?>" class="img-fluid">
 									<div class="col-sm-10">
 										<input type="file" class="form-control" name="poster" id="inp-poster">
 									</div>
@@ -58,11 +58,11 @@
 									<textarea class="form-control" name="desc" id="inp-desc"><?=$event->desc?></textarea>
 								</div>
 							</div>
-							<input required type="hidden" class="form-control" name="writer_id" id="inp-writer_id" value="<?= $event->writer_id ?>">
+							<input required type="hidden" class="form-control" name="field_id" id="inp-writer_id" value="<?= $event->field_id ?>">
 							<div class="form-group row">
 								<label for="inp-submit" class="col-sm-2 col-form-label"></label>
 								<div class="col-sm-10">
-									<input type="submit" name="submit" class="btn btn-primary btn-block" value="Update">
+									<button type="submit" class="btn btn-primary btn-block">Submit</button>
 								</div>
 							</div>
 						</form>
@@ -72,4 +72,11 @@
 		</div>
 	</div>
 </div>
+<script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
+
+<script>
+	tinymce.init({
+		selector: '#inp-text'
+	});
+</script>
 <?php $this->load->view('template/footer'); ?>

@@ -25,12 +25,12 @@
 							</div>
 							<div class="form-group row">
 								<div class="col-sm-4">
-									<img src="<?= base_url() ?>assets/image/article/<?= $article->image ?>" class="img-fluid">
+									<label for="inp-image" class="col-sm-2 col-form-label">Image</label>
 								</div>
 								<div class="col-sm-8 row">
-									<label for="inp-image" class="col-sm-2 col-form-label">Image</label>
+									<img src="<?= base_url() ?>asset/image/article/<?= $article->image ?>" class="img-fluid">
 									<div class="col-sm-10">
-										<input required type="file" class="form-control" name="image" id="inp-image">
+										<input type="file" class="form-control" name="image" id="inp-image">
 									</div>
 								</div>
 							</div>
@@ -46,7 +46,7 @@
 							<div class="form-group row">
 								<label for="inp-submit" class="col-sm-2 col-form-label"></label>
 								<div class="col-sm-10">
-									<input type="submit" name="submit" class="btn btn-primary btn-block" value="Update">
+									<button type="submit" class="btn btn-primary btn-block">Submit</button>
 								</div>
 							</div>
 						</form>
@@ -56,4 +56,11 @@
 		</div>
 	</div>
 </div>
+<script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
+
+<script>
+	tinymce.init({
+		selector: '#inp-text'
+	});
+</script>
 <?php $this->load->view('template/footer'); ?>

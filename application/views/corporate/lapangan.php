@@ -21,13 +21,13 @@
         <div class="row portfolio-container" data-aos="fade-up" data-aos-delay="200">
             <?php foreach ($field as $key) { ?>
                 <div class="col-lg-4 col-md-6 portfolio-item filter-app">
-                    <a href="<?= site_url('lapangan/index/' . $key->id) ?>">
+                    <a href="<?= site_url('lapangan/detail/' . $key->id) ?>">
                         <img src="<?= base_url() ?>asset/image/<?= $key->photo ?>" class="img-fluid" alt="">
                         <div class="portfolio-info">
                             <h4><?= $key->name ?></h4>
                             <p><?= $key->address ?></p>
                             <a href="<?= base_url() ?>asset/image/<?= $key->photo ?>" data-gallery="portfolioGallery" class="portfolio-lightbox preview-link" title="<?= $key->name ?>"><i class="bx bx-plus"></i></a>
-                            <a href="<?= site_url('lapangan/index/' . $key->id) ?>" class="details-link" title="More Details"><i class="bx bx-link"></i></a>
+                            <a href="<?= site_url('lapangan/detail/' . $key->id) ?>" class="details-link" title="More Details"><i class="bx bx-link"></i></a>
                         </div>
                     </a>
                 </div>

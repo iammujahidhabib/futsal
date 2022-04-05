@@ -41,7 +41,7 @@
 							<div class="form-group row">
 								<label for="inp-submit" class="col-sm-2 col-form-label"></label>
 								<div class="col-sm-10">
-									<input type="submit" name="submit" class="btn btn-primary btn-block" value="Create">
+									<button type="submit" class="btn btn-primary btn-block">Submit</button>
 								</div>
 							</div>
 						</form>

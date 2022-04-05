@@ -12,7 +12,44 @@
 <!-- End Hero -->
 
 <main id="main">
+    <!-- ======= Pricing Section ======= -->
+    <section id="pricing" class="pricing">
+        <div class="container" data-aos="fade-up">
 
+            <div class="section-title">
+                <h2>Event Terdekat</h2>
+                <!-- <h3>Check our <span>Pricing</span></h3> -->
+                <!-- <p>Ut possimus qui ut temporibus culpa velit eveniet modi omnis est adipisci expedita at voluptas atque vitae autem.</p> -->
+            </div>
+            <?php if (!empty($event)) { ?>
+                <div class="row">
+                    <?php foreach ($event as $key) { ?>
+                        <div class="col-lg-4 col-md-4 col-sm-12" data-aos="fade-up" data-aos-delay="100">
+                            <div class="box">
+                                <a href="<?= site_url('acara/detail/' . $key->id) ?>">
+                                    <img src="<?= base_url() ?>asset/image/event/<?= $key->poster ?>" class="img-fluid">
+                                </a>
+                                <hr>
+                                <p><?= $key->start ?></p>
+                                <a href="<?= site_url('acara/detail/' . $key->id) ?>">
+                                    <h5 style="color: black;">
+                                        <?= $key->title ?>
+                                    </h5>
+                                </a>
+                            </div>
+                        </div>
+                    <?php } ?>
+                </div>
+                <a href="<?= site_url('acara') ?>">
+                    <h5 style="color: black;text-align: right;">Lihat lebih ...</h5>
+                </a>
+            <?php } else { ?>
+                <div class="col-lg-12 d-flex justify-content-center p-5" style="border-radius: 20px;background-color: lightblue;">
+                    <h3>Belum ada event dalam waktu dekat ini.</h3>
+                </div>
+            <?php } ?>
+        </div>
+    </section><!-- End Pricing Section -->
     <!-- ======= Featured Services Section ======= -->
     <!-- <section id="featured-services" class="featured-services">
         <div class="container" data-aos="fade-up">
@@ -57,26 +94,27 @@
     <!-- End Featured Services Section -->
 
     <!-- ======= About Section ======= -->
-    <!-- <section id="about" class="about section-bg">
+    <section id="about" class="about section-bg">
         <div class="container" data-aos="fade-up">
 
             <div class="section-title">
-                <h2>About</h2>
-                <h3>Find Out More <span>About Us</span></h3>
-                <p>Ut possimus qui ut temporibus culpa velit eveniet modi omnis est adipisci expedita at voluptas atque vitae autem.</p>
+                <h2>Tentang Kami</h2>
+                <h3>Sistem Informasi Futsal <span>Kota Cilacap</span></h3>
+                <!-- <p>Ut possimus qui ut temporibus culpa velit eveniet modi omnis est adipisci expedita at voluptas atque vitae autem.</p> -->
             </div>
-
+            <br>
             <div class="row">
                 <div class="col-lg-6" data-aos="fade-right" data-aos-delay="100">
-                    <img src="assets/img/about.jpg" class="img-fluid" alt="">
+                    <img src="<?=base_url('asset/image/futsal_cilacap.png')?>" class="img-fluid" alt="">
                 </div>
                 <div class="col-lg-6 pt-4 pt-lg-0 content d-flex flex-column justify-content-center" data-aos="fade-up" data-aos-delay="100">
-                    <h3>Voluptatem dignissimos provident quasi corporis voluptates sit assumenda.</h3>
-                    <p class="fst-italic">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
-                        magna aliqua.
+                    <!-- <h3>Voluptatem dignissimos provident quasi corporis voluptates sit assumenda.</h3> -->
+                    <p class="">
+                        Website ini merupakan pusat informasi seputar Futsal di Kota Cilacap. Melalui website ini diharapkan dapat mempermudah anda dalam
+                        mendapatkan informasi baik sewa lapangan, artikel-artiker, sampai dengan informasi mengenai Event atau Turnament Futsal yang ada
+                        di Kota Cilacap.
                     </p>
-                    <ul>
+                    <!-- <ul>
                         <li>
                             <i class="bx bx-store-alt"></i>
                             <div>
@@ -91,17 +129,36 @@
                                 <p>Quo totam dolorum at pariatur aut distinctio dolorum laudantium illo direna pasata redi</p>
                             </div>
                         </li>
-                    </ul>
+                    </ul> -->
                     <p>
-                        Ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
-                        velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-                        culpa qui officia deserunt mollit anim id est laborum
+                        Apabila memiliki keluhan atau kritik dan saran, anda dapat menghubungi kami melalui form berikut.
                     </p>
+                    <br>
+                    <h4 class="text-center">Hubungi Kami</h4>
+                    <div class="col-lg-126">
+                        <form action="<?= site_url() ?>home/mail" method="post" role="form" class="php-email-form">
+                            <div class="row mb-2">
+                                <div class="col form-group">
+                                    <input type="text" name="name" class="form-control" id="name" placeholder="Nama Anda" required>
+                                </div>
+                                <div class="col form-group">
+                                    <input type="email" class="form-control" name="email" id="email" placeholder="Email Anda" required>
+                                </div>
+                            </div>
+                            <div class="form-group mb-2">
+                                <input type="text" class="form-control" name="subject" id="subject" placeholder="Subjek" required>
+                            </div>
+                            <div class="form-group mb-2">
+                                <textarea class="form-control" name="message" rows="5" placeholder="Pesan" required></textarea>
+                            </div>
+                            <div class="text-center mb-2"><button class="btn btn-primary" type="submit">Kirim Pesan</button></div>
+                        </form>
+                    </div>
                 </div>
             </div>
 
         </div>
-    </section> -->
+    </section>
     <!-- End About Section -->
 </main>
 <!-- End #main -->
