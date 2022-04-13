@@ -19,7 +19,7 @@ class Booking extends CI_Controller
         $data['rent']=$this->M_templates->query("SELECT *, rent.id AS id FROM rent 
         JOIN field ON field.id=rent.field_id 
         JOIN user ON user.id=rent.user_id 
-        WHERE rent.field_id = $field->id")->result();
+        WHERE rent.place_id = $field->id")->result();
         // print_r($data);
         $this->load->view('cms/rent/index', $data);
     }

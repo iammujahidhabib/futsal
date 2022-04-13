@@ -10,10 +10,10 @@
         </div>
         <div class="row">
             <div class="col-lg-8 aos-init aos-animate content" data-aos="fade-right" data-aos-delay="100">
-                <h4>Lapangan Futsal <?= $field->name ?></h4>
+                <h4>Lapangan Futsal <?= $place->name ?></h4>
                 <div class="row">
                     <div class="col-sm-6">
-                        <img src="<?= base_url() ?>asset/image/<?= $field->photo ?>" class="img-fluid" alt="">
+                        <img src="<?= base_url() ?>asset/image/<?= $place->photo ?>" class="img-fluid" alt="">
                     </div>
                     <div class="col-sm-6">
                         <ul>
@@ -21,23 +21,23 @@
                                 <i class="bx bx-phone"></i>
                                 <div>
                                     <h5>Nomor Telpon</h5>
-                                    <p><?= $field->phone ?></p>
+                                    <p><?= $place->phone ?></p>
                                 </div>
                             </li>
                             <li>
                                 <i class="bx bx-map"></i>
                                 <div>
                                     <h5>Alamat</h5>
-                                    <p><?= $field->address ?></p>
+                                    <p><?= $place->address ?></p>
                                 </div>
                             </li>
                         </ul>
                     </div>
                     <div class="col-lg-6 col-sm-12 mt-3">
                         <div class="form-group" style="background-color: lightgray;border-radius: 20px;padding: 20px;">
-                            <h5>Bank <?= $field->bank ?></h5>
-                            <p>Nomor Rekening : <?= $field->bank_account ?></p>
-                            <p>Nama Rekening : <?= $field->bank_name ?></p>
+                            <h5>Bank <?= $place->bank ?></h5>
+                            <p>Nomor Rekening : <?= $place->bank_account ?></p>
+                            <p>Nama Rekening : <?= $place->bank_name ?></p>
                             <p class="small text-danger">*Silahkan transfer terlebih dahulu kemudian upload bukti transfer</p>
                         </div>
                     </div>
@@ -59,20 +59,29 @@
                     </thead>
                     <tbody>
                         <?php $no = 0;
+                        $i = 0;
                         foreach ($price as $key) {
+                        ?>
+                            <tr>
+                                <td><b>Jam <?= $rent['start'] + $i . ":00" ?></td>
+                                <td><b>Rp <?= $key->price ?></b></td>
+                            </tr>
+                        <?php $i++;
                             $no += $key->price;
                         } ?>
+                    </tbody>
+                    <tfoot>
                         <tr>
-                            <td><b><?= $type_field->type ?> (<?= $rent['end'] - $rent['start'] ?> Jam)</b><br><?= $rent['date'] ?> <?= $rent['start'] . ":00-" . $rent['end'] . ":00" ?></td>
+                            <td><b><?= $field->name ?> (<?= $rent['end'] - $rent['start'] ?> Jam)</b><br><?= $rent['date'] ?> <?= $rent['start'] . ":00-" . $rent['end'] . ":00" ?></td>
                             <td><b>Rp <?= $no ?></b></td>
                         </tr>
-                    </tbody>
+                    </tfoot>
                 </table>
                 <form method="post" enctype="multipart/form-data" action="<?= site_url('transaksi/save') ?>">
                     <input type="hidden" name="total" value="<?= $no ?>">
+                    <input type="hidden" name="place_id" value="<?= $rent['place_id'] ?>">
                     <input type="hidden" name="field_id" value="<?= $rent['field_id'] ?>">
-                    <input type="hidden" name="field_type_id" value="<?= $rent['field_type_id'] ?>">
-                    <input type="hidden" name="account_id" value="<?= $rent['account_id'] ?>">
+                    <input type="hidden" name="user_id" value="<?= $rent['user_id'] ?>">
                     <input type="hidden" name="date" value="<?= $rent['date'] ?>">
                     <input type="hidden" name="start" value="<?= $rent['start'] ?>">
                     <input type="hidden" name="end" value="<?= $rent['end'] ?>">

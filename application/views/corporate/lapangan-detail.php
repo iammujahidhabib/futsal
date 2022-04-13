@@ -39,7 +39,7 @@
                     <thead>
                         <tr role="row">
                             <th>No</th>
-                            <th>Type Field</th>
+                            <th>Field</th>
                             <th>Time</th>
                             <th>Price</th>
                         </tr>
@@ -114,13 +114,13 @@
                                             if ($key->end - $key->start > 1) {
                                                 $jam = ($key->end - $key->start) - 1;
                                                 if (date("Y-m-") . $d == $key->date && $j == $key->start + $jam) {
-                                                    echo '<p class="bg-success text-white">' . $key->name . "<br>" . $key->type . '</p>';
+                                                    echo '<p class="bg-success text-white">' . $key->name . "<br>" . $key->field_name . '</p>';
                                                 } elseif ($key->date && $j == $key->start) {
-                                                    echo '<p class="bg-success text-white">' . $key->name . "<br>" . $key->type . '</p>';
+                                                    echo '<p class="bg-success text-white">' . $key->name . "<br>" . $key->field_name . '</p>';
                                                 }
                                             } elseif ($key->end - $key->start == 1) {
                                                 if ($key->date && $j == $key->start) {
-                                                    echo '<p class="bg-success text-white">' . $key->name . "<br>" . $key->type . '</p>';
+                                                    echo '<p class="bg-success text-white">' . $key->name . "<br>" . $key->field_name . '</p>';
                                                 }
                                             }
                                         }
@@ -149,18 +149,18 @@
             </div>
             <div class="modal-body">
                 <form method="POST" enctype="multipart/form-data" action="<?= site_url('transaksi/store') ?>">
-                    <input type="hidden" name="account_id" value="<?= $this->session->id ?>">
-                    <input type="hidden" name="field_id" value="<?= $place->id ?>">
+                    <input type="hidden" name="user_id" value="<?= $this->session->id ?>">
+                    <input type="hidden" name="place_id" value="<?= $place->id ?>">
                     <div class="form-group">
                         <label for="formGroupExampleInput">Tanggal</label>
                         <input type="date" name="date" class="form-control" id="formGroupExampleInput" placeholder="Example input placeholder">
                     </div>
                     <div class="form-group">
                         <label for="formGroupExampleInput2">Jenis Lapangan</label>
-                        <select name="field_type_id" class="form-control" id="formGroupExampleInput2" placeholder="Another input placeholder">
+                        <select name="field_id" class="form-control" id="formGroupExampleInput2" placeholder="Another input placeholder">
                             <option value="" selected disabled>Pilih Jenis Lapangan</option>
-                            <?php foreach ($type_field as $key) { ?>
-                                <option value="<?= $key->id ?>"><?= $key->type ?></option>
+                            <?php foreach ($field as $key) { ?>
+                                <option value="<?= $key->id ?>"><?= $key->name ?></option>
                             <?php } ?>
                         </select>
                     </div>

@@ -64,15 +64,16 @@ class Transaksi extends CI_Controller
             $cek_id = $this->M_templates->query("SELECT user_id FROM place WHERE id = $place_id")->row();
             // echo $cek_id->user_id;
             $data['place'] = $this->M_templates->view_where('place', ['id' => $place_id])->row();
-            $data['field'] = $this->M_templates->view_where('field', ['place_id' => $cek_id->user_id])->row();
+            $data['field'] = $this->M_templates->view_where('field', ['place_id' => $place_id])->row();
             $data['price'] = [];
             $hour = $start;
             for ($i = 0; $i < $count_hour; $i++) {
-                $_price = $this->M_templates->query("SELECT * FROM `price` WHERE field = $field_id AND $hour BETWEEN start AND end")->row();
+                $_price = $this->M_templates->query("SELECT * FROM `price` WHERE field_id = $field_id AND $hour BETWEEN start AND end")->row();
                 array_push($data['price'], $_price);
                 // echo $hour;
                 $hour++;
             }
+            // echo $count_hour;
             // echo "<pre>";
             // print_r($data);
             $this->load->view('corporate/header');

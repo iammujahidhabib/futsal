@@ -17,7 +17,7 @@ class Field extends CI_Controller
     public function index()
     {
         $data['place'] = $this->M_templates->view('place')->result();
-        $this->load->view('cms/field/index', $data);
+        $this->load->view('cms/field/field', $data);
     }
     public function create()
     {
