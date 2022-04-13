@@ -16,8 +16,11 @@ class Event extends CI_Controller
     }
     public function index()
     {
-        $data['event'] = $this->M_templates->view('event')->result();
-        $this->load->view('cms/event/index', $data);
+        if($this->session->role == 1){
+            $data['event'] = $this->M_templates->view('event')->result();
+        }else{
+            $data['event'] = $this->M_templates->view_where('event',['place_id'=>$this->session->id])->result();
+        }        $this->load->view('cms/event/index', $data);
     }
     public function create()
     {

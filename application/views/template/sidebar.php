@@ -33,7 +33,7 @@
           </li>
         <?php } elseif ($this->session->role == 2) { ?>
           <li class="nav-item">
-            <a href="<?= base_url() ?>cms/field/" class="nav-link <?php if ($this->session->func == 'dash') { ?> active<?php } ?>">
+            <a href="<?= base_url() ?>cms/dashboard/field/" class="nav-link <?php if ($this->session->func == 'dash') { ?> active<?php } ?>">
               <i class="fa fa-tachometer-alt nav-icon"></i>
               <p>Dashboard</p>
             </a>

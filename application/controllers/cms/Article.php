@@ -16,7 +16,11 @@ class Article extends CI_Controller
     }
     public function index()
     {
-        $data['article'] = $this->M_templates->view('article')->result();
+        if($this->session->role == 1){
+            $data['article'] = $this->M_templates->view('article')->result();
+        }else{
+            $data['article'] = $this->M_templates->view_where('article',['writer_id'=>$this->session->id])->result();
+        }
         $this->load->view('cms/article/index', $data);
     }
     public function create()

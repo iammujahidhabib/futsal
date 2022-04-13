@@ -8,7 +8,7 @@ class Field extends CI_Controller
     {
         parent::__construct();
         $this->load->model('M_templates');
-        $this->session->set_userdata('func', 'field');
+        $this->session->set_userdata('func', 'place');
         // if ($this->session->isLogedIn == false) {
         //     redirect('login');
         // }
@@ -16,7 +16,7 @@ class Field extends CI_Controller
     }
     public function index()
     {
-        $data['field'] = $this->M_templates->view('field')->result();
+        $data['place'] = $this->M_templates->view('place')->result();
         $this->load->view('cms/field/index', $data);
     }
     public function create()
@@ -58,7 +58,7 @@ class Field extends CI_Controller
             } else {
                 $data['form'] = "default.docx";
             }
-            $this->M_templates->insert('field', $data);
+            $this->M_templates->insert('place', $data);
             redirect('cms/field');
         } else {
             $this->load->view('cms/field/create');
@@ -111,17 +111,17 @@ class Field extends CI_Controller
             } else {
                 unset($data['form']);
             }
-            $this->M_templates->update('field', $where, $data);
+            $this->M_templates->update('place', $where, $data);
             redirect('cms/field');
         } else {
-            $data['field'] = $this->M_templates->view_where('field', $where)->row();
+            $data['place'] = $this->M_templates->view_where('place', $where)->row();
             $this->load->view('cms/field/edit', $data);
         }
     }
     public function delete($id)
     {
         $where = ['id' => $id];
-        $this->M_templates->delete('field', $where);
+        $this->M_templates->delete('place', $where);
         redirect('cms/field');
     }
 }

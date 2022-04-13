@@ -16,7 +16,7 @@ class Player extends CI_Controller
     }
     public function index()
     {
-        $data['player'] = $this->M_templates->view('player')->result();
+        $data['player'] = $this->M_templates->view_where('user',['role !='=>1])->result();
         $this->load->view('cms/player/index', $data);
     }
     public function create()

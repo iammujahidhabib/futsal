@@ -4,34 +4,34 @@
     <div class="container aos-init aos-animate" data-aos="fade-up">
 
         <div class="section-title">
-            <h3><?= $field->name ?></h3>
+            <h3><?= $place->name ?></h3>
             <!-- <h3>Find Out More <span>About Us</span></h3> -->
             <p>Ut possimus qui ut temporibus culpa velit eveniet modi omnis est adipisci expedita at voluptas atque vitae autem.</p>
         </div>
 
         <div class="row">
             <div class="col-lg-6 aos-init aos-animate" data-aos="fade-right" data-aos-delay="100">
-                <img src="<?= base_url() ?>asset/image/<?= $field->photo ?>" class="img-fluid" alt="">
+                <img src="<?= base_url() ?>asset/image/<?= $place->photo ?>" class="img-fluid" alt="">
                 <!-- <img src="assets/img/about.jpg" class="img-fluid" alt=""> -->
             </div>
             <div class="col-lg-6 pt-4 pt-lg-0 content d-flex flex-column justify-content-center aos-init aos-animate" data-aos="fade-up" data-aos-delay="100">
-                <h3>Tentang <?= $field->name ?></h3>
+                <h3>Tentang <?= $place->name ?></h3>
                 <p class="fst-italic">
-                    <?= $field->desc ?>
+                    <?= $place->desc ?>
                 </p>
                 <ul>
                     <li>
                         <i class="bx bx-phone"></i>
                         <div>
                             <h5>Nomor Telpon</h5>
-                            <p><?= $field->phone ?></p>
+                            <p><?= $place->phone ?></p>
                         </div>
                     </li>
                     <li>
                         <i class="bx bx-map"></i>
                         <div>
                             <h5>Alamat</h5>
-                            <p><?= $field->address ?></p>
+                            <p><?= $place->address ?></p>
                         </div>
                     </li>
                 </ul>
@@ -49,7 +49,7 @@
                         foreach ($price as $key) { ?>
                             <tr>
                                 <td><?= $no; ?></td>
-                                <td><?= $key->type; ?></td>
+                                <td><?= $key->name; ?></td>
                                 <td><?= ($key->start < 10) ? '0' . $key->start . ':00' : $key->start . ':00' ?>-<?= ($key->end < 10) ? '0' . $key->end . ':00' : $key->end . ':00' ?></td>
                                 <td><?= $key->price; ?></td>
                             </tr>
@@ -150,7 +150,7 @@
             <div class="modal-body">
                 <form method="POST" enctype="multipart/form-data" action="<?= site_url('transaksi/store') ?>">
                     <input type="hidden" name="account_id" value="<?= $this->session->id ?>">
-                    <input type="hidden" name="field_id" value="<?= $field->id ?>">
+                    <input type="hidden" name="field_id" value="<?= $place->id ?>">
                     <div class="form-group">
                         <label for="formGroupExampleInput">Tanggal</label>
                         <input type="date" name="date" class="form-control" id="formGroupExampleInput" placeholder="Example input placeholder">

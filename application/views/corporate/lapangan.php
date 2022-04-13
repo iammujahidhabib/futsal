@@ -19,7 +19,7 @@
         </div> -->
 
         <div class="row portfolio-container" data-aos="fade-up" data-aos-delay="200">
-            <?php foreach ($field as $key) { ?>
+            <?php foreach ($place as $key) { ?>
                 <div class="col-lg-4 col-md-6 portfolio-item filter-app">
                     <a href="<?= site_url('lapangan/detail/' . $key->id) ?>">
                         <img src="<?= base_url() ?>asset/image/<?= $key->photo ?>" class="img-fluid" alt="">

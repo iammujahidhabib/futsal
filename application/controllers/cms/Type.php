@@ -8,7 +8,7 @@ class Type extends CI_Controller
     {
         parent::__construct();
         $this->load->model('M_templates');
-        $this->session->set_userdata('func', 'type_field');
+        $this->session->set_userdata('func', 'field');
         // if ($this->session->isLogedIn == false) {
         //     redirect('login');
         // }
@@ -18,8 +18,8 @@ class Type extends CI_Controller
     {
         // echo $this->session->id;
         $id = $this->session->id;
-        $data['type'] = $this->M_templates->view_where('type_field', ['field_id' => $this->session->id])->result();
-        $data['price'] = $this->M_templates->query("SELECT price.*,type_field.type FROM price JOIN type_field ON type_field.id=price.type_field_id WHERE field_id = $id")->result();
+        $data['type'] = $this->M_templates->view_where('field', ['place_id' => $this->session->id])->result();
+        $data['price'] = $this->M_templates->query("SELECT price.*,field.name FROM price JOIN field ON field.id=price.field_id WHERE place_id = $id")->result();
         $this->load->view('cms/field/index', $data);
     }
     public function create()
@@ -44,7 +44,7 @@ class Type extends CI_Controller
                 $data['photo'] = "default.png";
             }
 
-            $this->M_templates->insert('type_field', $data);
+            $this->M_templates->insert('field', $data);
             redirect('cms/type');
         } else {
             $this->load->view('cms/field/create');
@@ -73,17 +73,17 @@ class Type extends CI_Controller
                     $data['photo'] = "default.png";
                 }
             }
-            $this->M_templates->update('type_field', $where, $data);
+            $this->M_templates->update('field', $where, $data);
             redirect('cms/type');
         } else {
-            $data['type'] = $this->M_templates->view_where('type_field', $where)->row();
+            $data['type'] = $this->M_templates->view_where('field', $where)->row();
             $this->load->view('cms/field/edit', $data);
         }
     }
     public function delete($id)
     {
         $where = ['id' => $id];
-        $this->M_templates->delete('type_field', $where);
+        $this->M_templates->delete('field', $where);
         redirect('cms/type');
     }
     public function create_price()
@@ -94,7 +94,7 @@ class Type extends CI_Controller
             $this->M_templates->insert('price', $data);
             redirect('cms/type');
         } else {
-            $data['type'] = $this->M_templates->view_where('type_field', ['field_id' => $this->session->id])->result();
+            $data['type'] = $this->M_templates->view_where('field', ['place_id' => $this->session->id])->result();
             $this->load->view('cms/field/create_price',$data);
         }
     }
@@ -106,7 +106,7 @@ class Type extends CI_Controller
             $this->M_templates->update('price', $where, $data);
             redirect('cms/type');
         } else {
-            $data['type'] = $this->M_templates->view_where('type_field', ['field_id' => $this->session->id])->result();
+            $data['type'] = $this->M_templates->view_where('field', ['place_id' => $this->session->id])->result();
             $data['price'] = $this->M_templates->view_where('price', $where)->row();
             $this->load->view('cms/field/edit_price', $data);
         }

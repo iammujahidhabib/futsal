@@ -20,13 +20,19 @@
 							<div class="form-group row">
 								<label for="inp-title" class="col-sm-2 col-form-label">Type</label>
 								<div class="col-sm-10">
-									<input required type="text" class="form-control" name="type" id="inp-title" value="<?=$type->type?>" placeholder="title">
+									<input required type="text" class="form-control" name="name" id="inp-title" value="<?=$type->name?>" placeholder="Nama">
+								</div>
+							</div>
+							<div class="form-group row">
+								<label for="inp-title" class="col-sm-2 col-form-label">Type</label>
+								<div class="col-sm-10">
+									<textarea required class="form-control" name="note" placeholder="Catatan"><?=$type->note?></textarea>
 								</div>
 							</div>
 							<div class="form-group row">
 								<label for="inp-poster" class="col-sm-2 col-form-label">Photo</label>
 								<div class="col-sm-10">
-									<img src="<?= base_url() ?>asset/image/event/<?= $event->poster ?>" class="img-fluid">
+									<img src="<?= base_url() ?>asset/image/<?= $type->photo ?>" class="img-fluid">
 									<input type="file" class="form-control" name="photo" id="inp-poster">
 								</div>
 							</div>

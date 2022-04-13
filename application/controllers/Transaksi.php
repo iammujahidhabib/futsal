@@ -12,7 +12,10 @@ class Transaksi extends CI_Controller
     public function index()
     {
         $session_id = $this->session->id;
-        $data['transaction'] = $this->M_templates->query("SELECT rent.*, field.name AS name_field ,type_field.type AS aaa FROM rent JOIN field ON field.id = rent.field_id JOIN type_field ON type_field.id = rent.field_type_id WHERE rent.account_id = $session_id")->result();
+        $data['transaction'] = $this->M_templates->query("SELECT rent.*, place.name AS name_field ,field.name AS aaa FROM rent 
+        JOIN place ON place.id = rent.place_id 
+        JOIN field ON field.id = rent.field_id 
+        WHERE rent.user_id = $session_id")->result();
         // print_r($data['transaction']);
         $this->load->view('corporate/header');
         $this->load->view('corporate/transaction', $data);
@@ -20,9 +23,9 @@ class Transaksi extends CI_Controller
     }
     public function store()
     {
-        $account_id = $this->input->post('account_id');
+        $user_id = $this->input->post('user_id');
+        $place_id = $this->input->post('place_id');
         $field_id = $this->input->post('field_id');
-        $field_type_id = $this->input->post('field_type_id');
         $date = $this->input->post('date');
         $start = $this->input->post('start');
         $end = $this->input->post('end');
@@ -35,8 +38,8 @@ class Transaksi extends CI_Controller
             $check_is_exist = $this->M_templates->view_where(
                 'rent',
                 [
+                    'place_id' => $place_id,
                     'field_id' => $field_id,
-                    'field_type_id' => $field_type_id,
                     'date' => $date,
                     'start' => $hour
                 ]
@@ -48,24 +51,24 @@ class Transaksi extends CI_Controller
             $hour++;
         }
         if ($value_check_is_exist == TRUE) {
-            redirect('lapangan/detail/' . $field_id);
+            redirect('lapangan/detail/' . $place_id);
         } else {
             $data['rent'] = [
+                'place_id' => $place_id,
                 'field_id' => $field_id,
-                'field_type_id' => $field_type_id,
                 'date' => $date,
                 'start' => $start,
                 'end' => $end,
-                'account_id' => $account_id,
+                'user_id' => $user_id,
             ];
-            $cek_id = $this->M_templates->query("SELECT account_id FROM field WHERE id = $field_id")->row();
-            // echo $cek_id->account_id;
-            $data['field'] = $this->M_templates->view_where('field', ['id' => $field_id])->row();
-            $data['type_field'] = $this->M_templates->view_where('type_field', ['field_id' => $cek_id->account_id])->row();
+            $cek_id = $this->M_templates->query("SELECT user_id FROM place WHERE id = $place_id")->row();
+            // echo $cek_id->user_id;
+            $data['place'] = $this->M_templates->view_where('place', ['id' => $place_id])->row();
+            $data['field'] = $this->M_templates->view_where('field', ['place_id' => $cek_id->user_id])->row();
             $data['price'] = [];
             $hour = $start;
             for ($i = 0; $i < $count_hour; $i++) {
-                $_price = $this->M_templates->query("SELECT * FROM `price` WHERE type_field_id = $field_type_id AND $hour BETWEEN start AND end")->row();
+                $_price = $this->M_templates->query("SELECT * FROM `price` WHERE field = $field_id AND $hour BETWEEN start AND end")->row();
                 array_push($data['price'], $_price);
                 // echo $hour;
                 $hour++;

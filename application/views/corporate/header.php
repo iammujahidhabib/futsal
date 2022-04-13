@@ -10,8 +10,8 @@
     <meta content="" name="keywords">
 
     <!-- Favicons -->
-    <link href="<?=base_url('asset/image/futsal_cilacap.png')?>" rel="icon">
-    <link href="<?=base_url('asset/image/futsal_cilacap.png')?>" rel="apple-touch-icon">
+    <link href="<?= base_url('asset/image/futsal_cilacap.png') ?>" rel="icon">
+    <link href="<?= base_url('asset/image/futsal_cilacap.png') ?>" rel="apple-touch-icon">
 
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Roboto:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
@@ -58,12 +58,17 @@
             <nav id="navbar" class="navbar">
                 <ul>
                     <li><a class="nav-link scrollto active" href="<?= site_url() ?>">Home</a></li>
-                    <li><a class="nav-link scrollto" href="<?=site_url('artikel')?>">Artikel</a></li>
-                    <li><a class="nav-link scrollto" href="<?=site_url('acara')?>">Event</a></li>
-                    <li><a class="nav-link scrollto" href="<?=site_url('lapangan')?>">Lapangan</a></li>
+                    <li><a class="nav-link scrollto" href="<?= site_url('artikel') ?>">Artikel</a></li>
+                    <li><a class="nav-link scrollto" href="<?= site_url('acara') ?>">Event</a></li>
+                    <li><a class="nav-link scrollto" href="<?= site_url('lapangan') ?>">Lapangan</a></li>
                     <?php if ($this->session->isLogin == true) { ?>
                         <li class="nav-link dropdown"><a href="#"><span><?= $this->session->name ?></span> <i class="bi bi-chevron-down"></i></a>
                             <ul>
+                                <?php if ($this->session->place_id && $this->session->role == 2) { ?>
+                                    <li><a target="_blank" href="<?= site_url('cms/dashboard/field') ?>">CMS My Place</a></li>
+                                <?php } else { ?>
+                                    <li><a target="_blank" href="<?= site_url('login/register_lapangan') ?>">Register My Place</a></li>
+                                <?php } ?>
                                 <li><a href="<?= site_url('transaksi') ?>">My Booking</a></li>
                                 <li><a href="<?= site_url('login/logout') ?>">Logout</a></li>
                             </ul>

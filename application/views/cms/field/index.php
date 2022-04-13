@@ -36,7 +36,7 @@
                                             foreach ($type as $key) { ?>
                                                 <tr>
                                                     <td><?= $no; ?></td>
-                                                    <td><?= $key->type; ?></td>
+                                                    <td><?= $key->name; ?></td>
                                                     <!-- <td><?= $key->address; ?></td> -->
                                                     <td>
                                                         <a type="button" class="btn btn-warning btn-sm text-white" href="<?= base_url() ?>cms/type/edit/<?= $key->id ?>"><i class="fa fa-pen"></i></a>
@@ -88,7 +88,7 @@
                                             foreach ($price as $key) { ?>
                                                 <tr>
                                                     <td><?= $no; ?></td>
-                                                    <td><?= $key->type; ?></td>
+                                                    <td><?= $key->name; ?></td>
                                                     <td><?= ($key->start < 10) ? '0' . $key->start . ':00' : $key->start . ':00' ?>-<?= ($key->end < 10) ? '0' . $key->end . ':00' : $key->end . ':00' ?></td>
                                                     <td><?= $key->price; ?></td>
                                                     <td>
