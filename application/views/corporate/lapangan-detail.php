@@ -34,7 +34,51 @@
                             <p><?= $place->address ?></p>
                         </div>
                     </li>
+                    <li>
+                        <i class="bx bx-time"></i>
+                        <div>
+                            <h5>Jam Buka</h5>
+                            <p><?= ($place->open < 10) ? '0' . $place->open . ':00' : $place->open . ':00' ?> - <?= ($place->close < 10) ? '0' . $place->close . ':00' : $place->close . ':00' ?></p>
+                        </div>
+                    </li>
                 </ul>
+                <!-- <p>
+                    Ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
+                    velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
+                    culpa qui officia deserunt mollit anim id est laborum
+                </p> -->
+                <?php if ($this->session->isLogin == TRUE && $this->session->role == 3) { ?>
+                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+                        Booking
+                    </button>
+                <?php } ?>
+            </div>
+        </div>
+        <br>
+        <div class="row">
+            <div class="col-lg-8 col-sm-12 aos-init aos-animate" data-aos="fade-right" data-aos-delay="100">
+                <h5>Daftar Lapangan Kami</h5>
+                <hr>
+                <div class="row">
+                    <?php $no = 1;
+                    foreach ($field as $key) { ?>
+                        <tr>
+                            <div class="col-lg-4 col-md-6">
+                                <div class="card">
+                                    <img class="card-img-top" src=" <?= base_url('asset/image/') . $key->photo; ?>"" alt="Card image cap">
+                                    <div class="card-body">
+                                        <h5 class="card-title"><?= $key->name; ?></h5>
+                                        <p class="card-text"><?= $key->note; ?></p>
+                                    </div>
+                                </div>
+                            </div>
+                        <?php $no++;
+                    } ?>
+                </div>
+            </div>
+            <div class="col-lg-4 col-sm-12 aos-init aos-animate" data-aos="fade-right" data-aos-delay="100">
+                <h5>Harga Sewa Lapangan</h5>
+                <hr>
                 <table class="example2 table table-bordered table-hover dtr-inline" role="grid" aria-describedby="example2_info">
                     <thead>
                         <tr role="row">
@@ -57,16 +101,6 @@
                         } ?>
                     </tbody>
                 </table>
-                <!-- <p>
-                    Ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
-                    velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-                    culpa qui officia deserunt mollit anim id est laborum
-                </p> -->
-                <?php if ($this->session->isLogin == TRUE && $this->session->role == 3) { ?>
-                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-                        Booking
-                    </button>
-                <?php } ?>
             </div>
         </div>
 
@@ -97,9 +131,12 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <?php for ($j = 0; $j < 24; $j++) { ?>
+                        <?php
+                        for ($j = $place->open; $j < $place->close; $j++) {
+                            $a = $j;
+                            $a += 1; ?>
                             <tr>
-                                <th><?= ($j < 10) ? '0' . $j . ':00' : $j . ':00' ?></th>
+                                <th><?= ($j < 10) ? '0' . $j . ':00' : $j . ':00' ?> - <?= ($a < 10) ? '0' . $a . ':00' : $a . ':00' ?></th>
                                 <?php for ($i = 1; $i <= $days; $i++) {
                                     if ($i < 10) {
                                         $d = "0" . $i;
@@ -113,11 +150,17 @@
                                         if (date("Y-m-") . $d == $key->date) {
                                             if ($key->end - $key->start > 1) {
                                                 $jam = ($key->end - $key->start) - 1;
-                                                if (date("Y-m-") . $d == $key->date && $j == $key->start + $jam) {
-                                                    echo '<p class="bg-success text-white">' . $key->name . "<br>" . $key->field_name . '</p>';
-                                                } elseif ($key->date && $j == $key->start) {
+                                                // echo $a;
+                                                if ($key->date && ($j >= $key->start && $j <= $key->end)) {
                                                     echo '<p class="bg-success text-white">' . $key->name . "<br>" . $key->field_name . '</p>';
                                                 }
+                                                // if (date("Y-m-") . $d == $key->date && $j == $key->start + $jam) {
+                                                //     echo '<p class="bg-success text-white">' . $key->name . "<br>" . $key->field_name . '</p>';
+                                                // } elseif ($key->date && ($j > $key->start && $j < $key->end)) {
+                                                //     echo '<p class="bg-success text-white">' . $key->name . "<br>" . $key->field_name . '</p>';
+                                                // } elseif ($key->date && $j == $key->start) {
+                                                //     echo '<p class="bg-success text-white">' . $key->name . "<br>" . $key->field_name . '</p>';
+                                                // }
                                             } elseif ($key->end - $key->start == 1) {
                                                 if ($key->date && $j == $key->start) {
                                                     echo '<p class="bg-success text-white">' . $key->name . "<br>" . $key->field_name . '</p>';

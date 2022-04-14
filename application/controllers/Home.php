@@ -12,7 +12,7 @@ class Home extends CI_Controller
     function index()
     {
         $date = date('Y-m-d');
-        $data['place'] = $this->M_templates->view('place')->result();
+        $data['place'] = $this->M_templates->view_where('place',['status'=>1])->result();
         $data['event'] = $this->M_templates->query("SELECT * FROM event WHERE start >= '$date' LIMIT 3")->result();
         $this->load->view('corporate/header');
         $this->load->view('corporate/index', $data);

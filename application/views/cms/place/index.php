@@ -40,7 +40,7 @@
                                                     <td><?= $key->name; ?></td>
                                                     <td><?= $key->address; ?></td>
                                                     <td>
-                                                        <a type="button" class="btn btn-warning btn-sm text-white" href="<?= base_url() ?>cms/player/edit/<?= $key->id ?>"><i class="fa fa-pen"></i></a>
+                                                        <a type="button" class="btn btn-secondary btn-sm text-white" href="<?= base_url() ?>cms/place/detail/<?= $key->id ?>"><i class="fa fa-eye"></i></a>
                                                         <a type="button" class="btn btn-danger btn-sm text-white" onclick="hapus(<?= $key->id ?>)"><i class="fa fa-trash"></i></a>
                                                     </td>
                                                 </tr>

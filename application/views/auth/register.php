@@ -3,8 +3,7 @@
 
 <!-- ======= Hero Section ======= -->
 <section id="pricing">
-	<div class="container col-8">
-
+	<div class="container col-4">
 		<h2>Daftar</h2>
 		<form method="POST" action="<?= site_url('login/register') ?>">
 			<div class="form-group">
@@ -17,7 +16,7 @@
 			</div>
 			<div class="form-group">
 				<label for="nama">Nama</label>
-				<input type="text" name="nama_customer" class="form-control" id="nama">
+				<input type="text" name="name" class="form-control" id="nama">
 			</div>
 			<div class="form-group">
 				<label for="phone_number">Nomor Telpon</label>
@@ -25,12 +24,11 @@
 			</div>
 			<div class="form-group">
 				<label for="alamat">Alamat</label>
-				<textarea name="alamat" id="alamat" required class="form-control"></textarea>
+				<textarea name="address" id="alamat" required class="form-control"></textarea>
 			</div>
 			<div class="form-check">
 			</div>
-			<button type="submit" class="btn btn-primary">Daftar</button>
-			<a class="btn btn-secondary float-right" href="<?= site_url('login/register_lapangan') ?>">Daftar sebagai Pemilik Lapangan</a>
+			<button type="submit" class="btn w-100 btn-primary">Daftar</button>
 		</form>
 	</div>
 

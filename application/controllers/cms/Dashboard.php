@@ -30,7 +30,7 @@ class Dashboard extends CI_Controller
     }
     public function field()
     {
-        $data = [];
+        $data['place'] = $this->M_templates->view_where('place', ['id' => $this->session->place_id])->row();
         $this->load->view('cms/dashboard/field', $data);
     }
     public function school()

@@ -17,8 +17,8 @@ class Type extends CI_Controller
     public function index()
     {
         // echo $this->session->id;
-        $id = $this->session->id;
-        $data['type'] = $this->M_templates->view_where('field', ['place_id' => $this->session->id])->result();
+        $id = $this->session->place_id;
+        $data['type'] = $this->M_templates->view_where('field', ['place_id' => $id])->result();
         $data['price'] = $this->M_templates->query("SELECT price.*,field.name FROM price JOIN field ON field.id=price.field_id WHERE place_id = $id")->result();
         $this->load->view('cms/field/index', $data);
     }
@@ -94,7 +94,8 @@ class Type extends CI_Controller
             $this->M_templates->insert('price', $data);
             redirect('cms/type');
         } else {
-            $data['type'] = $this->M_templates->view_where('field', ['place_id' => $this->session->id])->result();
+            $data['place'] = $this->M_templates->view_where('place', ['id' => $this->session->place_id])->row();
+            $data['type'] = $this->M_templates->view_where('field', ['place_id' => $this->session->place_id])->result();
             $this->load->view('cms/field/create_price',$data);
         }
     }

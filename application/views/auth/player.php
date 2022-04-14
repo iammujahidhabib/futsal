@@ -23,11 +23,6 @@
             <a class="btn btn-secondary w-100" href="<?= site_url('login/register') ?>">Daftar</a>
             <br>
             <br>
-            <p>Login Sebagai</p>
-            <center>
-                <a class="btn btn-secondary float-right" href="<?= site_url('login/admin') ?>">Login Admin</a>
-                <a class="btn btn-secondary float-right" href="<?= site_url('login/field') ?>">Login Lapangan</a>
-            </center>
         </form>
         <br>
 

@@ -18,41 +18,19 @@
             </a>
           </li>
           <li class="nav-item">
-            <a href="<?= base_url() ?>cms/field" class="nav-link <?php if ($this->session->func == 'dailytimesheetcreate') { ?> active<?php } ?>">
+            <a href="<?= base_url() ?>cms/place" class="nav-link <?php if ($this->session->func == 'dailytimesheetcreate') { ?> active<?php } ?>">
               <!-- <i class="far fa-clipboard nav-icon"></i> -->
               <i class="fa fa-circle nav-icon"></i>
-              <p>Lapangan</p>
+              <p>Place</p>
             </a>
           </li>
           <li class="nav-item">
             <a href="<?= base_url() ?>cms/player" class="nav-link <?php if ($this->session->func == 'dailytimesheetcreate') { ?> active<?php } ?>">
               <!-- <i class="far fa-clipboard nav-icon"></i> -->
               <i class="fa fa-circle nav-icon"></i>
-              <p>Player</p>
+              <p>User</p>
             </a>
           </li>
-        <?php } elseif ($this->session->role == 2) { ?>
-          <li class="nav-item">
-            <a href="<?= base_url() ?>cms/dashboard/field/" class="nav-link <?php if ($this->session->func == 'dash') { ?> active<?php } ?>">
-              <i class="fa fa-tachometer-alt nav-icon"></i>
-              <p>Dashboard</p>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a href="<?= base_url() ?>cms/booking" class="nav-link <?php if ($this->session->func == 'dailytimesheetcreate') { ?> active<?php } ?>">
-              <!-- <i class="far fa-clipboard nav-icon"></i> -->
-              <i class="fa fa-circle nav-icon"></i>
-              <p>Booking</p>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a href="<?= base_url() ?>cms/type" class="nav-link <?php if ($this->session->func == 'dailytimesheetcreate') { ?> active<?php } ?>">
-              <!-- <i class="far fa-clipboard nav-icon"></i> -->
-              <i class="fa fa-circle nav-icon"></i>
-              <p>Field & Price</p>
-            </a>
-          </li>
-        <?php } ?>
         <li class="nav-item">
           <a href="<?= base_url() ?>cms/event" class="nav-link <?php if ($this->session->func == 'dailytimesheetcreate') { ?> active<?php } ?>">
             <!-- <i class="far fa-clipboard nav-icon"></i> -->
@@ -67,6 +45,51 @@
             <p>Article</p>
           </a>
         </li>
+        <?php } elseif ($this->session->role == 2) { ?>
+          <li class="nav-item">
+            <a href="<?= base_url() ?>cms/dashboard/field/" class="nav-link <?php if ($this->session->func == 'dash') { ?> active<?php } ?>">
+              <i class="fa fa-tachometer-alt nav-icon"></i>
+              <p>Dashboard</p>
+            </a>
+          </li>
+          <?php if ($this->session->status_place != 0) { ?>
+            <li class="nav-item">
+              <a href="<?= base_url() ?>cms/place" class="nav-link <?php if ($this->session->func == 'place') { ?> active<?php } ?>">
+                <!-- <i class="far fa-clipboard nav-icon"></i> -->
+                <i class="fa fa-circle nav-icon"></i>
+                <p>Place</p>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="<?= base_url() ?>cms/booking" class="nav-link <?php if ($this->session->func == 'dailytimesheetcreate') { ?> active<?php } ?>">
+                <!-- <i class="far fa-clipboard nav-icon"></i> -->
+                <i class="fa fa-circle nav-icon"></i>
+                <p>Booking</p>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="<?= base_url() ?>cms/type" class="nav-link <?php if ($this->session->func == 'dailytimesheetcreate') { ?> active<?php } ?>">
+                <!-- <i class="far fa-clipboard nav-icon"></i> -->
+                <i class="fa fa-circle nav-icon"></i>
+                <p>Field & Price</p>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="<?= base_url() ?>cms/event" class="nav-link <?php if ($this->session->func == 'dailytimesheetcreate') { ?> active<?php } ?>">
+                <!-- <i class="far fa-clipboard nav-icon"></i> -->
+                <i class="fa fa-circle nav-icon"></i>
+                <p>Event</p>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="<?= base_url() ?>cms/article" class="nav-link <?php if ($this->session->func == 'dailytimesheetcreate') { ?> active<?php } ?>">
+                <!-- <i class="far fa-clipboard nav-icon"></i> -->
+                <i class="fa fa-circle nav-icon"></i>
+                <p>Article</p>
+              </a>
+            </li>
+          <?php } ?>
+        <?php } ?>
       </ul>
       <hr>
       <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">

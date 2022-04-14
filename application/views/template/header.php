@@ -11,7 +11,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   <!-- <link rel="icon" type="image/ico" href="<?= base_url() . 'asset/images/logo_pertamina.png'; ?>">  -->
 
-  <title>e-JOTS | electronic Job Time Sheet</title>
+  <title>CMS Futsal Cilapap</title>
 
   <!-- DataTables -->
   <link rel="stylesheet" href="<?= base_url() ?>asset/adminLTE/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css">

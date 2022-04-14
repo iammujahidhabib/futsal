@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:8889
--- Waktu pembuatan: 13 Apr 2022 pada 15.25
+-- Waktu pembuatan: 14 Apr 2022 pada 20.37
 -- Versi server: 5.7.32
 -- Versi PHP: 7.4.12
 
@@ -80,8 +80,9 @@ CREATE TABLE `field` (
 --
 
 INSERT INTO `field` (`id`, `name`, `note`, `photo`, `place_id`) VALUES
-(1, 'Sintetis Besar', '', '57621_bmth-vs-coldplay1.jpeg', 2),
-(2, 'Sintetis Kecil', '', '57621_bmth-vs-coldplay1.jpeg', 2);
+(1, 'Sintetis Besar', '', 'sinte_a.jpeg', 2),
+(2, 'Sintetis Kecil', '', 'sinte_b.jpeg', 2),
+(3, 'Lapangan A', '', 'lap_a.jpeg', 1);
 
 -- --------------------------------------------------------
 
@@ -99,7 +100,7 @@ CREATE TABLE `place` (
   `bank` varchar(255) DEFAULT NULL,
   `bank_account` varchar(255) DEFAULT NULL,
   `bank_name` varchar(255) DEFAULT NULL,
-  `user_id` int(11) NOT NULL,
+  `status` int(11) NOT NULL DEFAULT '0',
   `photo` varchar(255) NOT NULL,
   `open` int(5) NOT NULL,
   `close` int(5) NOT NULL
@@ -109,9 +110,10 @@ CREATE TABLE `place` (
 -- Dumping data untuk tabel `place`
 --
 
-INSERT INTO `place` (`id`, `name`, `desc`, `address`, `phone`, `gallery`, `bank`, `bank_account`, `bank_name`, `user_id`, `photo`, `open`, `close`) VALUES
-(1, 'Gallery Futsal', 'asdasd asdas\r\n dasd asd asd as', 'Sukabirus, Bandung', '1313213213', 'field.png', 'BCA', '2881727', 'Gallery Futsal', 2, 'field.png', 0, 0),
-(2, 'Kick Off Futsal', 'asdasd asdas\r\n dasd asd asd as', 'Sukabirus, Bandung', '1313213213', 'field.png', 'Mandiri', '888271728', 'Kosasih', 4, 'field.png', 0, 0);
+INSERT INTO `place` (`id`, `name`, `desc`, `address`, `phone`, `gallery`, `bank`, `bank_account`, `bank_name`, `status`, `photo`, `open`, `close`) VALUES
+(1, 'Gallery Futsal', 'asdasd asdas\r\n dasd asd asd as', 'Sukabirus, Bandung', '1313213213', 'field.png', 'BCA', '2881727', 'Gallery Futsal', 1, 'field.png', 8, 23),
+(2, 'Kick Off Futsal', 'asdasd asdas\r\n dasd asd asd as', 'Sukabirus, Bandung', '1313213213', 'field.png', 'Mandiri', '888271728', 'Kosasih', 1, 'place_a.png', 9, 23),
+(3, 'Test', 'asdasdasd', 'Jalan Komplek Permata Buah Batu D 22', '082137244805', '', 'BCA', '23112312', 'Dihajuas', 0, 'field.png', 15, 23);
 
 -- --------------------------------------------------------
 
@@ -132,10 +134,12 @@ CREATE TABLE `price` (
 --
 
 INSERT INTO `price` (`id`, `price`, `start`, `end`, `field_id`) VALUES
-(1, 70000, 0, 17, 1),
-(2, 120000, 18, 23, 1),
+(1, 70000, 0, 16, 1),
+(2, 120000, 17, 23, 1),
 (3, 50000, 0, 17, 2),
-(4, 90000, 18, 23, 2);
+(4, 90000, 18, 23, 2),
+(5, 60000, 8, 16, 3),
+(6, 100000, 17, 22, 3);
 
 -- --------------------------------------------------------
 
@@ -167,8 +171,10 @@ CREATE TABLE `rent` (
 --
 
 INSERT INTO `rent` (`id`, `date`, `start`, `end`, `dp`, `pay_off`, `total`, `status`, `user_id`, `type`, `place_id`, `field_id`, `bill_file`, `rent_bank`, `rent_bank_account`, `rent_bank_name`) VALUES
-(1, '2022-04-20', 15, 17, 70000, 70000, 140000, 1, 3, 1, 1, 1, 'Screen_Shot_2022-03-16_at_12_21_50_AM1.png', 'BCA', '11221122', 'Dihajum'),
-(2, '2022-04-20', 15, 17, 50000, 50000, 100000, 1, 3, 1, 1, 2, 'Screen_Shot_2022-02-11_at_1_44_31_PM.png', 'BCA', '11221122', 'Dihajum');
+(1, '2022-04-20', 15, 17, 70000, 70000, 140000, 1, 3, 1, 2, 1, 'Screen_Shot_2022-03-16_at_12_21_50_AM1.png', 'BCA', '11221122', 'Dihajum'),
+(2, '2022-04-20', 15, 17, 50000, 50000, 100000, 1, 3, 1, 2, 2, 'Screen_Shot_2022-02-11_at_1_44_31_PM.png', 'BCA', '11221122', 'Dihajum'),
+(3, '2022-04-15', 15, 18, 130000, 130000, 260000, 1, 3, 1, 2, 1, 'Screen_Shot_2022-03-08_at_3_57_07_PM.png', 'BCA', '111111666', 'Dihajum'),
+(4, '2022-04-15', 12, 15, 130000, 130000, 260000, 1, 2, 1, 2, 1, 'Screen_Shot_2022-03-08_at_3_57_07_PM.png', 'BCA', '111111666', 'Dihajum');
 
 -- --------------------------------------------------------
 
@@ -195,7 +201,8 @@ INSERT INTO `user` (`id`, `name`, `address`, `phone_number`, `email`, `password`
 (1, 'Admin', '', '', 'admin@admin.com', 'admin', 1, NULL),
 (2, 'Hermano', '', '', 'field@field.com', 'field', 2, 1),
 (3, 'Kyuu', '', '', 'player@player.com', 'player', 3, NULL),
-(4, 'Papito', '', '', 'kickoff@kickoff.com', 'kickoff', 2, 2);
+(4, 'Papito', '', '', 'kickoff@kickoff.com', 'kickoff', 2, 2),
+(5, 'Try Har', 'Jkt 48\r\n', '08213721231', 'try@gmail.com', 'try', 2, 3);
 
 --
 -- Indexes for dumped tables
@@ -264,31 +271,31 @@ ALTER TABLE `event`
 -- AUTO_INCREMENT untuk tabel `field`
 --
 ALTER TABLE `field`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT untuk tabel `place`
 --
 ALTER TABLE `place`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT untuk tabel `price`
 --
 ALTER TABLE `price`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT untuk tabel `rent`
 --
 ALTER TABLE `rent`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT untuk tabel `user`
 --
 ALTER TABLE `user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- Ketidakleluasaan untuk tabel pelimpahan (Dumped Tables)

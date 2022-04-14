@@ -20,22 +20,22 @@
 							<div class="form-group row">
 								<label for="inp-title" class="col-sm-2 col-form-label">Price</label>
 								<div class="col-sm-10">
-									<input required type="text" class="form-control" name="price" id="inp-title" placeholder="title">
+									<input required type="number" min="0" class="form-control" name="price" id="inp-title" placeholder="harga">
 								</div>
 							</div>
 							<div class="form-group row">
 								<label class="col-sm-2 col-form-label" for="formGroupExampleInput2">Type Field</label>
-								<select name="type_field_id" class="form-control col-sm-10" id="formGroupExampleInput2" placeholder="Another input placeholder">
+								<select name="field_id" class="form-control col-sm-10" id="formGroupExampleInput2" placeholder="Another input placeholder">
 									<?php foreach ($type as $key ) {
 									?>
-									<option value="<?=$key->id?>"><?=$key->type?></option>
+									<option value="<?=$key->id?>"><?=$key->name?></option>
 									<?php }?>
 								</select>
 							</div>
 							<div class="form-group row">
 								<label class="col-sm-2 col-form-label" for="formGroupExampleInput2">Dari Jam</label>
 								<select name="start" class="form-control col-sm-10" id="formGroupExampleInput2" placeholder="Another input placeholder">
-									<?php for ($j = 0; $j < 24; $j++) { ?>
+									<?php for ($j = $place->open; $j < $place->close; $j++) { ?>
 										<option value="<?= $j ?>"><?= ($j < 10) ? '0' . $j . ':00' : $j . ':00' ?></option>
 									<?php } ?>
 								</select>
@@ -43,7 +43,7 @@
 							<div class="form-group row">
 								<label class="col-sm-2 col-form-label" for="formGroupExampleInput3">Sampai Jam</label>
 								<select name="end" class="form-control col-sm-10" id="formGroupExampleInput3" placeholder="Another input placeholder">
-									<?php for ($j = 0; $j < 24; $j++) { ?>
+									<?php for ($j = $place->open; $j < $place->close; $j++) { ?>
 										<option value="<?= $j ?>"><?= ($j < 10) ? '0' . $j . ':00' : $j . ':00' ?></option>
 									<?php } ?>
 								</select>

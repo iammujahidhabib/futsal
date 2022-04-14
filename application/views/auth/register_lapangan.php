@@ -6,38 +6,66 @@
 	<div class="container col-8">
 
 		<h2>Daftar sebagai Pemilik Lapangan</h2>
-		<form method="POST" action="<?= site_url('login/register_lapangan') ?>">
+		<form method="POST" action="<?= site_url('login/register_lapangan/') ?>">
 			<div class="form-group">
-				<label for="exampleInputEmail1">Email address</label>
-				<input type="email" name="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+				<label for="nama">Nama Tempat</label>
+				<input type="text" name="name" class="form-control" id="nama">
 			</div>
-			<div class="form-group">
-				<label for="exampleInputPassword1">Password</label>
-				<input type="password" name="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
-			</div>
-			<div class="form-group">
-				<label for="nama">Nama</label>
-				<input type="text" name="nama_customer" class="form-control" id="nama">
+			<div class="form-group row">
+				<div class="col-lg-6">
+					<label class="" for="formGroupExampleInput2">Jam Buka</label>
+					<select name="open" class="form-control col-sm-10" id="formGroupExampleInput2" placeholder="Another input placeholder">
+						<?php for ($j = 0; $j < 24; $j++) { ?>
+							<option value="<?= $j ?>"><?= ($j < 10) ? '0' . $j . ':00' : $j . ':00' ?></option>
+						<?php } ?>
+					</select>
+				</div>
+				<div class="col-lg-6">
+					<label class="" for="formGroupExampleInput2">Jam Tutup</label>
+					<select name="close" class="form-control col-sm-10" id="formGroupExampleInput2" placeholder="Another input placeholder">
+						<?php for ($j = 0; $j < 24; $j++) { ?>
+							<option value="<?= $j ?>"><?= ($j < 10) ? '0' . $j . ':00' : $j . ':00' ?></option>
+						<?php } ?>
+					</select>
+				</div>
 			</div>
 			<div class="form-group">
 				<label for="phone_number">Nomor Telpon</label>
-				<input type="text" name="phone_number" class="form-control" id="phone_number">
-			</div>
-			<div class="form-group">
-				<label for="alamat">Alamat</label>
-				<textarea name="alamat" id="alamat" required class="form-control"></textarea>
+				<input type="text" name="phone" class="form-control" id="phone_number">
 			</div>
 			<div class="form-group">
 				<label for="alamat">Deskripsi</label>
-				<textarea name="desc" id="desc" required class="form-control"></textarea>
+				<textarea name="desc" id="alamat" required class="form-control"></textarea>
+			</div>
+			<div class="form-group">
+				<label for="alamat">Alamat</label>
+				<textarea name="address" id="alamat" required class="form-control"></textarea>
 			</div>
 			<div class="form-group">
 				<label for="photo">Photo</label>
-				<input type="text" name="photo" class="form-control" id="photo">
+				<input type="file" name="photo" class="form-control" id="photo">
+			</div>
+			<div class="form-group">
+				<label for="asdasd">Bank</label>
+				<select class="form-control" required name="bank" id="asdasd">
+					<option value="" disabled selected>Pilih Bank</option>
+					<option value="BCA">BCA</option>
+					<option value="Mandiri">Mandiri</option>
+					<option value="BNI">BNI</option>
+					<option value="BRI">BRI</option>
+				</select>
+			</div>
+			<div class="form-group">
+				<label for="aaaasdasd">Nomor Rekening</label>
+				<input type="text" id="aaaasdasd" class="form-control" name="bank_account" required>
+			</div>
+			<div class="form-group">
+				<label for="asadsdasd">Nama Rekening</label>
+				<input type="text" id="asadsdasd" class="form-control" name="bank_name" required>
 			</div>
 			<div class="form-check">
 			</div>
-			<button type="submit" class="btn btn-primary">Daftar</button>
+			<button type="submit" class="btn w-100 btn-primary">Daftar</button>
 		</form>
 	</div>
 
