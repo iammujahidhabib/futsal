@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:8889
--- Waktu pembuatan: 14 Apr 2022 pada 20.37
+-- Waktu pembuatan: 25 Apr 2022 pada 16.02
 -- Versi server: 5.7.32
 -- Versi PHP: 7.4.12
 
@@ -171,10 +171,10 @@ CREATE TABLE `rent` (
 --
 
 INSERT INTO `rent` (`id`, `date`, `start`, `end`, `dp`, `pay_off`, `total`, `status`, `user_id`, `type`, `place_id`, `field_id`, `bill_file`, `rent_bank`, `rent_bank_account`, `rent_bank_name`) VALUES
-(1, '2022-04-20', 15, 17, 70000, 70000, 140000, 1, 3, 1, 2, 1, 'Screen_Shot_2022-03-16_at_12_21_50_AM1.png', 'BCA', '11221122', 'Dihajum'),
-(2, '2022-04-20', 15, 17, 50000, 50000, 100000, 1, 3, 1, 2, 2, 'Screen_Shot_2022-02-11_at_1_44_31_PM.png', 'BCA', '11221122', 'Dihajum'),
-(3, '2022-04-15', 15, 18, 130000, 130000, 260000, 1, 3, 1, 2, 1, 'Screen_Shot_2022-03-08_at_3_57_07_PM.png', 'BCA', '111111666', 'Dihajum'),
-(4, '2022-04-15', 12, 15, 130000, 130000, 260000, 1, 2, 1, 2, 1, 'Screen_Shot_2022-03-08_at_3_57_07_PM.png', 'BCA', '111111666', 'Dihajum');
+(1, '2022-04-20', 15, 17, 70000, 70000, 140000, 1, 3, 1, 1, 1, 'Screen_Shot_2022-03-16_at_12_21_50_AM1.png', 'BCA', '11221122', 'Dihajum'),
+(2, '2022-04-20', 15, 17, 50000, 50000, 100000, 1, 3, 1, 1, 2, 'Screen_Shot_2022-02-11_at_1_44_31_PM.png', 'BCA', '11221122', 'Dihajum'),
+(3, '2022-04-15', 15, 18, 130000, 130000, 260000, 1, 3, 1, 1, 1, 'Screen_Shot_2022-03-08_at_3_57_07_PM.png', 'BCA', '111111666', 'Dihajum'),
+(4, '2022-04-15', 12, 15, 130000, 130000, 260000, 1, 2, 1, 1, 1, 'Screen_Shot_2022-03-08_at_3_57_07_PM.png', 'BCA', '111111666', 'Dihajum');
 
 -- --------------------------------------------------------
 
@@ -212,19 +212,22 @@ INSERT INTO `user` (`id`, `name`, `address`, `phone_number`, `email`, `password`
 -- Indeks untuk tabel `article`
 --
 ALTER TABLE `article`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `fkaw` (`writer_id`);
 
 --
 -- Indeks untuk tabel `event`
 --
 ALTER TABLE `event`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `fkep` (`place_id`);
 
 --
 -- Indeks untuk tabel `field`
 --
 ALTER TABLE `field`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `fkfp` (`place_id`);
 
 --
 -- Indeks untuk tabel `place`
@@ -236,13 +239,16 @@ ALTER TABLE `place`
 -- Indeks untuk tabel `price`
 --
 ALTER TABLE `price`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `fkpf` (`field_id`);
 
 --
 -- Indeks untuk tabel `rent`
 --
 ALTER TABLE `rent`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `fkru` (`user_id`),
+  ADD KEY `fkrf` (`field_id`);
 
 --
 -- Indeks untuk tabel `user`
@@ -300,6 +306,37 @@ ALTER TABLE `user`
 --
 -- Ketidakleluasaan untuk tabel pelimpahan (Dumped Tables)
 --
+
+--
+-- Ketidakleluasaan untuk tabel `article`
+--
+ALTER TABLE `article`
+  ADD CONSTRAINT `fkaw` FOREIGN KEY (`writer_id`) REFERENCES `user` (`id`);
+
+--
+-- Ketidakleluasaan untuk tabel `event`
+--
+ALTER TABLE `event`
+  ADD CONSTRAINT `fkep` FOREIGN KEY (`place_id`) REFERENCES `place` (`id`);
+
+--
+-- Ketidakleluasaan untuk tabel `field`
+--
+ALTER TABLE `field`
+  ADD CONSTRAINT `fkfp` FOREIGN KEY (`place_id`) REFERENCES `place` (`id`);
+
+--
+-- Ketidakleluasaan untuk tabel `price`
+--
+ALTER TABLE `price`
+  ADD CONSTRAINT `fkpf` FOREIGN KEY (`field_id`) REFERENCES `field` (`id`);
+
+--
+-- Ketidakleluasaan untuk tabel `rent`
+--
+ALTER TABLE `rent`
+  ADD CONSTRAINT `fkrf` FOREIGN KEY (`field_id`) REFERENCES `field` (`id`),
+  ADD CONSTRAINT `fkru` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`);
 
 --
 -- Ketidakleluasaan untuk tabel `user`

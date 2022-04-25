@@ -29,7 +29,7 @@
                                                 <th>No</th>
                                                 <th>Tanggal</th>
                                                 <th>Waktu</th>
-                                                <th>Type Field</th>
+                                                <th>Field</th>
                                                 <th>DP</th>
                                                 <th>Pay Off</th>
                                                 <th>Total</th>
@@ -44,7 +44,7 @@
                                                     <td><?= $no; ?></td>
                                                     <td><?= $key->date; ?></td>
                                                     <td><?= $key->start; ?>.00 - <?= $key->end ?>.00</td>
-                                                    <td><?= $key->type; ?></td>
+                                                    <td><?= $key->field; ?></td>
                                                     <td><?= $key->dp; ?></td>
                                                     <td><?= $key->pay_off; ?></td>
                                                     <td><?= $key->total; ?></td>

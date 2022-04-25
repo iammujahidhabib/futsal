@@ -47,7 +47,7 @@
                     velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
                     culpa qui officia deserunt mollit anim id est laborum
                 </p> -->
-                <?php if ($this->session->isLogin == TRUE && $this->session->role == 3) { ?>
+                <?php if ($this->session->isLogin == TRUE) { ?>
                     <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
                         Booking
                     </button>
@@ -210,7 +210,7 @@
                     <div class="form-group">
                         <label for="formGroupExampleInput2">Dari Jam</label>
                         <select name="start" class="form-control" id="formGroupExampleInput2" placeholder="Another input placeholder">
-                            <?php for ($j = 0; $j < 24; $j++) { ?>
+                            <?php for ($j = $place->open; $j < $place->close; $j++) { ?>
                                 <option value="<?= $j ?>"><?= ($j < 10) ? '0' . $j . ':00' : $j . ':00' ?></option>
                             <?php } ?>
                         </select>
@@ -218,7 +218,7 @@
                     <div class="form-group">
                         <label for="formGroupExampleInput3">Sampai Jam</label>
                         <select name="end" class="form-control" id="formGroupExampleInput3" placeholder="Another input placeholder">
-                            <?php for ($j = 0; $j < 24; $j++) { ?>
+                            <?php for ($j = $place->open; $j < $place->close; $j++) { ?>
                                 <option value="<?= $j ?>"><?= ($j < 10) ? '0' . $j . ':00' : $j . ':00' ?></option>
                             <?php } ?>
                         </select>

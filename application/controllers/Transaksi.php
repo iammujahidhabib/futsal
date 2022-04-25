@@ -61,7 +61,7 @@ class Transaksi extends CI_Controller
                 'end' => $end,
                 'user_id' => $user_id,
             ];
-            $cek_id = $this->M_templates->query("SELECT user_id FROM place WHERE id = $place_id")->row();
+            // $cek_id = $this->M_templates->query("SELECT user_id FROM place WHERE id = $place_id")->row();
             // echo $cek_id->user_id;
             $data['place'] = $this->M_templates->view_where('place', ['id' => $place_id])->row();
             $data['field'] = $this->M_templates->view_where('field', ['place_id' => $place_id])->row();

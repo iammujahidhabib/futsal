@@ -15,8 +15,8 @@ class Booking extends CI_Controller
     }
     public function index()
     {
-        $field = $this->M_templates->view_where('place',['user_id'=>$this->session->id])->row();
-        $data['rent']=$this->M_templates->query("SELECT *, rent.id AS id FROM rent 
+        $field = $this->M_templates->view_where('place',['id'=>$this->session->place_id])->row();
+        $data['rent']=$this->M_templates->query("SELECT *,field.name AS field, rent.id AS id FROM rent 
         JOIN field ON field.id=rent.field_id 
         JOIN user ON user.id=rent.user_id 
         WHERE rent.place_id = $field->id")->result();
