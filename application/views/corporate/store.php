@@ -88,7 +88,7 @@
                     <div class="col-12">
                         <div class="form-group">
                             <label for="exampleFormControlSelect1">Jenis Pembayaran</label>
-                            <select class="form-control" id="exampleFormControlSelect1" name="type" required>
+                            <select class="form-control" id="exampleFormControlSelect1" name="type" id="type_bayar" required>
                                 <option value="" selected disabled>Pilih Jenis Pembayaran</option>
                                 <option value="1">DP</option>
                                 <option value="2">Lunas</option>
@@ -106,7 +106,7 @@
                         </div>
                         <div class="form-group">
                             <label for="zzz">Nominal Pembayaran</label>
-                            <input type="number" min="0" id="zzz" class="form-control" name="dp" required>
+                            <input type="number" min="0" id="zzz" class="form-control" name="dp" value="<?=$no/2?>" required>
                         </div>
                         <div class="form-group">
                             <label for="aaaasdasd">Nomor Rekening Pembayaran</label>
@@ -130,3 +130,14 @@
         </div>
     </div>
 </section>
+<script>
+    // $(document).ready(function(){
+    //     $("#type_bayar").change(function(){
+    //         event.preventDefault();
+    //         var zzz = $(this).val()
+    //         if(zzz == 1){
+
+    //         }
+    //     })
+    // })
+</script>

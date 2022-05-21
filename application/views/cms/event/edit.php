@@ -76,7 +76,7 @@
 
 <script>
 	tinymce.init({
-		selector: '#inp-text'
+		selector: '#inp-desc'
 	});
 </script>
 <?php $this->load->view('template/footer'); ?>

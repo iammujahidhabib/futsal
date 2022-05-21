@@ -65,7 +65,7 @@
                         <tr>
                             <div class="col-lg-4 col-md-6">
                                 <div class="card">
-                                    <img class="card-img-top" src=" <?= base_url('asset/image/') . $key->photo; ?>"" alt="Card image cap">
+                                    <img class="card-img-top" src=" <?= base_url('asset/image/') . $key->photo; ?>" alt=" Card image cap">
                                     <div class="card-body">
                                         <h5 class="card-title"><?= $key->name; ?></h5>
                                         <p class="card-text"><?= $key->note; ?></p>
@@ -103,78 +103,84 @@
                 </table>
             </div>
         </div>
-
     </div>
 </section>
-<section id="about" class="about section-bg">
+<section id="about" class="about section-bg project-tab">
     <div class="container aos-init aos-animate" data-aos="fade-up">
-
         <div class="section-title">
             <h3>Jadwal Bulan Ini</h3>
-            <!-- <h3>Find Out More <span>About Us</span></h3> -->
         </div>
         <div class="row">
             <div class="col-lg-12 aos-init aos-animate table-responsive p-2" style="border: 1px solid black;" data-aos="fade-right" data-aos-delay="100">
                 <?php
                 $days = date("t");
                 ?>
-                <table class="table table-bordered text-center">
-                    <thead>
-                        <tr>
-                            <th rowspan="2">Jam</th>
-                            <th colspan="<?= $days ?>"><?= date('F'); ?></th>
-                        </tr>
-                        <tr>
-                            <?php for ($i = 1; $i <= $days; $i++) { ?>
-                                <th><?= $i ?></th>
-                            <?php } ?>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <?php
-                        for ($j = $place->open; $j < $place->close; $j++) {
-                            $a = $j;
-                            $a += 1; ?>
-                            <tr>
-                                <th><?= ($j < 10) ? '0' . $j . ':00' : $j . ':00' ?> - <?= ($a < 10) ? '0' . $a . ':00' : $a . ':00' ?></th>
-                                <?php for ($i = 1; $i <= $days; $i++) {
-                                    if ($i < 10) {
-                                        $d = "0" . $i;
-                                    } else {
-                                        $d = $i;
-                                    }
-                                ?>
+                <div class="tab-content" id="nav-tabContent">
+                    <?php $no = 1;
+                    foreach ($field as $kuy) { ?>
+                        <h3 class="text-center" style="margin-top: 50px;"><?=$kuy->name?></h3>
+                        <div class="tab-pane fade show active" id="#nav-table-<?= $no ?>" role="tabpanel" aria-labelledby="nav-home-tab">
+                            <table class="table table-bordered text-center">
+                                <thead>
+                                    <tr>
+                                        <th rowspan="2">Jam</th>
+                                        <th colspan="<?= $days ?>"><?= date('F'); ?></th>
+                                    </tr>
+                                    <tr>
+                                        <?php for ($i = 1; $i <= $days; $i++) { ?>
+                                            <th><?= $i ?></th>
+                                        <?php } ?>
+                                    </tr>
+                                </thead>
+                                <tbody>
                                     <?php
-                                    echo "<td>";
-                                    foreach ($rent as $key) {
-                                        if (date("Y-m-") . $d == $key->date) {
-                                            if ($key->end - $key->start > 1) {
-                                                $jam = ($key->end - $key->start) - 1;
-                                                // echo $a;
-                                                if ($key->date && ($j >= $key->start && $j <= $key->end)) {
-                                                    echo '<p class="bg-success text-white">' . $key->name . "<br>" . $key->field_name . '</p>';
+                                    for ($j = $place->open; $j < $place->close; $j++) {
+                                        $a = $j;
+                                        $a += 1; ?>
+                                        <tr>
+                                            <th><?= ($j < 10) ? '0' . $j . ':00' : $j . ':00' ?> - <?= ($a < 10) ? '0' . $a . ':00' : $a . ':00' ?></th>
+                                            <?php for ($i = 1; $i <= $days; $i++) {
+                                                if ($i < 10) {
+                                                    $d = "0" . $i;
+                                                } else {
+                                                    $d = $i;
                                                 }
-                                                // if (date("Y-m-") . $d == $key->date && $j == $key->start + $jam) {
-                                                //     echo '<p class="bg-success text-white">' . $key->name . "<br>" . $key->field_name . '</p>';
-                                                // } elseif ($key->date && ($j > $key->start && $j < $key->end)) {
-                                                //     echo '<p class="bg-success text-white">' . $key->name . "<br>" . $key->field_name . '</p>';
-                                                // } elseif ($key->date && $j == $key->start) {
-                                                //     echo '<p class="bg-success text-white">' . $key->name . "<br>" . $key->field_name . '</p>';
-                                                // }
-                                            } elseif ($key->end - $key->start == 1) {
-                                                if ($key->date && $j == $key->start) {
-                                                    echo '<p class="bg-success text-white">' . $key->name . "<br>" . $key->field_name . '</p>';
+                                            ?>
+                                                <?php
+                                                echo "<td>";
+                                                foreach ($rent["rent".$no] as $key) {
+                                                    if (date("Y-m-") . $d == $key->date) {
+                                                        if ($key->end - $key->start > 1) {
+                                                            $jam = ($key->end - $key->start) - 1;
+                                                            // echo $a;
+                                                            if ($key->date && ($j >= $key->start && $j <= $key->end)) {
+                                                                echo '<p class="bg-success text-white">' . $key->name . "<br>" . $key->field_name . '</p>';
+                                                            }
+                                                            // if (date("Y-m-") . $d == $key->date && $j == $key->start + $jam) {
+                                                            //     echo '<p class="bg-success text-white">' . $key->name . "<br>" . $key->field_name . '</p>';
+                                                            // } elseif ($key->date && ($j > $key->start && $j < $key->end)) {
+                                                            //     echo '<p class="bg-success text-white">' . $key->name . "<br>" . $key->field_name . '</p>';
+                                                            // } elseif ($key->date && $j == $key->start) {
+                                                            //     echo '<p class="bg-success text-white">' . $key->name . "<br>" . $key->field_name . '</p>';
+                                                            // }
+                                                        } elseif ($key->end - $key->start == 1) {
+                                                            if ($key->date && $j == $key->start) {
+                                                                echo '<p class="bg-success text-white">' . $key->name . "<br>" . $key->field_name . '</p>';
+                                                            }
+                                                        }
+                                                    }
                                                 }
-                                            }
-                                        }
-                                    }
-                                    echo "</td>";
-                                    ?>
-                                <?php } ?>
-                            </tr>
-                        <?php } ?>
-                    </tbody>
-                </table>
+                                                echo "</td>";
+                                                ?>
+                                            <?php } ?>
+                                        </tr>
+                                    <?php } ?>
+                                </tbody>
+                            </table>
+                        </div>
+                    <?php $no++;
+                    } ?>
+                </div>
             </div>
         </div>
     </div>
@@ -196,11 +202,11 @@
                     <input type="hidden" name="place_id" value="<?= $place->id ?>">
                     <div class="form-group">
                         <label for="formGroupExampleInput">Tanggal</label>
-                        <input type="date" name="date" class="form-control" id="formGroupExampleInput" placeholder="Example input placeholder">
+                        <input required type="date" name="date" class="form-control" id="formGroupExampleInput" placeholder="Example input placeholder">
                     </div>
                     <div class="form-group">
                         <label for="formGroupExampleInput2">Jenis Lapangan</label>
-                        <select name="field_id" class="form-control" id="formGroupExampleInput2" placeholder="Another input placeholder">
+                        <select name="field_id" required class="form-control" id="formGroupExampleInput2" placeholder="Another input placeholder">
                             <option value="" selected disabled>Pilih Jenis Lapangan</option>
                             <?php foreach ($field as $key) { ?>
                                 <option value="<?= $key->id ?>"><?= $key->name ?></option>
@@ -209,7 +215,7 @@
                     </div>
                     <div class="form-group">
                         <label for="formGroupExampleInput2">Dari Jam</label>
-                        <select name="start" class="form-control" id="formGroupExampleInput2" placeholder="Another input placeholder">
+                        <select name="start" required class="form-control" id="formGroupExampleInput2" placeholder="Another input placeholder">
                             <?php for ($j = $place->open; $j < $place->close; $j++) { ?>
                                 <option value="<?= $j ?>"><?= ($j < 10) ? '0' . $j . ':00' : $j . ':00' ?></option>
                             <?php } ?>
@@ -217,7 +223,7 @@
                     </div>
                     <div class="form-group">
                         <label for="formGroupExampleInput3">Sampai Jam</label>
-                        <select name="end" class="form-control" id="formGroupExampleInput3" placeholder="Another input placeholder">
+                        <select name="end" required class="form-control" id="formGroupExampleInput3" placeholder="Another input placeholder">
                             <?php for ($j = $place->open; $j < $place->close; $j++) { ?>
                                 <option value="<?= $j ?>"><?= ($j < 10) ? '0' . $j . ':00' : $j . ':00' ?></option>
                             <?php } ?>
