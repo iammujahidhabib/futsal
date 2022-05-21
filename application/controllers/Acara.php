@@ -19,7 +19,7 @@ class Acara extends CI_Controller
     function detail($id)
     {
         $data['event'] = $this->M_templates->view_where('event',['id'=>$id])->row();
-        $data['writer'] = $this->M_templates->view_where('place',['user_id'=>$id])->row();
+        // $data['writer'] = $this->M_templates->view_where('place',['user_id'=>$id])->row();
         $this->load->view('corporate/header');
         $this->load->view('corporate/event-detail',$data);
         $this->load->view('corporate/footer');
