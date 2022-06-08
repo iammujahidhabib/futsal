@@ -12,24 +12,30 @@
 				<div class="card">
 					<div class="card-header row">
 						<div class="col-sm-12 col-md-6">
-							<h4 class="card-title">Create Type Field</h4>
+							<h4 class="card-title">Buat Lapangan</h4>
 						</div>
 					</div>
 					<div class="card-body">
 						<form method="post" action="<?= site_url() ?>cms/type/create/" enctype="multipart/form-data">
 							<div class="form-group row">
-								<label for="inp-title" class="col-sm-2 col-form-label">Type</label>
+								<label for="inp-title" class="col-sm-2 col-form-label">Nama Lapangan</label>
 								<div class="col-sm-10">
-									<input required type="text" class="form-control" name="type" id="inp-title" placeholder="title">
+									<input required type="text" class="form-control" name="name" id="inp-title" placeholder="title">
 								</div>
 							</div>
 							<div class="form-group row">
-								<label for="inp-poster" class="col-sm-2 col-form-label">Photo</label>
+								<label for="inp-poster" class="col-sm-2 col-form-label">Foto</label>
 								<div class="col-sm-10">
 									<input required type="file" class="form-control" name="photo" id="inp-poster">
 								</div>
 							</div>
-							<input required type="hidden" class="form-control" name="field_id" id="inp-writer_id" value="<?=$this->session->id?>">
+							<div class="form-group row">
+								<label for="inp-note" class="col-sm-2 col-form-label">Catatan</label>
+								<div class="col-sm-10">
+									<textarea class="form-control" name="note" id="inp-note" required></textarea>
+								</div>
+							</div>
+							<input required type="hidden" class="form-control" name="place_id" id="inp-writer_id" value="<?=$this->session->place_id?>">
 							<div class="form-group row">
 								<label for="inp-submit" class="col-sm-2 col-form-label"></label>
 								<div class="col-sm-10">

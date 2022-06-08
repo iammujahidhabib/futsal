@@ -7,11 +7,11 @@
                 <div class="card">
                     <div class="card-header row">
                         <div class="col-sm-12 col-md-6">
-                            <h4 class="card-title">Data Master Place</h4>
+                            <h4 class="card-title">Data Master Tempat</h4>
                         </div>
                         <div class="col-sm-12 col-md-6">
                             <a type="button" class="btn btn-primary btn-sm float-right" href="<?= base_url() ?>cms/player/create">
-                                <i class="fa fa-plus"></i> Place
+                                <i class="fa fa-plus"></i> Tempat
                             </a>
                         </div>
                     </div>
@@ -27,8 +27,8 @@
                                         <thead>
                                             <tr role="row">
                                                 <th>No</th>
-                                                <th>Name</th>
-                                                <th>Address</th>
+                                                <th>Nama Tempat</th>
+                                                <th>Alamat</th>
                                                 <th>Aksi</th>
                                             </tr>
                                         </thead>

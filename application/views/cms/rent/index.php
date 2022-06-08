@@ -29,9 +29,9 @@
                                                 <th>No</th>
                                                 <th>Tanggal</th>
                                                 <th>Waktu</th>
-                                                <th>Field</th>
-                                                <th>DP</th>
-                                                <th>Pay Off</th>
+                                                <th>Nama Lapangan</th>
+                                                <th>Uang Muka</th>
+                                                <th>Kekurangan Bayar</th>
                                                 <th>Total</th>
                                                 <th>Status</th>
                                                 <th>Aksi</th>
@@ -81,7 +81,10 @@
                                                         <?php
                                                         if ($key->status == 0) { ?>
                                                             <a type="button" class="btn btn-success btn-sm text-white" href="<?= site_url('cms/booking/accept/' . $key->id) ?>"><i class="fa fa-check"></i></a>
-                                                            <a type="button" class="btn btn-danger btn-sm text-white" onclick="hapus(<?= $key->id ?>)"><i class="fa fa-x"></i></a>
+                                                            <!-- <a type="button" class="btn btn-danger btn-sm text-white" onclick="hapus(<?= $key->id ?>)"><i class="fa fa-x"></i></a> -->
+                                                            <button type="button" class="btn btn-danger btn-sm text-white" id="btn_tolak" data-id="<?=$key->id?>" data-toggle="modal" data-target="#tolakModal">
+                                                                <i class="fa fa-x"></i>
+                                                            </button>
                                                         <?php }
                                                         ?>
                                                         <?php
@@ -108,7 +111,7 @@
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Detail Sewa</h5>
+                <h5 class="modal-title" id="exampleModalLabel">Detail Sewa Lapangan</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
@@ -117,7 +120,7 @@
                 <div class="row">
                     <div class="col-sm-7">
                         <div class="form-group">
-                            <label for="">Booking by email user</label>
+                            <label for="">Email Pengguna </label>
                             <input type="text" disabled class="form-control" id="demail">
                         </div>
                         <div class="form-group">
@@ -125,11 +128,11 @@
                             <input type="text" disabled class="form-control" id="dtanggal">
                         </div>
                         <div class="form-group">
-                            <label for="">DP</label>
+                            <label for="">Uang Muka</label>
                             <input type="text" disabled class="form-control" id="ddp">
                         </div>
                         <div class="form-group">
-                            <label for="">Pay Off</label>
+                            <label for="">Kekurangan Bayar</label>
                             <input type="text" disabled class="form-control" id="dpayoff">
                         </div>
                         <div class="form-group">
@@ -137,7 +140,7 @@
                             <input type="text" disabled class="form-control" id="dtotal">
                         </div>
                         <div class="form-group">
-                            <label for="">Type Field</label>
+                            <label for="">Nama Lapangan</label>
                             <input type="text" disabled class="form-control" id="dtypefield">
                         </div>
                         <div class="form-group">
@@ -157,6 +160,33 @@
         </div>
     </div>
 </div>
+<!-- Modal -->
+<div class="modal fade" id="tolakModal" tabindex="-1" aria-labelledby="tolakModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="tolakModalLabel">Keterangan Penolakan Sewa Lapangan</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form id="tolak_form" method="POST">
+                    <div class="form-group">
+                        <label>Alasan Tolak</label>
+                        <textarea class="form-control" name="remark" required></textarea>
+                    </div>
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-primary btn-block btn-sm">Submit</button>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script type="text/javascript">
     function hapus(id) {
@@ -166,6 +196,10 @@
         }
     }
     $(document).ready(function() {
+        $(document).on('click', "#btn_tolak", function() {
+            var src = '<?= base_url() ?>cms/booking/delete/' + $(this).data('id');
+            $("#tolak_form").attr("action", src);
+        })
         $(document).on('click', "#btn_view", function() {
             event.preventDefault()
             $("#demail").val($(this).data("email"));

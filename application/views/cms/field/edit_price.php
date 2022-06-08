@@ -12,15 +12,15 @@
 				<div class="card">
 					<div class="card-header row">
 						<div class="col-sm-12 col-md-6">
-							<h4 class="card-title">Buat Harga Lapangan</h4>
+							<h4 class="card-title">Edit Harga Lapangan</h4>
 						</div>
 					</div>
 					<div class="card-body">
-						<form method="post" action="<?= site_url() ?>cms/type/create_price/" enctype="multipart/form-data">
+						<form method="post" action="<?= site_url() ?>cms/type/edit_price/<?=$price->id?>" enctype="multipart/form-data">
 							<div class="form-group row">
 								<label for="inp-title" class="col-sm-2 col-form-label">Harga</label>
 								<div class="col-sm-10">
-									<input required type="number" min="0" class="form-control" name="price" id="inp-title" placeholder="harga">
+									<input required type="number" min="0" class="form-control" name="price" id="inp-title" value="<?=$price->price?>" placeholder="harga">
 								</div>
 							</div>
 							<div class="form-group row">
@@ -28,7 +28,7 @@
 								<select name="field_id" class="form-control col-sm-10" id="formGroupExampleInput2" placeholder="Another input placeholder">
 									<?php foreach ($type as $key ) {
 									?>
-									<option value="<?=$key->id?>"><?=$key->name?></option>
+									<option <?=($price->field_id == $key->id)?"selected":""?> value="<?=$key->id?>"><?=$key->name?></option>
 									<?php }?>
 								</select>
 							</div>
@@ -36,7 +36,7 @@
 								<label class="col-sm-2 col-form-label" for="formGroupExampleInput2">Dari Jam</label>
 								<select name="start" class="form-control col-sm-10" id="formGroupExampleInput2" placeholder="Another input placeholder">
 									<?php for ($j = $place->open; $j < $place->close; $j++) { ?>
-										<option value="<?= $j ?>"><?= ($j < 10) ? '0' . $j . ':00' : $j . ':00' ?></option>
+										<option <?=($price->start == $j)?"selected":""?> value="<?= $j ?>"><?= ($j < 10) ? '0' . $j . ':00' : $j . ':00' ?></option>
 									<?php } ?>
 								</select>
 							</div>
@@ -44,7 +44,7 @@
 								<label class="col-sm-2 col-form-label" for="formGroupExampleInput3">Sampai Jam</label>
 								<select name="end" class="form-control col-sm-10" id="formGroupExampleInput3" placeholder="Another input placeholder">
 									<?php for ($j = $place->open; $j < $place->close; $j++) { ?>
-										<option value="<?= $j ?>"><?= ($j < 10) ? '0' . $j . ':00' : $j . ':00' ?></option>
+										<option <?=($price->end == $j)?"selected":""?> value="<?= $j ?>"><?= ($j < 10) ? '0' . $j . ':00' : $j . ':00' ?></option>
 									<?php } ?>
 								</select>
 							</div>

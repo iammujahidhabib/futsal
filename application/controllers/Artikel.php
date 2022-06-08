@@ -24,7 +24,7 @@ class Artikel extends CI_Controller
         if($user->role == 1){
             $data['writer'] = "Admin";
         }else{
-            $writer = $this->M_templates->view_where("place",["user_id"=>$data['article']->writer_id])->row();
+            $writer = $this->M_templates->view_where("user",["id"=>$data['article']->writer_id])->row();
             $data['writer'] = $writer->name;
         }
         $this->load->view('corporate/header');

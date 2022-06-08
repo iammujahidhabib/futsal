@@ -57,7 +57,7 @@
 
             <nav id="navbar" class="navbar">
                 <ul>
-                    <li><a class="nav-link scrollto active" href="<?= site_url() ?>">Home</a></li>
+                    <li><a class="nav-link scrollto active" href="<?= site_url() ?>">Beranda</a></li>
                     <li><a class="nav-link scrollto" href="<?= site_url('artikel') ?>">Artikel</a></li>
                     <li><a class="nav-link scrollto" href="<?= site_url('acara') ?>">Event</a></li>
                     <li><a class="nav-link scrollto" href="<?= site_url('lapangan') ?>">Lapangan</a></li>
@@ -65,11 +65,11 @@
                         <li class="nav-link dropdown"><a href="#"><span><?= $this->session->name ?></span> <i class="bi bi-chevron-down"></i></a>
                             <ul>
                                 <?php if ($this->session->place_id && $this->session->role == 2) { ?>
-                                    <li><a target="_blank" href="<?= site_url('cms/dashboard/field') ?>">CMS My Place</a></li>
+                                    <li><a target="_blank" href="<?= site_url('cms/dashboard/field') ?>">CMS Pemilik Lapangan</a></li>
                                 <?php } else { ?>
-                                    <li><a target="_blank" href="<?= site_url('login/register_lapangan') ?>">Register My Place</a></li>
+                                    <li><a target="_blank" href="<?= site_url('login/register_lapangan') ?>">Daftar Pemilik Lapangan</a></li>
                                 <?php } ?>
-                                <li><a href="<?= site_url('transaksi') ?>">My Booking</a></li>
+                                <li><a href="<?= site_url('transaksi') ?>">Riwayat Sewa</a></li>
                                 <li><a href="<?= site_url('login/logout') ?>">Logout</a></li>
                             </ul>
                         </li>

@@ -67,7 +67,7 @@
                             <th>Lapangan</th>
                             <th>Jam</th>
                             <th>Durasi</th>
-                            <th>DP</th>
+                            <th>Uang Muka</th>
                             <th>Kekurangan</th>
                             <th>Status</th>
                             <th>Action</th>
@@ -82,15 +82,15 @@
                                 <td><?= $key->name_field ?><br><?= $key->aaa ?></td>
                                 <td><?= $key->start . ":00 - " . $key->end . ":00" ?></td>
                                 <td><?= $key->end - $key->start ?> Jam</td>
-                                <td>Rp <?= $key->dp ?></td>
-                                <td class="text-danger">Rp <?= $key->total - $key->dp ?></td>
+                                <td>Rp <?= number_format($key->dp) ?></td>
+                                <td class="text-danger">Rp <?= number_format($key->total - $key->dp) ?></td>
                                 <td><?php
                                     if ($key->status == 0) {
                                         echo "<span class='badge badge-secondary'>Sedang Diproses</span>";
                                     } elseif ($key->status == 1) {
                                         echo "<span class='badge badge-success'>Transaksi Berhasil</span>";
                                     } elseif ($key->status == 2) {
-                                        echo "<span class='badge badge-danger'>Transaksi Gagal</span>";
+                                        echo "<span class='badge badge-danger' id='remark-note' style='cursor:pointer' data-remark='" . $key->remark . "'>Transaksi Gagal</span>";
                                     } elseif ($key->status == 3) {
                                         echo "<span class='badge badge-warning'>Cancel</span>";
                                     } elseif ($key->status == 4) {
@@ -129,6 +129,28 @@
     </div>
 </section><!-- End Portfolio Section -->
 
+<!-- Modal -->
+<div class="modal fade" id="tolakModal" tabindex="-1" aria-labelledby="tolakModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="tolakModalLabel">Transaksi Remark</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="form-group">
+                    <label>Alasan Tolak</label>
+                    <p id="alasan-tolak"></p>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
 <!-- DataTables -->
 <script src="<?= base_url() ?>asset/adminLTE/plugins/datatables/jquery.dataTables.min.js"></script>
 <script src="<?= base_url() ?>asset/adminLTE/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>
@@ -143,15 +165,20 @@
     }
 </script>
 <script>
-  $(document).ready(function() {
-    $('.example2').DataTable({
-      "paging": true,
-      "lengthChange": true,
-      "searching": true,
-      "ordering": true,
-      "info": true,
-      "autoWidth": false,
-      "responsive": true,
+    $(document).ready(function() {
+        $(document).on('click', '#remark-note', function() {
+            event.preventDefault()
+            $("#alasan-tolak").html($(this).data('remark'));
+            $("#tolakModal").modal("show");
+        })
+        $('.example2').DataTable({
+            "paging": true,
+            "lengthChange": true,
+            "searching": true,
+            "ordering": true,
+            "info": true,
+            "autoWidth": false,
+            "responsive": true,
+        });
     });
-  });
 </script>

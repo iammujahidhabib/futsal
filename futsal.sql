@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:8889
--- Waktu pembuatan: 25 Apr 2022 pada 16.02
+-- Waktu pembuatan: 22 Bulan Mei 2022 pada 17.51
 -- Versi server: 5.7.32
 -- Versi PHP: 7.4.12
 
@@ -35,7 +35,8 @@ CREATE TABLE `article` (
 --
 
 INSERT INTO `article` (`id`, `title`, `date`, `text`, `image`, `writer`, `writer_id`) VALUES
-(1, 'Testingggg', '2022-02-04', '<p>This is testing for article.</p>\r\n<p>hope u enjoy it! thank u</p>\r\n<p>This is testing for article.</p>\r\n<p>hope u enjoy it! thank u</p>', 'Screen_Shot_2021-12-28_at_11_46_52_PM.png', 2, 2);
+(1, 'Testingggg', '2022-02-04', '<p>This is testing for article.</p>\r\n<p>hope u enjoy it! thank u</p>\r\n<p>This is testing for article.</p>\r\n<p>hope u enjoy it! thank u</p>\r\n<p>tseting</p>', '51447843_1237921336370340_3553161070283587584_n.jpeg', 2, 2),
+(2, 'ASDAS asdasd', '2022-05-22', '<p>a sdas dasd asd as das Das d</p>\r\n<p>\'<span style=\"font-family: -apple-system, BlinkMacSystemFont, \'Segoe UI\', Roboto, Oxygen, Ubuntu, Cantarell, \'Open Sans\', \'Helvetica Neue\', sans-serif;\">a sdas dasd asd as das Das d</span></p>\r\n<p>\'<span style=\"font-family: -apple-system, BlinkMacSystemFont, \'Segoe UI\', Roboto, Oxygen, Ubuntu, Cantarell, \'Open Sans\', \'Helvetica Neue\', sans-serif;\">a sdas dasd asd as das Das d</span></p>\r\n<p>\'<span style=\"font-family: -apple-system, BlinkMacSystemFont, \'Segoe UI\', Roboto, Oxygen, Ubuntu, Cantarell, \'Open Sans\', \'Helvetica Neue\', sans-serif;\">a sdas dasd asd as das Das d</span></p>\r\n<p>\'<span style=\"font-family: -apple-system, BlinkMacSystemFont, \'Segoe UI\', Roboto, Oxygen, Ubuntu, Cantarell, \'Open Sans\', \'Helvetica Neue\', sans-serif;\">a sdas dasd asd as das Das d</span></p>\r\n<p>\'<span style=\"font-family: -apple-system, BlinkMacSystemFont, \'Segoe UI\', Roboto, Oxygen, Ubuntu, Cantarell, \'Open Sans\', \'Helvetica Neue\', sans-serif;\">a sdas dasd asd as das Das d</span></p>\r\n<p>\'</p>', '51447843_1237921336370340_3553161070283587584_n1.jpeg', 2, 2);
 
 -- --------------------------------------------------------
 
@@ -59,7 +60,7 @@ CREATE TABLE `event` (
 --
 
 INSERT INTO `event` (`id`, `title`, `desc`, `start`, `end`, `poster`, `place_id`, `form`) VALUES
-(1, 'Turnamenttttt', 'Come and Join!', '2022-03-31', '2022-02-13', 'Screen_Shot_2021-12-28_at_11_50_07_PM.png', 2, '');
+(1, 'TOURNAMENT JEANS CUP FUTSAL U-21', '<p style=\"padding: 0px; margin: 0px 0px 25px; list-style: none; border: 0px; outline: none; box-sizing: border-box; line-height: 26px; color: #2c2f34; font-family: -apple-system, \'system-ui\', \'segoe ui\', Roboto, Oxygen, Oxygen-Sans, Ubuntu, Cantarell, \'helvetica neue\', \'open sans\', Arial, sans-serif; font-size: 15px; background-color: #ffffff;\">❗Perubahan Jadwal Pertandingan❗</p>\r\n<p style=\"padding: 0px; margin: 0px 0px 25px; list-style: none; border: 0px; outline: none; box-sizing: border-box; line-height: 26px; color: #2c2f34; font-family: -apple-system, \'system-ui\', \'segoe ui\', Roboto, Oxygen, Oxygen-Sans, Ubuntu, Cantarell, \'helvetica neue\', \'open sans\', Arial, sans-serif; font-size: 15px; background-color: #ffffff;\">TOURNAMENT JEANS CUP FUTSAL U-21⚽<br style=\"padding: 0px; margin: 0px; list-style: none; border: 0px; outline: none; box-sizing: border-box;\" />&ldquo;Make Your Achievement With No Limit&rdquo;</p>\r\n<p style=\"padding: 0px; margin: 0px 0px 25px; list-style: none; border: 0px; outline: none; box-sizing: border-box; line-height: 26px; color: #2c2f34; font-family: -apple-system, \'system-ui\', \'segoe ui\', Roboto, Oxygen, Oxygen-Sans, Ubuntu, Cantarell, \'helvetica neue\', \'open sans\', Arial, sans-serif; font-size: 15px; background-color: #ffffff;\">asdasdasdasdasd</p>', '2022-05-31', '2022-05-31', '51447843_1237921336370340_3553161070283587584_n.jpeg', 2, 'default.docx');
 
 -- --------------------------------------------------------
 
@@ -82,7 +83,7 @@ CREATE TABLE `field` (
 INSERT INTO `field` (`id`, `name`, `note`, `photo`, `place_id`) VALUES
 (1, 'Sintetis Besar', '', 'sinte_a.jpeg', 2),
 (2, 'Sintetis Kecil', '', 'sinte_b.jpeg', 2),
-(3, 'Lapangan A', '', 'lap_a.jpeg', 1);
+(3, 'Lapangan A', '', 'lapangan_ayumi1.jpeg', 1);
 
 -- --------------------------------------------------------
 
@@ -111,8 +112,8 @@ CREATE TABLE `place` (
 --
 
 INSERT INTO `place` (`id`, `name`, `desc`, `address`, `phone`, `gallery`, `bank`, `bank_account`, `bank_name`, `status`, `photo`, `open`, `close`) VALUES
-(1, 'Gallery Futsal', 'asdasd asdas\r\n dasd asd asd as', 'Sukabirus, Bandung', '1313213213', 'field.png', 'BCA', '2881727', 'Gallery Futsal', 1, 'field.png', 8, 23),
-(2, 'Kick Off Futsal', 'asdasd asdas\r\n dasd asd asd as', 'Sukabirus, Bandung', '1313213213', 'field.png', 'Mandiri', '888271728', 'Kosasih', 1, 'place_a.png', 9, 23),
+(1, 'Ayumi Futsal', 'Lapangan Futsal Terbaru di Cilacap, nyaman, Harga terjangkau dan fasilitas lengkap', 'Kabupaten Cilacap', '085777373438', 'field.png', 'BCA', '2881727', 'Gallery Futsal', 1, 'ayumi.jpeg', 8, 23),
+(2, 'PSCS Indoor', 'Lapangan Futsal Terbaru di Cilacap, nyaman, Harga terjangkau dan fasilitas lengkap', 'Sukabirus, Bandung', '1313213213', 'field.png', 'Mandiri', '888271728', 'Kosasih', 1, '51447843_1237921336370340_3553161070283587584_n1.jpeg', 9, 23),
 (3, 'Test', 'asdasdasd', 'Jalan Komplek Permata Buah Batu D 22', '082137244805', '', 'BCA', '23112312', 'Dihajuas', 0, 'field.png', 15, 23);
 
 -- --------------------------------------------------------
@@ -163,18 +164,21 @@ CREATE TABLE `rent` (
   `bill_file` varchar(255) NOT NULL,
   `rent_bank` varchar(255) NOT NULL,
   `rent_bank_account` varchar(255) NOT NULL,
-  `rent_bank_name` varchar(255) NOT NULL
+  `rent_bank_name` varchar(255) NOT NULL,
+  `remark` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data untuk tabel `rent`
 --
 
-INSERT INTO `rent` (`id`, `date`, `start`, `end`, `dp`, `pay_off`, `total`, `status`, `user_id`, `type`, `place_id`, `field_id`, `bill_file`, `rent_bank`, `rent_bank_account`, `rent_bank_name`) VALUES
-(1, '2022-04-20', 15, 17, 70000, 70000, 140000, 1, 3, 1, 1, 1, 'Screen_Shot_2022-03-16_at_12_21_50_AM1.png', 'BCA', '11221122', 'Dihajum'),
-(2, '2022-04-20', 15, 17, 50000, 50000, 100000, 1, 3, 1, 1, 2, 'Screen_Shot_2022-02-11_at_1_44_31_PM.png', 'BCA', '11221122', 'Dihajum'),
-(3, '2022-04-15', 15, 18, 130000, 130000, 260000, 1, 3, 1, 1, 1, 'Screen_Shot_2022-03-08_at_3_57_07_PM.png', 'BCA', '111111666', 'Dihajum'),
-(4, '2022-04-15', 12, 15, 130000, 130000, 260000, 1, 2, 1, 1, 1, 'Screen_Shot_2022-03-08_at_3_57_07_PM.png', 'BCA', '111111666', 'Dihajum');
+INSERT INTO `rent` (`id`, `date`, `start`, `end`, `dp`, `pay_off`, `total`, `status`, `user_id`, `type`, `place_id`, `field_id`, `bill_file`, `rent_bank`, `rent_bank_account`, `rent_bank_name`, `remark`) VALUES
+(1, '2022-04-20', 15, 17, 70000, 70000, 140000, 4, 3, 1, 1, 1, 'Screen_Shot_2022-03-16_at_12_21_50_AM1.png', 'BCA', '11221122', 'Dihajum', ''),
+(2, '2022-04-20', 15, 17, 50000, 50000, 100000, 4, 3, 1, 1, 2, 'Screen_Shot_2022-02-11_at_1_44_31_PM.png', 'BCA', '11221122', 'Dihajum', ''),
+(3, '2022-04-15', 15, 18, 130000, 130000, 260000, 4, 3, 1, 1, 1, 'Screen_Shot_2022-03-08_at_3_57_07_PM.png', 'BCA', '111111666', 'Dihajum', ''),
+(4, '2022-04-15', 12, 15, 130000, 130000, 260000, 2, 3, 1, 1, 1, 'Screen_Shot_2022-03-08_at_3_57_07_PM.png', 'BCA', '111111666', 'Dihajum', 'Gajelas'),
+(5, '2022-05-24', 17, 18, 60000, 60000, 120000, 1, 3, 1, 2, 1, '36_Light_hotel_details_fit_page.png', 'Mandiri', '11221122', 'Dihajum', ''),
+(6, '2022-05-24', 17, 18, 25000, 25000, 50000, 0, 3, 1, 2, 2, '36_Light_hotel_details_fit_page1.png', 'BCA', '11221122', 'Dihajum', '');
 
 -- --------------------------------------------------------
 
@@ -265,43 +269,43 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT untuk tabel `article`
 --
 ALTER TABLE `article`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT untuk tabel `event`
 --
 ALTER TABLE `event`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT untuk tabel `field`
 --
 ALTER TABLE `field`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT untuk tabel `place`
 --
 ALTER TABLE `place`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT untuk tabel `price`
 --
 ALTER TABLE `price`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT untuk tabel `rent`
 --
 ALTER TABLE `rent`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT untuk tabel `user`
 --
 ALTER TABLE `user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- Ketidakleluasaan untuk tabel pelimpahan (Dumped Tables)

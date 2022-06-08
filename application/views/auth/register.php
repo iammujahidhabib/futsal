@@ -4,10 +4,10 @@
 <!-- ======= Hero Section ======= -->
 <section id="pricing">
 	<div class="container col-4">
-		<h2>Daftar</h2>
+		<h2>Daftar Akun Futsal Cilapap</h2>
 		<form method="POST" action="<?= site_url('login/register') ?>">
 			<div class="form-group">
-				<label for="exampleInputEmail1">Email address</label>
+				<label for="exampleInputEmail1">Email </label>
 				<input type="email" name="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
 			</div>
 			<div class="form-group">

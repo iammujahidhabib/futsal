@@ -1,3 +1,4 @@
+<?=$this->session->flashdata('message')?>
 <?php $this->load->view('template/header'); ?>
 <!-- Main content -->
 <div class="content">
@@ -7,7 +8,7 @@
                 <div class="card">
                     <div class="card-header row">
                         <div class="col-sm-12 col-md-6">
-                            <h4 class="card-title">Data My Place</h4>
+                            <h4 class="card-title">Data Tempat Ku</h4>
                         </div>
                     </div>
                     <div class="card-body">
@@ -23,7 +24,7 @@
                             </div>
                             <div class="row">
                                 <div class="col-sm-12">
-                                    <form method="POST" action="<?= site_url('place/update_place/' . $place->id) ?>">
+                                    <form method="POST" action="<?= site_url('cms/place/update_place/' . $place->id) ?>" enctype="multipart/form-data">
                                         <div class="form-group">
                                             <label for="nama">Nama Tempat</label>
                                             <input type="text" name="name" class="form-control" id="nama" value="<?= $place->name ?>">

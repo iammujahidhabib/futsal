@@ -83,6 +83,12 @@ class Article extends CI_Controller
             $this->load->view('cms/article/edit', $data);
         }
     }
+    public function detail($id)
+    {
+        $where = ['id' => $id];
+        $data['article'] = $this->M_templates->view_where('article', $where)->row();
+        $this->load->view('cms/article/detail', $data);
+    }
     public function delete($id)
     {
         $where = ['id' => $id];

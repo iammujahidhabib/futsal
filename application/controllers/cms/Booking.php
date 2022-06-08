@@ -20,7 +20,7 @@ class Booking extends CI_Controller
         JOIN field ON field.id=rent.field_id 
         JOIN user ON user.id=rent.user_id 
         WHERE rent.place_id = $field->id")->result();
-        // print_r($data);
+        // print_r($field);
         $this->load->view('cms/rent/index', $data);
     }
     public function accept($id)
@@ -35,7 +35,7 @@ class Booking extends CI_Controller
     }
     public function delete($id)
     {
-        $this->M_templates->update("rent",['id'=>$id],['status'=>2]);
+        $this->M_templates->update("rent",['id'=>$id],['status'=>2,'remark'=>$this->input->post('remark')]);
         redirect('cms/booking');
     }
     public function field()

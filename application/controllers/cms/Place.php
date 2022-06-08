@@ -31,4 +31,51 @@ class Place extends CI_Controller
         $data['price'] = $this->M_templates->query("SELECT price.*,field.name FROM price JOIN field ON field.id=price.field_id WHERE place_id = $id")->result();
         $this->load->view('cms/place/detail', $data);
     }
+    public function update_place($id)
+    {
+        $name = $this->input->post("name");
+        $open = $this->input->post("open");
+        $close = $this->input->post("close");
+        $phone = $this->input->post("phone");
+        $desc = $this->input->post("desc");
+        $address = $this->input->post("address");
+        $bank = $this->input->post("bank");
+        $bank_account = $this->input->post("bank_account");
+        $bank_name = $this->input->post("bank_name");
+        $data = [
+            'name'=>$name,
+            'open'=>$open,
+            'close'=>$close,
+            'phone'=>$phone,
+            'desc'=>$desc,
+            'address'=>$address,
+            'bank'=>$bank,
+            'bank_account'=>$bank_account,
+            'bank_name'=>$bank_name,
+        ];
+        if ($_FILES['photo']['name'] != "") {
+            $config = array(
+                'upload_path' => './asset/image/',
+                'overwrite' => false,
+                'remove_spaces' => true,
+                'allowed_types' => 'png|jpg|gif|jpeg',
+                'max_size' => 10000,
+                'xss_clean' => true,
+            );
+            $this->load->library('upload');
+            $this->upload->initialize($config);
+            // if ($_FILES['file']['name'] != "") {
+            if ($this->upload->do_upload('photo')) {
+                $file_data = $this->upload->data();
+                $data['photo'] = $file_data['file_name'];
+            } 
+        }
+        $query = $this->M_templates->update("place",["id"=>$id],$data);
+        if($query){
+            $this->session->set_flashdata("message",'<script language="javascript">' .
+                    'alert("Data Place berhasil diubah!");' .
+                '</script>');
+        }
+        redirect('cms/place');
+    }
 }

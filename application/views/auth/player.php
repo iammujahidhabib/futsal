@@ -4,10 +4,10 @@
 <!-- ======= Hero Section ======= -->
 <section id="pricing">
     <div class="container col-4">
-        <h2>Login <span>Player</span></h2>
+        <h2>Login <span>Futsal Cilapap</span></h2>
         <form method="POST" action="<?= site_url('login') ?>">
             <div class="form-group">
-                <label for="">Email address</label>
+                <label for="">Email</label>
                 <input type="email" name="email" class="form-control" id="" aria-describedby="emailHelp" placeholder="Enter email">
             </div>
             <div class="form-group">

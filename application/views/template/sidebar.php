@@ -21,28 +21,28 @@
             <a href="<?= base_url() ?>cms/place" class="nav-link <?php if ($this->session->func == 'dailytimesheetcreate') { ?> active<?php } ?>">
               <!-- <i class="far fa-clipboard nav-icon"></i> -->
               <i class="fa fa-circle nav-icon"></i>
-              <p>Place</p>
+              <p>Data Tempat</p>
             </a>
           </li>
           <li class="nav-item">
             <a href="<?= base_url() ?>cms/player" class="nav-link <?php if ($this->session->func == 'dailytimesheetcreate') { ?> active<?php } ?>">
               <!-- <i class="far fa-clipboard nav-icon"></i> -->
               <i class="fa fa-circle nav-icon"></i>
-              <p>User</p>
+              <p>Data Pengguna</p>
             </a>
           </li>
         <li class="nav-item">
           <a href="<?= base_url() ?>cms/event" class="nav-link <?php if ($this->session->func == 'dailytimesheetcreate') { ?> active<?php } ?>">
             <!-- <i class="far fa-clipboard nav-icon"></i> -->
             <i class="fa fa-circle nav-icon"></i>
-            <p>Event</p>
+            <p>Data Event</p>
           </a>
         </li>
         <li class="nav-item">
           <a href="<?= base_url() ?>cms/article" class="nav-link <?php if ($this->session->func == 'dailytimesheetcreate') { ?> active<?php } ?>">
             <!-- <i class="far fa-clipboard nav-icon"></i> -->
             <i class="fa fa-circle nav-icon"></i>
-            <p>Article</p>
+            <p>Data Artikel</p>
           </a>
         </li>
         <?php } elseif ($this->session->role == 2) { ?>
@@ -57,21 +57,21 @@
               <a href="<?= base_url() ?>cms/place" class="nav-link <?php if ($this->session->func == 'place') { ?> active<?php } ?>">
                 <!-- <i class="far fa-clipboard nav-icon"></i> -->
                 <i class="fa fa-circle nav-icon"></i>
-                <p>Place</p>
+                <p>Tempatku</p>
               </a>
             </li>
             <li class="nav-item">
               <a href="<?= base_url() ?>cms/booking" class="nav-link <?php if ($this->session->func == 'dailytimesheetcreate') { ?> active<?php } ?>">
                 <!-- <i class="far fa-clipboard nav-icon"></i> -->
                 <i class="fa fa-circle nav-icon"></i>
-                <p>Booking</p>
+                <p>Transaksi Sewa</p>
               </a>
             </li>
             <li class="nav-item">
               <a href="<?= base_url() ?>cms/type" class="nav-link <?php if ($this->session->func == 'dailytimesheetcreate') { ?> active<?php } ?>">
                 <!-- <i class="far fa-clipboard nav-icon"></i> -->
                 <i class="fa fa-circle nav-icon"></i>
-                <p>Field & Price</p>
+                <p>Lapangan & Harga</p>
               </a>
             </li>
             <li class="nav-item">
@@ -85,7 +85,7 @@
               <a href="<?= base_url() ?>cms/article" class="nav-link <?php if ($this->session->func == 'dailytimesheetcreate') { ?> active<?php } ?>">
                 <!-- <i class="far fa-clipboard nav-icon"></i> -->
                 <i class="fa fa-circle nav-icon"></i>
-                <p>Article</p>
+                <p>Artikel</p>
               </a>
             </li>
           <?php } ?>

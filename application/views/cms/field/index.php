@@ -7,11 +7,11 @@
                 <div class="card">
                     <div class="card-header row">
                         <div class="col-sm-12 col-md-6">
-                            <h4 class="card-title">Data Type Field</h4>
+                            <h4 class="card-title">Data Lapangan</h4>
                         </div>
                         <div class="col-sm-12 col-md-6">
                             <a type="button" class="btn btn-primary btn-sm float-right" href="<?= base_url() ?>cms/type/create">
-                                <i class="fa fa-plus"></i> Type Field
+                                <i class="fa fa-plus"></i> Lapangan
                             </a>
                         </div>
                     </div>
@@ -27,7 +27,7 @@
                                         <thead>
                                             <tr role="row">
                                                 <th>No</th>
-                                                <th>Type Field</th>
+                                                <th>Nama Lapangan</th>
                                                 <th>Aksi</th>
                                             </tr>
                                         </thead>
@@ -39,6 +39,7 @@
                                                     <td><?= $key->name; ?></td>
                                                     <!-- <td><?= $key->address; ?></td> -->
                                                     <td>
+                                                        <a type="button" class="btn btn-secondary btn-sm text-white" href="<?= base_url() ?>cms/type/detail/<?= $key->id ?>"><i class="fa fa-eye"></i></a>
                                                         <a type="button" class="btn btn-warning btn-sm text-white" href="<?= base_url() ?>cms/type/edit/<?= $key->id ?>"><i class="fa fa-pen"></i></a>
                                                         <a type="button" class="btn btn-danger btn-sm text-white" onclick="hapus(<?= $key->id ?>)"><i class="fa fa-trash"></i></a>
                                                     </td>
@@ -57,11 +58,11 @@
                 <div class="card">
                     <div class="card-header row">
                         <div class="col-sm-12 col-md-6">
-                            <h4 class="card-title">Data Field Price</h4>
+                            <h4 class="card-title">Data Harga Lapangan</h4>
                         </div>
                         <div class="col-sm-12 col-md-6">
                             <a type="button" class="btn btn-primary btn-sm float-right" href="<?= base_url() ?>cms/type/create_price">
-                                <i class="fa fa-plus"></i> Type Field Price
+                                <i class="fa fa-plus"></i> Harga Lapangan
                             </a>
                         </div>
                     </div>
@@ -77,9 +78,9 @@
                                         <thead>
                                             <tr role="row">
                                                 <th>No</th>
-                                                <th>Type Field</th>
-                                                <th>Time</th>
-                                                <th>Price</th>
+                                                <th>Nama Lapangan</th>
+                                                <th>Waktu</th>
+                                                <th>Harga</th>
                                                 <th>Aksi</th>
                                             </tr>
                                         </thead>
@@ -90,7 +91,7 @@
                                                     <td><?= $no; ?></td>
                                                     <td><?= $key->name; ?></td>
                                                     <td><?= ($key->start < 10) ? '0' . $key->start . ':00' : $key->start . ':00' ?>-<?= ($key->end < 10) ? '0' . $key->end . ':00' : $key->end . ':00' ?></td>
-                                                    <td><?= $key->price; ?></td>
+                                                    <td>Rp <?= number_format($key->price); ?></td>
                                                     <td>
                                                         <a type="button" class="btn btn-warning btn-sm text-white" href="<?= base_url() ?>cms/type/edit_price/<?= $key->id ?>"><i class="fa fa-pen"></i></a>
                                                         <a type="button" class="btn btn-danger btn-sm text-white" onclick="hapus_price(<?= $key->id ?>)"><i class="fa fa-trash"></i></a>
@@ -114,6 +115,12 @@
         var konfirmasi = confirm('Anda yakin akan menghapus?');
         if (konfirmasi == true) {
             window.location.href = '<?= base_url() ?>cms/type/delete/' + id;
+        }
+    }
+    function hapus_price(id) {
+        var konfirmasi = confirm('Anda yakin akan menghapus?');
+        if (konfirmasi == true) {
+            window.location.href = '<?= base_url() ?>cms/type/delete_price/' + id;
         }
     }
     function price(id) {

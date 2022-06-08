@@ -97,7 +97,7 @@
                 <div class="card">
                     <div class="card-header row">
                         <div class="col-sm-12 col-md-6">
-                            <h4 class="card-title">Data Field</h4>
+                            <h4 class="card-title">Data Tempat</h4>
                         </div>
                     </div>
                     <div class="card-body">
@@ -112,9 +112,9 @@
                                         <thead>
                                             <tr role="row">
                                                 <th>No</th>
-                                                <th>Field</th>
-                                                <th>Note</th>
-                                                <th class="col-sm-4">Photo</th>
+                                                <th>Nama Tempat</th>
+                                                <th>Catatan</th>
+                                                <th class="col-sm-4">Foto</th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -140,7 +140,7 @@
                 <div class="card">
                     <div class="card-header row">
                         <div class="col-sm-12 col-md-6">
-                            <h4 class="card-title">Data Field Price</h4>
+                            <h4 class="card-title">Data Harga Lapangan</h4>
                         </div>
                     </div>
                     <div class="card-body">
@@ -155,9 +155,9 @@
                                         <thead>
                                             <tr role="row">
                                                 <th>No</th>
-                                                <th>Type Field</th>
-                                                <th>Time</th>
-                                                <th>Price</th>
+                                                <th>Nama Lapangan</th>
+                                                <th>Waktu</th>
+                                                <th>Harga</th>
                                             </tr>
                                         </thead>
                                         <tbody>

@@ -5,7 +5,7 @@
 <section id="pricing">
 	<div class="container col-8">
 
-		<h2>Daftar sebagai Pemilik Lapangan</h2>
+		<h2>Daftar Akun Futsal Cilapap sebagai Pemilik Lapangan</h2>
 		<form method="POST" action="<?= site_url('login/register_lapangan/') ?>">
 			<div class="form-group">
 				<label for="nama">Nama Tempat</label>
@@ -42,7 +42,7 @@
 				<textarea name="address" id="alamat" required class="form-control"></textarea>
 			</div>
 			<div class="form-group">
-				<label for="photo">Photo</label>
+				<label for="photo">Foto</label>
 				<input type="file" name="photo" class="form-control" id="photo">
 			</div>
 			<div class="form-group">

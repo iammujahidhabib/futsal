@@ -96,22 +96,24 @@ class Event extends CI_Controller
                 unset($data['poster']);
             }
             if ($_FILES['form']['name'] != "") {
+                $config2 = array(
+                    'upload_path' => './asset/form/event/',
+                    'overwrite' => false,
+                    'remove_spaces' => true,
+                    'allowed_types' => 'doc|docx|pdf',
+                    'max_size' => 20000,
+                    'xss_clean' => true,
+                );
+                $this->load->library('upload');
+                $this->upload->initialize($config2);
                 if ($this->upload->do_upload('form')) {
-                    $config = array(
-                        'upload_path' => './asset/form/event/',
-                        'overwrite' => false,
-                        'remove_spaces' => true,
-                        'allowed_types' => 'doc|docx|pdf',
-                        'max_size' => 20000,
-                        'xss_clean' => true,
-                    );
-                    $this->load->library('upload');
-                    $this->upload->initialize($config);
                     // if ($_FILES['file']['name'] != "") {
                     $file_data = $this->upload->data();
                     $data['form'] = $file_data['file_name'];
+                    echo "zzz";
                 } else {
                     $data['form'] = "default.docx";
+                    echo "xxx";
                 }
             } else {
                 unset($data['form']);
@@ -122,6 +124,12 @@ class Event extends CI_Controller
             $data['event'] = $this->M_templates->view_where('event', $where)->row();
             $this->load->view('cms/event/edit', $data);
         }
+    }
+    public function detail($id)
+    {
+        $where = ['id' => $id];
+        $data['event'] = $this->M_templates->view_where('event', $where)->row();
+        $this->load->view('cms/event/detail', $data);
     }
     public function delete($id)
     {

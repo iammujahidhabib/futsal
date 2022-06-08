@@ -12,20 +12,20 @@
 				<div class="card">
 					<div class="card-header row">
 						<div class="col-sm-12 col-md-6">
-							<h4 class="card-title">Edit Article</h4>
+							<h4 class="card-title">Edit Artikel</h4>
 						</div>
 					</div>
 					<div class="card-body">
 						<form method="post" action="<?= site_url() ?>cms/article/edit/<?= $article->id ?>" enctype="multipart/form-data">
 							<div class="form-group row">
-								<label for="inp-title" class="col-sm-2 col-form-label">Title</label>
+								<label for="inp-title" class="col-sm-2 col-form-label">Judul</label>
 								<div class="col-sm-10">
 									<input required type="text" class="form-control" name="title" id="inp-title" value="<?= $article->title ?>">
 								</div>
 							</div>
 							<div class="form-group row">
 								<div class="col-sm-4">
-									<label for="inp-image" class="col-sm-2 col-form-label">Image</label>
+									<label for="inp-image" class="col-sm-2 col-form-label">Gambar</label>
 								</div>
 								<div class="col-sm-8 row">
 									<img src="<?= base_url() ?>asset/image/article/<?= $article->image ?>" class="img-fluid">
@@ -35,7 +35,7 @@
 								</div>
 							</div>
 							<div class="form-group row">
-								<label for="inp-text" class="col-sm-2 col-form-label">Text</label>
+								<label for="inp-text" class="col-sm-2 col-form-label">Teks</label>
 								<div class="col-sm-10">
 									<textarea class="form-control" name="text" id="inp-text"><?= $article->text ?></textarea>
 								</div>

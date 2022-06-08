@@ -55,7 +55,7 @@ class Type extends CI_Controller
         $where = ['id' => $id];
         if ($this->input->post()) {
             $data = $this->input->post();
-            if ($_FILES['poster']['name'] != "") {
+            if ($_FILES['photo']['name'] != "") {
                 $config = array(
                     'upload_path' => './asset/image/',
                     'overwrite' => false,
@@ -79,6 +79,12 @@ class Type extends CI_Controller
             $data['type'] = $this->M_templates->view_where('field', $where)->row();
             $this->load->view('cms/field/edit', $data);
         }
+    }
+    public function detail($id)
+    {
+        $where = ['id' => $id];
+        $data['type'] = $this->M_templates->view_where('field', $where)->row();
+        $this->load->view('cms/field/detail', $data);
     }
     public function delete($id)
     {
@@ -107,7 +113,8 @@ class Type extends CI_Controller
             $this->M_templates->update('price', $where, $data);
             redirect('cms/type');
         } else {
-            $data['type'] = $this->M_templates->view_where('field', ['place_id' => $this->session->id])->result();
+            $data['place'] = $this->M_templates->view_where('place', ['id' => $this->session->place_id])->row();
+            $data['type'] = $this->M_templates->view_where('field', ['place_id' => $this->session->place_id])->result();
             $data['price'] = $this->M_templates->view_where('price', $where)->row();
             $this->load->view('cms/field/edit_price', $data);
         }
