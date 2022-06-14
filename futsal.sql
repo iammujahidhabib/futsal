@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:8889
--- Waktu pembuatan: 22 Bulan Mei 2022 pada 17.51
+-- Waktu pembuatan: 14 Jun 2022 pada 23.17
 -- Versi server: 5.7.32
 -- Versi PHP: 7.4.12
 
@@ -73,17 +73,18 @@ CREATE TABLE `field` (
   `name` varchar(255) NOT NULL,
   `note` text NOT NULL,
   `photo` varchar(255) NOT NULL,
-  `place_id` int(11) NOT NULL
+  `place_id` int(11) NOT NULL,
+  `fasilitas` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data untuk tabel `field`
 --
 
-INSERT INTO `field` (`id`, `name`, `note`, `photo`, `place_id`) VALUES
-(1, 'Sintetis Besar', '', 'sinte_a.jpeg', 2),
-(2, 'Sintetis Kecil', '', 'sinte_b.jpeg', 2),
-(3, 'Lapangan A', '', 'lapangan_ayumi1.jpeg', 1);
+INSERT INTO `field` (`id`, `name`, `note`, `photo`, `place_id`, `fasilitas`) VALUES
+(1, 'Sintetis Besar', '', 'sinte_a.jpeg', 2, ''),
+(2, 'Sintetis Kecil', '', 'sinte_b.jpeg', 2, ''),
+(3, 'Lapangan Biru', 'Lapangan vinyl ukuran kecil.', 'lapangan_ayumi1.jpeg', 1, 'Bola, air minum, papan skor, dan rompi');
 
 -- --------------------------------------------------------
 
@@ -113,8 +114,10 @@ CREATE TABLE `place` (
 
 INSERT INTO `place` (`id`, `name`, `desc`, `address`, `phone`, `gallery`, `bank`, `bank_account`, `bank_name`, `status`, `photo`, `open`, `close`) VALUES
 (1, 'Ayumi Futsal', 'Lapangan Futsal Terbaru di Cilacap, nyaman, Harga terjangkau dan fasilitas lengkap', 'Kabupaten Cilacap', '085777373438', 'field.png', 'BCA', '2881727', 'Gallery Futsal', 1, 'ayumi.jpeg', 8, 23),
-(2, 'PSCS Indoor', 'Lapangan Futsal Terbaru di Cilacap, nyaman, Harga terjangkau dan fasilitas lengkap', 'Sukabirus, Bandung', '1313213213', 'field.png', 'Mandiri', '888271728', 'Kosasih', 1, '51447843_1237921336370340_3553161070283587584_n1.jpeg', 9, 23),
-(3, 'Test', 'asdasdasd', 'Jalan Komplek Permata Buah Batu D 22', '082137244805', '', 'BCA', '23112312', 'Dihajuas', 0, 'field.png', 15, 23);
+(2, 'PSCS Indoor Futsal', 'Lapangan Futsal Terbaru di Cilacap, nyaman, Harga terjangkau dan fasilitas lengkap', 'Jln Dr. Sutomo, Gunung Simping, Cilacap Tengah (Selatan Tenis Indoor) ', '1313213213', 'field.png', 'Mandiri', '888271728', 'Kosasih', 1, '51447843_1237921336370340_3553161070283587584_n1.jpeg', 9, 23),
+(3, 'Mega Futsal Cilacap', 'Lapangan Futsal Terbaru di Cilacap, nyaman, Harga terjangkau dan fasilitas lengkap', 'Potongan, Tambakreja, Kec. Cilacap Sel., Kabupaten Cilacap, Jawa Tengah 53211', '082137244805', '', 'BCA', '23112312', 'Dihajuas', 1, 'field.png', 15, 23),
+(4, 'Sena Futsal', 'asldas adasdas dasd', 'Jl. Yos Sudarso, Dongkelan, Kroya, Kec. Kroya, Kabupaten Cilacap, Jawa Tengah 53282', '082137244999', '', 'BCA', '1231231231', 'Jaenab', 1, 'sena.png', 8, 23),
+(5, 'Bharata Futsal Cilacap', ' Tritih, Tritih Wetan, Kec. Jeruklegi, Kabupaten Cilacap, Jawa Tengah 53253', ' Tritih, Tritih Wetan, Kec. Jeruklegi, Kabupaten Cilacap, Jawa Tengah 53253', '', '', 'Mandiri', '1231231231', 'Bharata', 1, 'Screen_Shot_2022-06-14_at_9_42_33_PM.png', 9, 22);
 
 -- --------------------------------------------------------
 
@@ -206,7 +209,9 @@ INSERT INTO `user` (`id`, `name`, `address`, `phone_number`, `email`, `password`
 (2, 'Hermano', '', '', 'field@field.com', 'field', 2, 1),
 (3, 'Kyuu', '', '', 'player@player.com', 'player', 3, NULL),
 (4, 'Papito', '', '', 'kickoff@kickoff.com', 'kickoff', 2, 2),
-(5, 'Try Har', 'Jkt 48\r\n', '08213721231', 'try@gmail.com', 'try', 2, 3);
+(5, 'Try Har', 'Jkt 48\r\n', '08213721231', 'try@gmail.com', 'try', 2, 3),
+(6, 'Sena Futsal', 'Jl. Yos Sudarso, Dongkelan, Kroya, Kec. Kroya, Kabupaten Cilacap, Jawa Tengah 53282', '08299182', 'sena@sena.com', 'sena', 2, 4),
+(7, 'Bharata Futsal Cilacap', ' Tritih, Tritih Wetan, Kec. Jeruklegi, Kabupaten Cilacap, Jawa Tengah 53253\r\n', '082137244111', 'bharata@bharata.com', 'bharata', 2, 5);
 
 --
 -- Indexes for dumped tables
@@ -275,25 +280,25 @@ ALTER TABLE `article`
 -- AUTO_INCREMENT untuk tabel `event`
 --
 ALTER TABLE `event`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT untuk tabel `field`
 --
 ALTER TABLE `field`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT untuk tabel `place`
 --
 ALTER TABLE `place`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT untuk tabel `price`
 --
 ALTER TABLE `price`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT untuk tabel `rent`
@@ -305,7 +310,7 @@ ALTER TABLE `rent`
 -- AUTO_INCREMENT untuk tabel `user`
 --
 ALTER TABLE `user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- Ketidakleluasaan untuk tabel pelimpahan (Dumped Tables)
