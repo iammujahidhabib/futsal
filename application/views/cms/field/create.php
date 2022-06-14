@@ -30,9 +30,15 @@
 								</div>
 							</div>
 							<div class="form-group row">
-								<label for="inp-note" class="col-sm-2 col-form-label">Catatan</label>
+								<label for="inp-note" class="col-sm-2 col-form-label">Deskripsi</label>
 								<div class="col-sm-10">
 									<textarea class="form-control" name="note" id="inp-note" required></textarea>
+								</div>
+							</div>
+							<div class="form-group row">
+								<label for="inp-note" class="col-sm-2 col-form-label">Fasilitas</label>
+								<div class="col-sm-10">
+									<textarea class="form-control" name="fasilitas" id="inp-note" required></textarea>
 								</div>
 							</div>
 							<input required type="hidden" class="form-control" name="place_id" id="inp-writer_id" value="<?=$this->session->place_id?>">

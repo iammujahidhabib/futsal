@@ -24,9 +24,15 @@
 								</div>
 							</div>
 							<div class="form-group row">
-								<label for="inp-title" class="col-sm-2 col-form-label">Catatan</label>
+								<label for="inp-title" class="col-sm-2 col-form-label">Deskripsi</label>
 								<div class="col-sm-10">
-									<textarea required class="form-control" name="note" placeholder="Catatan"><?=$type->note?></textarea>
+									<textarea required class="form-control" name="note" placeholder="Deskripsi"><?=$type->note?></textarea>
+								</div>
+							</div>
+							<div class="form-group row">
+								<label for="inp-title" class="col-sm-2 col-form-label">Fasilitas</label>
+								<div class="col-sm-10">
+									<textarea required class="form-control" name="fasilitas" placeholder="Fasilitas"><?=$type->note?></textarea>
 								</div>
 							</div>
 							<div class="form-group row">

@@ -24,9 +24,15 @@
 								</div>
 							</div>
 							<div class="form-group row">
-								<label for="inp-title" class="col-sm-2 col-form-label">Catatan</label>
+								<label for="inp-title" class="col-sm-2 col-form-label">Deskripsi</label>
 								<div class="col-sm-10">
 									<?=$type->note?>
+								</div>
+							</div>
+							<div class="form-group row">
+								<label for="inp-title" class="col-sm-2 col-form-label">Fasilitas</label>
+								<div class="col-sm-10">
+									<?=$type->fasilitas?>
 								</div>
 							</div>
 							<div class="form-group row">

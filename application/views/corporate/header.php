@@ -58,9 +58,9 @@
             <nav id="navbar" class="navbar">
                 <ul>
                     <li><a class="nav-link scrollto active" href="<?= site_url() ?>">Beranda</a></li>
-                    <li><a class="nav-link scrollto" href="<?= site_url('artikel') ?>">Artikel</a></li>
-                    <li><a class="nav-link scrollto" href="<?= site_url('acara') ?>">Event</a></li>
                     <li><a class="nav-link scrollto" href="<?= site_url('lapangan') ?>">Lapangan</a></li>
+                    <li><a class="nav-link scrollto" href="<?= site_url('acara') ?>">Event Futsal</a></li>
+                    <li><a class="nav-link scrollto" href="<?= site_url('artikel') ?>">Artikel Futsal</a></li>
                     <?php if ($this->session->isLogin == true) { ?>
                         <li class="nav-link dropdown"><a href="#"><span><?= $this->session->name ?></span> <i class="bi bi-chevron-down"></i></a>
                             <ul>

@@ -69,6 +69,7 @@
                                     <div class="card-body">
                                         <h5 class="card-title"><?= $key->name; ?></h5>
                                         <p class="card-text"><?= $key->note; ?></p>
+                                        <p class="card-text"><label>Fasilitas : </label><?= $key->fasilitas; ?></p>
                                     </div>
                                 </div>
                             </div>
