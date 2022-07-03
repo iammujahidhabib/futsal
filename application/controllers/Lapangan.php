@@ -11,7 +11,7 @@ class Lapangan extends CI_Controller
     }
     function index()
     {
-        $data['place'] = $this->M_templates->view_where('place',['status'=>1])->result();
+        $data['place'] = $this->M_templates->view_where('place', ['status' => 1])->result();
         $this->load->view('corporate/header');
         $this->load->view('corporate/lapangan', $data);
         $this->load->view('corporate/footer');
@@ -24,9 +24,9 @@ class Lapangan extends CI_Controller
             RIGHT JOIN field ON field.id=price.field_id 
             WHERE place_id = $id ORDER BY field.id")->result();
         $no = 1;
-        $data['rent']= [];
+        $data['rent'] = [];
         foreach ($data['field'] as $key) {
-            $data['rent']['rent'.$no] = $this->M_templates->query("SELECT *,field.name AS field_name, rent.id AS id FROM rent 
+            $data['rent']['rent' . $no] = $this->M_templates->query("SELECT *,field.name AS field_name, rent.id AS id FROM rent 
             JOIN field ON field.id=rent.field_id 
             JOIN user ON user.id=rent.user_id  
             WHERE rent.place_id = $id AND rent.field_id = $key->id
@@ -38,5 +38,34 @@ class Lapangan extends CI_Controller
         $this->load->view('corporate/header');
         $this->load->view('corporate/lapangan-detail', $data);
         $this->load->view('corporate/footer');
+    }
+    public function table($id, $id_place)
+    {
+        if (isset($_GET['month'])) {
+            $_month = $_GET['month'];
+        } else {
+            $_month = date('Y-m');
+        }
+        // echo $_month;
+        $data['place'] = $this->M_templates->view_where('place', ['id' => $id_place])->row();
+        $data['field'] = $this->M_templates->view_where('field', ['id' => $id])->result();
+        $data['field_selected'] = $this->M_templates->view_where('field', ['id' => $id])->result();
+        $no = 1;
+        $data['rent'] = [];
+        foreach ($data['field_selected'] as $key) {
+            $data['rent']['rent' . $no] = $this->M_templates->query("SELECT *,field.name AS field_name, rent.id AS id FROM rent 
+            JOIN field ON field.id=rent.field_id 
+            JOIN user ON user.id=rent.user_id  
+            WHERE rent.place_id = " . $id_place . " AND rent.field_id = $key->id
+            AND date LIKE '%$_month%'
+            AND rent.status = 1")->result();
+            $no++;
+        }
+        $data['field_selected'] = $data['field_selected'][0];
+        // echo "<pre>";
+        // print_r($data);
+        // $this->load->view('corporate/header');
+        $this->load->view('corporate/lapangan-table', $data);
+        // $this->load->view('corporate/footer');
     }
 }

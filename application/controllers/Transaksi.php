@@ -51,7 +51,9 @@ class Transaksi extends CI_Controller
             $hour++;
         }
         if ($value_check_is_exist == TRUE) {
-            redirect('lapangan/detail/' . $place_id);
+            echo "<script>alert('Maaf, lapangan sudah dibooking pada jam dan tanggal tersebut!')</script>";
+            echo "<script>setTimeout(function(){window.location.href='" . site_url('lapangan/detail/' . $place_id) . "'} , 5000);</script>";
+            // redirect('lapangan/detail/' . $place_id);
         } else {
             $data['rent'] = [
                 'place_id' => $place_id,
@@ -96,7 +98,7 @@ class Transaksi extends CI_Controller
         $this->load->library('upload');
         $this->upload->initialize($config);
         $data = $this->input->post();
-        $data['pay_off'] = $this->input->post('total')-$this->input->post('dp');
+        $data['pay_off'] = $this->input->post('total') - $this->input->post('dp');
         $data['status'] = 0;
         // if ($_FILES['file']['name'] != "") {
         if ($this->upload->do_upload('bill_file')) {
@@ -106,12 +108,12 @@ class Transaksi extends CI_Controller
             $data['bill_file'] = "default.png";
         }
         print_r($data);
-        $this->M_templates->insert("rent",$data);
+        $this->M_templates->insert("rent", $data);
         redirect('transaksi/');
     }
     public function cancel($id)
     {
-        $this->M_templates->update("rent",['id'=>$id],['status'=>3]);
+        $this->M_templates->update("rent", ['id' => $id], ['status' => 3]);
         redirect('transaksi');
     }
 }
