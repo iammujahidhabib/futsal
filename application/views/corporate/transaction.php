@@ -82,8 +82,8 @@
                                 <td><?= $key->name_field ?><br><?= $key->aaa ?></td>
                                 <td><?= $key->start . ":00 - " . $key->end . ":00" ?></td>
                                 <td><?= $key->end - $key->start ?> Jam</td>
-                                <td>Rp <?= number_format($key->dp) ?></td>
-                                <td class="text-danger">Rp <?= number_format($key->total - $key->dp) ?></td>
+                                <td>Rp <?= number_format($key->dp,0,',','.') ?></td>
+                                <td class="text-danger">Rp <?= number_format($key->total - $key->dp,0,',','.') ?></td>
                                 <td><?php
                                     if ($key->status == 0) {
                                         echo "<span class='badge badge-secondary'>Sedang Diproses</span>";

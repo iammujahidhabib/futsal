@@ -34,7 +34,7 @@
                         </ul>
                     </div>
                     <div class="col-lg-6 col-sm-12 mt-3">
-                        <div class="form-group" style="background-color: lightgray;border-radius: 20px;padding: 20px;">
+                        <div class="form-group card" style="border-radius: 20px;padding: 20px;">
                             <h5>Bank <?= $place->bank ?></h5>
                             <p>Nomor Rekening : <?= $place->bank_account ?></p>
                             <p>Nama Rekening : <?= $place->bank_name ?></p>
@@ -42,7 +42,7 @@
                         </div>
                     </div>
                     <div class="col-lg-6 col-sm-12 mt-3">
-                        <div class="form-group" style="background-color: lightgray;border-radius: 20px;padding: 20px;">
+                        <div class="card form-group" style="border-radius: 20px;padding: 20px;">
                             Pembayaran DP minimal 50% dari Total Pembayaran.
                         </div>
                     </div>
@@ -64,7 +64,7 @@
                         ?>
                             <tr>
                                 <td><b>Jam <?= $rent['start'] + $i . ":00" ?></td>
-                                <td><b>Rp <?= $key->price ?></b></td>
+                                <td><b>Rp <?= number_format($key->price,0,',','.'); ?></b></td>
                             </tr>
                         <?php $i++;
                             $no += $key->price;
@@ -73,7 +73,7 @@
                     <tfoot>
                         <tr>
                             <td><b><?= $field->name ?> (<?= $rent['end'] - $rent['start'] ?> Jam)</b><br><?= $rent['date'] ?> <?= $rent['start'] . ":00-" . $rent['end'] . ":00" ?></td>
-                            <td><b>Rp <?= $no ?></b></td>
+                            <td><b>Rp <?= number_format($no,0,',','.'); ?></b></td>
                         </tr>
                     </tfoot>
                 </table>
