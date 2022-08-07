@@ -92,7 +92,7 @@ if (isset($_GET['month'])) {
                             <th>No</th>
                             <th>Lapangan</th>
                             <th>Jam</th>
-                            <th>Harga</th>
+                            <th>Harga Sewa</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -102,7 +102,7 @@ if (isset($_GET['month'])) {
                                 <td><?= $no; ?></td>
                                 <td><?= $key->name; ?></td>
                                 <td><?= ($key->start < 10) ? '0' . $key->start . ':00' : $key->start . ':00' ?>-<?= ($key->end < 10) ? '0' . $key->end . ':00' : $key->end . ':00' ?></td>
-                                <td><?= $key->price; ?></td>
+                                <td>Rp <?= number_format($key->price,0,',','.'); ?></td>
                             </tr>
                         <?php $no++;
                         } ?>
