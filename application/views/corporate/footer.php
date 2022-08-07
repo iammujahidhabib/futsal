@@ -2,7 +2,7 @@
 <footer id="footer">
     <div class="container py-4">
         <div class="copyright">
-            &copy; Copyright <strong><span>BizLand</span></strong>. All Rights Reserved
+            &copy; Copyright <strong><span>Sistem Informasi Futsal Kota Cilacap</span></strong>. All Rights Reserved
         </div>
         <div class="credits">
             <!-- All the links in the footer should remain intact. -->

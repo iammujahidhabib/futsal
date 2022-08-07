@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:8889
--- Waktu pembuatan: 14 Jun 2022 pada 23.17
+-- Waktu pembuatan: 07 Agu 2022 pada 15.28
 -- Versi server: 5.7.32
 -- Versi PHP: 7.4.12
 
@@ -84,7 +84,13 @@ CREATE TABLE `field` (
 INSERT INTO `field` (`id`, `name`, `note`, `photo`, `place_id`, `fasilitas`) VALUES
 (1, 'Sintetis Besar', '', 'sinte_a.jpeg', 2, ''),
 (2, 'Sintetis Kecil', '', 'sinte_b.jpeg', 2, ''),
-(3, 'Lapangan Biru', 'Lapangan vinyl ukuran kecil.', 'lapangan_ayumi1.jpeg', 1, 'Bola, air minum, papan skor, dan rompi');
+(3, 'Lapangan Biru', 'Lapangan vinyl ukuran kecil.', 'lapangan_ayumi1.jpeg', 1, 'Bola, air minum, papan skor, dan rompi'),
+(4, 'Lapangan A Merah', 'Lapangan standard berwarna merah', 'lapangan_ayumi1.jpeg', 3, 'Bola, air minum, papan skor, dan rompi'),
+(5, 'Lapangan B Hijau', 'Lapangan standard berwarna hijau', 'lapangan_ayumi1.jpeg', 3, 'Bola, air minum, papan skor, dan rompi'),
+(6, 'Lapangan Merah', 'Lapangan standard berwarna merah', 'lapangan_ayumi1.jpeg', 4, 'Bola, air minum, papan skor, dan rompi'),
+(7, 'Lapangan Hijau', 'Lapangan standard berwarna hijau', 'lapangan_ayumi1.jpeg', 4, 'Bola, air minum, papan skor, dan rompi'),
+(8, 'Lapangan Madrid', 'Lapangan standard', 'lapangan_ayumi1.jpeg', 5, 'Bola, air minum, papan skor, dan rompi'),
+(9, 'Lapangan Barcelona', 'Lapangan standard', 'lapangan_ayumi1.jpeg', 5, 'Bola, air minum, papan skor, dan rompi');
 
 -- --------------------------------------------------------
 
@@ -115,7 +121,7 @@ CREATE TABLE `place` (
 INSERT INTO `place` (`id`, `name`, `desc`, `address`, `phone`, `gallery`, `bank`, `bank_account`, `bank_name`, `status`, `photo`, `open`, `close`) VALUES
 (1, 'Ayumi Futsal', 'Lapangan Futsal Terbaru di Cilacap, nyaman, Harga terjangkau dan fasilitas lengkap', 'Kabupaten Cilacap', '085777373438', 'field.png', 'BCA', '2881727', 'Gallery Futsal', 1, 'ayumi.jpeg', 8, 23),
 (2, 'PSCS Indoor Futsal', 'Lapangan Futsal Terbaru di Cilacap, nyaman, Harga terjangkau dan fasilitas lengkap', 'Jln Dr. Sutomo, Gunung Simping, Cilacap Tengah (Selatan Tenis Indoor) ', '1313213213', 'field.png', 'Mandiri', '888271728', 'Kosasih', 1, '51447843_1237921336370340_3553161070283587584_n1.jpeg', 9, 23),
-(3, 'Mega Futsal Cilacap', 'Lapangan Futsal Terbaru di Cilacap, nyaman, Harga terjangkau dan fasilitas lengkap', 'Potongan, Tambakreja, Kec. Cilacap Sel., Kabupaten Cilacap, Jawa Tengah 53211', '082137244805', '', 'BCA', '23112312', 'Dihajuas', 1, 'field.png', 15, 23),
+(3, 'Mega Futsal Cilacap', 'Lapangan Futsal Terbaru di Cilacap, nyaman, Harga terjangkau dan fasilitas lengkap', 'Potongan, Tambakreja, Kec. Cilacap Sel., Kabupaten Cilacap, Jawa Tengah 53211', '082137244805', '', 'BCA', '23112312', 'Dihajuas', 1, 'field.png', 9, 23),
 (4, 'Sena Futsal', 'asldas adasdas dasd', 'Jl. Yos Sudarso, Dongkelan, Kroya, Kec. Kroya, Kabupaten Cilacap, Jawa Tengah 53282', '082137244999', '', 'BCA', '1231231231', 'Jaenab', 1, 'sena.png', 8, 23),
 (5, 'Bharata Futsal Cilacap', ' Tritih, Tritih Wetan, Kec. Jeruklegi, Kabupaten Cilacap, Jawa Tengah 53253', ' Tritih, Tritih Wetan, Kec. Jeruklegi, Kabupaten Cilacap, Jawa Tengah 53253', '', '', 'Mandiri', '1231231231', 'Bharata', 1, 'Screen_Shot_2022-06-14_at_9_42_33_PM.png', 9, 22);
 
@@ -143,7 +149,19 @@ INSERT INTO `price` (`id`, `price`, `start`, `end`, `field_id`) VALUES
 (3, 50000, 0, 17, 2),
 (4, 90000, 18, 23, 2),
 (5, 60000, 8, 16, 3),
-(6, 100000, 17, 22, 3);
+(6, 100000, 17, 22, 3),
+(7, 150000, 9, 16, 4),
+(8, 175000, 17, 22, 4),
+(9, 150000, 9, 16, 5),
+(10, 175000, 17, 22, 5),
+(11, 100000, 9, 16, 7),
+(12, 125000, 17, 22, 7),
+(13, 125000, 9, 16, 6),
+(14, 175000, 17, 22, 6),
+(15, 120000, 9, 16, 8),
+(16, 175000, 17, 22, 8),
+(17, 175000, 9, 16, 9),
+(18, 200000, 17, 22, 9);
 
 -- --------------------------------------------------------
 
@@ -181,7 +199,8 @@ INSERT INTO `rent` (`id`, `date`, `start`, `end`, `dp`, `pay_off`, `total`, `sta
 (3, '2022-04-15', 15, 18, 130000, 130000, 260000, 4, 3, 1, 1, 1, 'Screen_Shot_2022-03-08_at_3_57_07_PM.png', 'BCA', '111111666', 'Dihajum', ''),
 (4, '2022-04-15', 12, 15, 130000, 130000, 260000, 2, 3, 1, 1, 1, 'Screen_Shot_2022-03-08_at_3_57_07_PM.png', 'BCA', '111111666', 'Dihajum', 'Gajelas'),
 (5, '2022-05-24', 17, 18, 60000, 60000, 120000, 1, 3, 1, 2, 1, '36_Light_hotel_details_fit_page.png', 'Mandiri', '11221122', 'Dihajum', ''),
-(6, '2022-05-24', 17, 18, 25000, 25000, 50000, 0, 3, 1, 2, 2, '36_Light_hotel_details_fit_page1.png', 'BCA', '11221122', 'Dihajum', '');
+(6, '2022-05-24', 17, 18, 25000, 25000, 50000, 0, 3, 1, 2, 2, '36_Light_hotel_details_fit_page1.png', 'BCA', '11221122', 'Dihajum', ''),
+(7, '2022-07-22', 9, 11, 70000, 70000, 140000, 0, 3, 1, 2, 1, '2.jpeg', 'BCA', '11221122', 'Kellin Quin', '');
 
 -- --------------------------------------------------------
 
@@ -286,7 +305,7 @@ ALTER TABLE `event`
 -- AUTO_INCREMENT untuk tabel `field`
 --
 ALTER TABLE `field`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT untuk tabel `place`
@@ -298,13 +317,13 @@ ALTER TABLE `place`
 -- AUTO_INCREMENT untuk tabel `price`
 --
 ALTER TABLE `price`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- AUTO_INCREMENT untuk tabel `rent`
 --
 ALTER TABLE `rent`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT untuk tabel `user`

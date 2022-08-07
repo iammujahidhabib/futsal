@@ -27,7 +27,7 @@
                             <h4><?= $key->name ?></h4>
                             <p><?= $key->address ?></p>
                             <a href="<?= base_url() ?>asset/image/<?= $key->photo ?>" data-gallery="portfolioGallery" class="portfolio-lightbox preview-link" title="<?= $key->name ?>"><i class="bx bx-plus"></i></a>
-                            <a href="<?= site_url('lapangan/detail/' . $key->id) ?>" class="details-link" title="More Details"><i class="bx bx-link"></i></a>
+                            <!-- <a href="<?= site_url('lapangan/detail/' . $key->id) ?>" class="details-link" title="More Details"><i class="bx bx-link"></i></a> -->
                         </div>
                     </a>
                 </div>

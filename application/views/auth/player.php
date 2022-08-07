@@ -2,8 +2,9 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
 <!-- ======= Hero Section ======= -->
-<section id="pricing">
-    <div class="container col-4">
+<section id="about" class="about section-bg">
+<!-- <section id="pricing" class="about section-bg"> -->
+    <div class="container col-5 p-4 shadow bg-white aos-init aos-animate">
         <h2>Login <span>Futsal Cilapap</span></h2>
         <form method="POST" action="<?= site_url('login') ?>">
             <div class="form-group">

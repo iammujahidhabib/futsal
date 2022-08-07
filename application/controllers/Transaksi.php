@@ -23,6 +23,7 @@ class Transaksi extends CI_Controller
     }
     public function store()
     {
+        // print_r($this->input->post());
         $user_id = $this->input->post('user_id');
         $place_id = $this->input->post('place_id');
         $field_id = $this->input->post('field_id');

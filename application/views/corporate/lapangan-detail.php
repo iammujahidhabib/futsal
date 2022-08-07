@@ -4,6 +4,7 @@ if (isset($_GET['month'])) {
 } else {
     $_month = date('Y-m');
 } ?>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css" integrity="sha512-1sCRPdkRXhBV2PBLUdRb4tMg1w2YPf37qatUFeS7zlBy7jJI8Lf4VHwWfZZfpXtYSLy85pkm9GaYVYMfw5BC1A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-fQybjgWLrvvRgtW6bFlB7jaZrFsaBXjsOMm/tB9LTS58ONXgqbR9W8oWht/amnpF" crossorigin="anonymous"></script>
 <section id="about" class="about section-bg">
@@ -20,7 +21,7 @@ if (isset($_GET['month'])) {
                 <!-- <img src="assets/img/about.jpg" class="img-fluid" alt=""> -->
             </div>
             <div class="col-lg-6 pt-4 pt-lg-0 content d-flex flex-column justify-content-center aos-init aos-animate" data-aos="fade-up" data-aos-delay="100">
-                <h3>Deskripsi <?= $place->name ?></h3>
+                <h5>Tentang Kami</h5>
                 <p class="fst-italic">
                     <?= $place->desc ?>
                 </p>
@@ -54,7 +55,7 @@ if (isset($_GET['month'])) {
                 </p> -->
                 <?php if ($this->session->isLogin == TRUE) { ?>
                     <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-                        Booking
+                        Pesan Lapangan&nbsp;&nbsp;<i class="fas fa-calendar-alt"></i>
                     </button>
                 <?php } ?>
             </div>
@@ -62,7 +63,7 @@ if (isset($_GET['month'])) {
         <br>
         <div class="row">
             <div class="col-lg-8 col-sm-12 aos-init aos-animate" data-aos="fade-right" data-aos-delay="100">
-                <h5>Daftar Lapangan Kami</h5>
+                <h5>Lapangan</h5>
                 <hr>
                 <div class="row">
                     <?php $no = 1;
@@ -89,9 +90,9 @@ if (isset($_GET['month'])) {
                     <thead>
                         <tr role="row">
                             <th>No</th>
-                            <th>Field</th>
-                            <th>Time</th>
-                            <th>Price</th>
+                            <th>Lapangan</th>
+                            <th>Jam</th>
+                            <th>Harga</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -111,7 +112,7 @@ if (isset($_GET['month'])) {
         </div>
     </div>
 </section>
-<section id="about" class="about section-bg project-tab">
+<section id="about" class="about project-tab">
     <div class="container aos-init aos-animate" data-aos="fade-up">
         <div class="section-title">
             <h3>Jadwal Bulan <?= (isset($_GET['month'])) ? date("F", strtotime($_GET['month'])) : date("F") ?></h3>
@@ -122,16 +123,16 @@ if (isset($_GET['month'])) {
         </div>
         <br>
         <div class="row">
-            <div class="col-lg-12 aos-init aos-animate table-responsive p-2" style="border: 1px solid black;" data-aos="fade-right" data-aos-delay="100">
+            <div class="col-lg-12 aos-init aos-animate table-responsive p-2" data-aos="fade-right" data-aos-delay="100">
                 <?php
-                $days = date("t");
+                $days = (isset($_GET['month'])) ? date("t", strtotime($_GET['month'])) : date("t");
                 ?>
                 <div class="tab-content" id="nav-tabContent">
                     <ul class="nav nav-tabs nav-justified">
                         <?php $no = 1;
                         foreach ($field as $kuy) { ?>
                             <li class="nav-item">
-                                <a class="nav-link" href="javascript:void(0)" data-id="<?= $no ?>"><?= $kuy->name ?></a>
+                                <a class="nav-link" href="javascript:void(0)" data-id="<?= $kuy->id ?>"><?= $kuy->name ?></a>
                             </li> <?php $no++;
                                 } ?>
                     </ul>
@@ -214,7 +215,7 @@ if (isset($_GET['month'])) {
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                <h5 class="modal-title" id="exampleModalLabel">Sewa Lapangan</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
@@ -238,7 +239,7 @@ if (isset($_GET['month'])) {
                     </div>
                     <div class="form-group">
                         <label for="formGroupExampleInput2">Dari Jam</label>
-                        <select name="start" required class="form-control" id="formGroupExampleInput2" placeholder="Another input placeholder">
+                        <select name="start" required class="form-control jam_start" id="formGroupExampleInput2" placeholder="Another input placeholder">
                             <?php for ($j = $place->open; $j < $place->close; $j++) { ?>
                                 <option value="<?= $j ?>"><?= ($j < 10) ? '0' . $j . ':00' : $j . ':00' ?></option>
                             <?php } ?>
@@ -246,7 +247,7 @@ if (isset($_GET['month'])) {
                     </div>
                     <div class="form-group">
                         <label for="formGroupExampleInput3">Sampai Jam</label>
-                        <select name="end" required class="form-control" id="formGroupExampleInput3" placeholder="Another input placeholder">
+                        <select name="end" required class="form-control jam_end" id="formGroupExampleInput3" placeholder="Another input placeholder">
                             <?php for ($j = $place->open; $j < $place->close; $j++) { ?>
                                 <option value="<?= $j ?>"><?= ($j < 10) ? '0' . $j . ':00' : $j . ':00' ?></option>
                             <?php } ?>
@@ -291,7 +292,7 @@ if (isset($_GET['month'])) {
                     </div>
                     <div class="form-group">
                         <label for="formGroupExampleInput2">Dari Jam</label>
-                        <select name="start" required class="form-control" id="formGroupExampleInput2" placeholder="Another input placeholder">
+                        <select id="jam_start" name="start" required class="form-control jam_start" id="formGroupExampleInput2" placeholder="Another input placeholder">
                             <?php for ($j = $place->open; $j < $place->close; $j++) { ?>
                                 <option value="<?= $j ?>"><?= ($j < 10) ? '0' . $j . ':00' : $j . ':00' ?></option>
                             <?php } ?>
@@ -299,12 +300,13 @@ if (isset($_GET['month'])) {
                     </div>
                     <div class="form-group">
                         <label for="formGroupExampleInput3">Sampai Jam</label>
-                        <select name="end" required class="form-control" id="formGroupExampleInput3" placeholder="Another input placeholder">
+                        <select id="jam_end" name="end" required class="form-control jam_end" id="formGroupExampleInput3" placeholder="Another input placeholder">
                             <?php for ($j = $place->open; $j < $place->close; $j++) { ?>
                                 <option value="<?= $j ?>"><?= ($j < 10) ? '0' . $j . ':00' : $j . ':00' ?></option>
                             <?php } ?>
                         </select>
                     </div>
+                    <input type="hidden" name="field_id" id="field_id_selected">
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -337,5 +339,18 @@ if (isset($_GET['month'])) {
             console.log("<?= site_url('lapangan/table/') ?>" + $(this).data("id") + "/<?= $place->id ?>?month=" + $("#select_month").val());
             $("#show_table").load("<?= site_url('lapangan/table/') ?>" + $(this).data("id") + "/<?= $place->id ?>?month=" + $("#select_month").val())
         })
+
+
+        // iki sing dinggo test coding ilangi iki ne wae "//"
+        // var ii = parseInt($(".jam_start").val()) + 1;
+        // console.log(ii);
+        // $(".jam_end").val(ii).change()
+        // $(".jam_start").change(function() {
+        //     event.preventDefault();
+        //     console.log($(".jam_start").val());
+        //     var ii = parseInt($(".jam_start").val()) + 1;
+        //     console.log(ii);
+        //     $(".jam_end").val(ii).change()
+        // })
     })
 </script>

@@ -10,9 +10,9 @@
                             <h4 class="card-title">Data Master Tempat</h4>
                         </div>
                         <div class="col-sm-12 col-md-6">
-                            <a type="button" class="btn btn-primary btn-sm float-right" href="<?= base_url() ?>cms/player/create">
+                            <!-- <a type="button" class="btn btn-primary btn-sm float-right" href="<?= base_url() ?>cms/player/create">
                                 <i class="fa fa-plus"></i> Tempat
-                            </a>
+                            </a> -->
                         </div>
                     </div>
                     <div class="card-body">

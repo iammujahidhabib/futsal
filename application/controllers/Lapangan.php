@@ -61,9 +61,11 @@ class Lapangan extends CI_Controller
             AND rent.status = 1")->result();
             $no++;
         }
-        $data['field_selected'] = $data['field_selected'][0];
+        $data['field_selected'] = $this->M_templates->view_where('field', ['id' => $id])->row();
+        // $data['field_selected'] = $data['field_selected'][0];
         // echo "<pre>";
-        // print_r($data);
+        // print_r($data['field_selected']);
+        // print_r($data['rent']);
         // $this->load->view('corporate/header');
         $this->load->view('corporate/lapangan-table', $data);
         // $this->load->view('corporate/footer');
