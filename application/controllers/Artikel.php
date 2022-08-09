@@ -11,7 +11,7 @@ class Artikel extends CI_Controller
     }
     function index()
     {
-        $data['article'] = $this->M_templates->view('article')->result();
+        $data['article'] = $this->M_templates->query("SELECT * FROM article ORDER BY date DESC")->result();
         $this->load->view('corporate/header');
         $this->load->view('corporate/artikel',$data);
         $this->load->view('corporate/footer');

@@ -11,7 +11,7 @@ class Acara extends CI_Controller
     }
     function index()
     {
-        $data['event'] = $this->M_templates->view('event')->result();
+        $data['event'] = $this->M_templates->query("SELECT * FROM event ORDER BY start DESC")->result();
         $this->load->view('corporate/header');
         $this->load->view('corporate/event',$data);
         $this->load->view('corporate/footer');
