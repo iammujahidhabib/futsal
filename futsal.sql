@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:8889
--- Waktu pembuatan: 07 Agu 2022 pada 15.28
+-- Waktu pembuatan: 09 Agu 2022 pada 16.16
 -- Versi server: 5.7.32
 -- Versi PHP: 7.4.12
 
@@ -123,7 +123,8 @@ INSERT INTO `place` (`id`, `name`, `desc`, `address`, `phone`, `gallery`, `bank`
 (2, 'PSCS Indoor Futsal', 'Lapangan Futsal Terbaru di Cilacap, nyaman, Harga terjangkau dan fasilitas lengkap', 'Jln Dr. Sutomo, Gunung Simping, Cilacap Tengah (Selatan Tenis Indoor) ', '1313213213', 'field.png', 'Mandiri', '888271728', 'Kosasih', 1, '51447843_1237921336370340_3553161070283587584_n1.jpeg', 9, 23),
 (3, 'Mega Futsal Cilacap', 'Lapangan Futsal Terbaru di Cilacap, nyaman, Harga terjangkau dan fasilitas lengkap', 'Potongan, Tambakreja, Kec. Cilacap Sel., Kabupaten Cilacap, Jawa Tengah 53211', '082137244805', '', 'BCA', '23112312', 'Dihajuas', 1, 'field.png', 9, 23),
 (4, 'Sena Futsal', 'asldas adasdas dasd', 'Jl. Yos Sudarso, Dongkelan, Kroya, Kec. Kroya, Kabupaten Cilacap, Jawa Tengah 53282', '082137244999', '', 'BCA', '1231231231', 'Jaenab', 1, 'sena.png', 8, 23),
-(5, 'Bharata Futsal Cilacap', ' Tritih, Tritih Wetan, Kec. Jeruklegi, Kabupaten Cilacap, Jawa Tengah 53253', ' Tritih, Tritih Wetan, Kec. Jeruklegi, Kabupaten Cilacap, Jawa Tengah 53253', '', '', 'Mandiri', '1231231231', 'Bharata', 1, 'Screen_Shot_2022-06-14_at_9_42_33_PM.png', 9, 22);
+(5, 'Bharata Futsal Cilacap', ' Tritih, Tritih Wetan, Kec. Jeruklegi, Kabupaten Cilacap, Jawa Tengah 53253', ' Tritih, Tritih Wetan, Kec. Jeruklegi, Kabupaten Cilacap, Jawa Tengah 53253', '', '', 'Mandiri', '1231231231', 'Bharata', 1, 'Screen_Shot_2022-06-14_at_9_42_33_PM.png', 9, 22),
+(9999, 'Admin', 'Admin', 'Admin', 'Admin', 'Admin', NULL, NULL, NULL, 0, 'default.png', 0, 23);
 
 -- --------------------------------------------------------
 
@@ -224,7 +225,7 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`id`, `name`, `address`, `phone_number`, `email`, `password`, `role`, `place_id`) VALUES
-(1, 'Admin', '', '', 'admin@admin.com', 'admin', 1, NULL),
+(1, 'Admin', '', '', 'admin@admin.com', 'admin', 1, 9999),
 (2, 'Hermano', '', '', 'field@field.com', 'field', 2, 1),
 (3, 'Kyuu', '', '', 'player@player.com', 'player', 3, NULL),
 (4, 'Papito', '', '', 'kickoff@kickoff.com', 'kickoff', 2, 2),
@@ -311,7 +312,7 @@ ALTER TABLE `field`
 -- AUTO_INCREMENT untuk tabel `place`
 --
 ALTER TABLE `place`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT untuk tabel `price`
