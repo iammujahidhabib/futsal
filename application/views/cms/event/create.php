@@ -53,7 +53,7 @@
 									<textarea class="form-control" name="desc" id="inp-desc"></textarea>
 								</div>
 							</div>
-							<input required type="hidden" class="form-control" name="field_id" id="inp-writer_id" value="<?=$this->session->id?>">
+							<input required type="hidden" class="form-control" name="place_id" id="inp-writer_id" value="<?=$this->session->place_id?>">
 							<div class="form-group row">
 								<label for="inp-submit" class="col-sm-2 col-form-label"></label>
 								<div class="col-sm-10">
