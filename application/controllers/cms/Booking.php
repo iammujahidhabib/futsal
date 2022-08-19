@@ -15,27 +15,33 @@ class Booking extends CI_Controller
     }
     public function index()
     {
-        $field = $this->M_templates->view_where('place',['id'=>$this->session->place_id])->row();
-        $data['rent']=$this->M_templates->query("SELECT *,field.name AS field, rent.id AS id FROM rent 
-        JOIN field ON field.id=rent.field_id 
-        JOIN user ON user.id=rent.user_id 
-        WHERE rent.place_id = $field->id")->result();
+        if ($this->session->role == 1) {
+            $data['rent'] = $this->M_templates->query("SELECT *,field.name AS field, rent.id AS id FROM rent 
+                JOIN field ON field.id=rent.field_id 
+                JOIN user ON user.id=rent.user_id ORDER BY rent.id DESC")->result();
+        } else {
+            $field = $this->M_templates->view_where('place', ['id' => $this->session->place_id])->row();
+            $data['rent'] = $this->M_templates->query("SELECT *,field.name AS field, rent.id AS id FROM rent 
+                JOIN field ON field.id=rent.field_id 
+                JOIN user ON user.id=rent.user_id 
+                WHERE rent.place_id = $field->id ORDER BY rent.id DESC")->result();
+        }
         // print_r($field);
         $this->load->view('cms/rent/index', $data);
     }
     public function accept($id)
     {
-        $this->M_templates->update("rent",['id'=>$id],['status'=>1]);
+        $this->M_templates->update("rent", ['id' => $id], ['status' => 1]);
         redirect('cms/booking');
     }
     public function selesai($id)
     {
-        $this->M_templates->update("rent",['id'=>$id],['status'=>4]);
+        $this->M_templates->update("rent", ['id' => $id], ['status' => 4]);
         redirect('cms/booking');
     }
     public function delete($id)
     {
-        $this->M_templates->update("rent",['id'=>$id],['status'=>2,'remark'=>$this->input->post('remark')]);
+        $this->M_templates->update("rent", ['id' => $id], ['status' => 2, 'remark' => $this->input->post('remark')]);
         redirect('cms/booking');
     }
     public function field()

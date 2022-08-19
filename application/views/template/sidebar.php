@@ -45,6 +45,13 @@
             <p>Data Artikel</p>
           </a>
         </li>
+        <li class="nav-item">
+          <a href="<?= base_url() ?>cms/booking" class="nav-link <?php if ($this->session->func == 'dailytimesheetcreate') { ?> active<?php } ?>">
+            <!-- <i class="far fa-clipboard nav-icon"></i> -->
+            <i class="fa fa-circle nav-icon"></i>
+            <p>Data Sewa Lapangan</p>
+          </a>
+        </li>
         <?php } elseif ($this->session->role == 2) { ?>
           <li class="nav-item">
             <a href="<?= base_url() ?>cms/dashboard/field/" class="nav-link <?php if ($this->session->func == 'dash') { ?> active<?php } ?>">

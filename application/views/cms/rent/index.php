@@ -45,9 +45,9 @@
                                                     <td><?= $key->date; ?></td>
                                                     <td><?= $key->start; ?>.00 - <?= $key->end ?>.00</td>
                                                     <td><?= $key->field; ?></td>
-                                                    <td><?= $key->dp; ?></td>
-                                                    <td><?= $key->pay_off; ?></td>
-                                                    <td><?= $key->total; ?></td>
+                                                    <td>Rp <?= number_format($key->dp); ?></td>
+                                                    <td>Rp <?= number_format($key->pay_off); ?></td>
+                                                    <td>Rp <?= number_format($key->total); ?></td>
                                                     <td>
                                                         <?php
                                                         if ($key->status == 0) {

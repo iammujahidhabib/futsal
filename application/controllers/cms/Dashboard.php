@@ -26,6 +26,13 @@ class Dashboard extends CI_Controller
     public function admin()
     {
         $data = [];
+        $data['place'] = $this->M_templates->query("SELECT * FROM place WHERE status=1 limit 5")->result();
+        $data['user'] = $this->M_templates->query("SELECT * FROM user WHERE role>1 limit 5")->result();
+        $data['event'] = $this->M_templates->query("SELECT * FROM event ORDER BY id DESC limit 5")->result();
+        $data['article'] = $this->M_templates->query("SELECT * FROM article ORDER BY id DESC limit 5")->result();
+        $data['rent']=$this->M_templates->query("SELECT *,field.name AS field, rent.id AS id FROM rent 
+        JOIN field ON field.id=rent.field_id 
+        JOIN user ON user.id=rent.user_id ORDER BY rent.id DESC LIMIT 5")->result();
         $this->load->view('cms/dashboard/admin', $data);
     }
     public function field()

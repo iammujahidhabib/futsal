@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:8889
--- Waktu pembuatan: 09 Agu 2022 pada 16.16
+-- Waktu pembuatan: 19 Agu 2022 pada 00.15
 -- Versi server: 5.7.32
 -- Versi PHP: 7.4.12
 
@@ -111,20 +111,21 @@ CREATE TABLE `place` (
   `status` int(11) NOT NULL DEFAULT '0',
   `photo` varchar(255) NOT NULL,
   `open` int(5) NOT NULL,
-  `close` int(5) NOT NULL
+  `close` int(5) NOT NULL,
+  `maps` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data untuk tabel `place`
 --
 
-INSERT INTO `place` (`id`, `name`, `desc`, `address`, `phone`, `gallery`, `bank`, `bank_account`, `bank_name`, `status`, `photo`, `open`, `close`) VALUES
-(1, 'Ayumi Futsal', 'Lapangan Futsal Terbaru di Cilacap, nyaman, Harga terjangkau dan fasilitas lengkap', 'Kabupaten Cilacap', '085777373438', 'field.png', 'BCA', '2881727', 'Gallery Futsal', 1, 'ayumi.jpeg', 8, 23),
-(2, 'PSCS Indoor Futsal', 'Lapangan Futsal Terbaru di Cilacap, nyaman, Harga terjangkau dan fasilitas lengkap', 'Jln Dr. Sutomo, Gunung Simping, Cilacap Tengah (Selatan Tenis Indoor) ', '1313213213', 'field.png', 'Mandiri', '888271728', 'Kosasih', 1, '51447843_1237921336370340_3553161070283587584_n1.jpeg', 9, 23),
-(3, 'Mega Futsal Cilacap', 'Lapangan Futsal Terbaru di Cilacap, nyaman, Harga terjangkau dan fasilitas lengkap', 'Potongan, Tambakreja, Kec. Cilacap Sel., Kabupaten Cilacap, Jawa Tengah 53211', '082137244805', '', 'BCA', '23112312', 'Dihajuas', 1, 'field.png', 9, 23),
-(4, 'Sena Futsal', 'asldas adasdas dasd', 'Jl. Yos Sudarso, Dongkelan, Kroya, Kec. Kroya, Kabupaten Cilacap, Jawa Tengah 53282', '082137244999', '', 'BCA', '1231231231', 'Jaenab', 1, 'sena.png', 8, 23),
-(5, 'Bharata Futsal Cilacap', ' Tritih, Tritih Wetan, Kec. Jeruklegi, Kabupaten Cilacap, Jawa Tengah 53253', ' Tritih, Tritih Wetan, Kec. Jeruklegi, Kabupaten Cilacap, Jawa Tengah 53253', '', '', 'Mandiri', '1231231231', 'Bharata', 1, 'Screen_Shot_2022-06-14_at_9_42_33_PM.png', 9, 22),
-(9999, 'Admin', 'Admin', 'Admin', 'Admin', 'Admin', NULL, NULL, NULL, 0, 'default.png', 0, 23);
+INSERT INTO `place` (`id`, `name`, `desc`, `address`, `phone`, `gallery`, `bank`, `bank_account`, `bank_name`, `status`, `photo`, `open`, `close`, `maps`) VALUES
+(1, 'Ayumi Futsal', 'Lapangan Futsal Terbaru di Cilacap, nyaman, Harga terjangkau dan fasilitas lengkap', 'Kabupaten Cilacap', '085777373438', 'field.png', 'BCA', '2881727', 'Gallery Futsal', 1, 'ayumi.jpeg', 8, 23, ''),
+(2, 'PSCS Indoor Futsal', 'Lapangan Futsal Terbaru di Cilacap, nyaman, Harga terjangkau dan fasilitas lengkap', 'Jln Dr. Sutomo, Gunung Simping, Cilacap Tengah (Selatan Tenis Indoor) ', '1313213213', 'field.png', 'Mandiri', '888271728', 'Kosasih', 1, '51447843_1237921336370340_3553161070283587584_n1.jpeg', 9, 23, ''),
+(3, 'Mega Futsal Cilacap', 'Lapangan Futsal Terbaru di Cilacap, nyaman, Harga terjangkau dan fasilitas lengkap', 'Potongan, Tambakreja, Kec. Cilacap Sel., Kabupaten Cilacap, Jawa Tengah 53211', '082137244805', '', 'BCA', '23112312', 'Dihajuas', 1, 'field.png', 9, 23, ''),
+(4, 'Sena Futsal', 'asldas adasdas dasd', 'Jl. Yos Sudarso, Dongkelan, Kroya, Kec. Kroya, Kabupaten Cilacap, Jawa Tengah 53282', '082137244999', '', 'BCA', '1231231231', 'Jaenab', 1, 'sena.png', 8, 23, ''),
+(5, 'Bharata Futsal Cilacap', ' Tritih, Tritih Wetan, Kec. Jeruklegi, Kabupaten Cilacap, Jawa Tengah 53253', ' Tritih, Tritih Wetan, Kec. Jeruklegi, Kabupaten Cilacap, Jawa Tengah 53253', '', '', 'Mandiri', '1231231231', 'Bharata', 1, 'Screen_Shot_2022-06-14_at_9_42_33_PM.png', 9, 22, ''),
+(9999, 'Admin', 'Admin', 'Admin', 'Admin', 'Admin', NULL, NULL, NULL, 0, 'default.png', 0, 23, '');
 
 -- --------------------------------------------------------
 
@@ -312,7 +313,7 @@ ALTER TABLE `field`
 -- AUTO_INCREMENT untuk tabel `place`
 --
 ALTER TABLE `place`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10000;
 
 --
 -- AUTO_INCREMENT untuk tabel `price`

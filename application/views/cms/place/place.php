@@ -1,4 +1,4 @@
-<?=$this->session->flashdata('message')?>
+<?= $this->session->flashdata('message') ?>
 <?php $this->load->view('template/header'); ?>
 <!-- Main content -->
 <div class="content">
@@ -59,6 +59,10 @@
                                             <label for="alamat">Alamat</label>
                                             <textarea name="address" id="alamat" required class="form-control"><?= $place->address ?></textarea>
                                         </div>
+                                        <div class="form-group">
+                                            <label for="maps">Embed Maps <small><a href="#" id="a_embed_maps">tutorial</a></small></label>
+                                            <textarea name="address" id="maps" required class="form-control"><?= $place->maps ?></textarea>
+                                        </div>
                                         <div class="form-group row">
                                             <div class="col-lg-7 col-sm-12">
                                                 <label for="photo">Photo</label>
@@ -99,6 +103,31 @@
         </div>
     </div>
 </div>
+
+<div class="modal" id="embed_maps" tabindex="-1">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Cara Embed Maps</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <ul style="padding-left: 10px;">
+                    <li>Buka Google Maps</li>
+                    <li>Cari Lokasi</li>
+                    <li>Klik Share</li>
+                    <li>Ikuti Gambar Di bawah</li>
+                </ul>
+                <img src="<?= base_url() ?>asset/tutorial_embed_maps.png" class="img-fluid" alt="" height="300" style="width:100%">
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
 <?php if ($place->status == 0) { ?>
     <script type="text/javascript">
         $("input").prop("disabled", true)
@@ -107,4 +136,10 @@
         $("select").prop("disabled", true)
     </script>
 <?php } ?>
+<script>
+    $("#a_embed_maps").click(function() {
+        event.preventDefault();
+        $("#embed_maps").modal('show');
+    })
+</script>
 <?php $this->load->view('template/footer'); ?>

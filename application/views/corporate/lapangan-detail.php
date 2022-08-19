@@ -102,7 +102,7 @@ if (isset($_GET['month'])) {
                                 <td><?= $no; ?></td>
                                 <td><?= $key->name; ?></td>
                                 <td><?= ($key->start < 10) ? '0' . $key->start . ':00' : $key->start . ':00' ?>-<?= ($key->end < 10) ? '0' . $key->end . ':00' : $key->end . ':00' ?></td>
-                                <td>Rp <?= number_format($key->price,0,',','.'); ?></td>
+                                <td>Rp <?= number_format($key->price, 0, ',', '.'); ?></td>
                             </tr>
                         <?php $no++;
                         } ?>
@@ -226,7 +226,7 @@ if (isset($_GET['month'])) {
                     <input type="hidden" name="place_id" value="<?= $place->id ?>">
                     <div class="form-group">
                         <label for="formGroupExampleInput">Tanggal</label>
-                        <input required type="date" name="date" class="form-control" id="formGroupExampleInput" placeholder="Example input placeholder">
+                        <input required min="<?= date('Y-m-d') ?>" type="date" name="date" class="form-control" id="formGroupExampleInput" placeholder="Example input placeholder">
                     </div>
                     <div class="form-group">
                         <label for="formGroupExampleInput2">Jenis Lapangan</label>
@@ -255,8 +255,17 @@ if (isset($_GET['month'])) {
                     </div>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <button type="submit" class="btn btn-primary">Save changes</button>
+                <div class="row">
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                            <p class="small text-danger">*tidak bisa memilih tanggal sebelum hari ini</p>
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                    </div>
+                </div>
             </div>
             </form>
         </div>
@@ -279,7 +288,7 @@ if (isset($_GET['month'])) {
                     <input type="hidden" name="place_id" value="<?= $place->id ?>">
                     <div class="form-group">
                         <label for="formGroupExampleInput">Tanggal</label>
-                        <input required type="date" name="date" class="form-control" id="formGroupExampleInput" placeholder="Example input placeholder">
+                        <input required type="date" min="<?= date('Y-m-d') ?>" name="date" class="form-control" id="formGroupExampleInput" placeholder="Example input placeholder">
                     </div>
                     <div class="form-group">
                         <label for="formGroupExampleInput2">Jenis Lapangan</label>
@@ -306,11 +315,23 @@ if (isset($_GET['month'])) {
                             <?php } ?>
                         </select>
                     </div>
+                    <div class="form-group">
+                        <p class="small text-danger">*tidak bisa memilih tanggal sebelum hari ini</p>
+                    </div>
                     <input type="hidden" name="field_id" id="field_id_selected">
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <button type="submit" class="btn btn-primary">Save changes</button>
+                <div class="row">
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                            <p class="small text-danger">*tidak bisa memilih tanggal sebelum hari ini</p>
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                    </div>
+                </div>
             </div>
             </form>
         </div>
