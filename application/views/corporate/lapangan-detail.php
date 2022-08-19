@@ -3,7 +3,10 @@ if (isset($_GET['month'])) {
     $_month = $_GET['month'];
 } else {
     $_month = date('Y-m');
-} ?>
+}
+$bulan_bahasa = ['Januari', 'Februari','Maret','April','Mei','Juni','Juli','Agustus','September','Oktober','November','Desember'];
+?>
+
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css" integrity="sha512-1sCRPdkRXhBV2PBLUdRb4tMg1w2YPf37qatUFeS7zlBy7jJI8Lf4VHwWfZZfpXtYSLy85pkm9GaYVYMfw5BC1A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-fQybjgWLrvvRgtW6bFlB7jaZrFsaBXjsOMm/tB9LTS58ONXgqbR9W8oWht/amnpF" crossorigin="anonymous"></script>
@@ -75,7 +78,7 @@ if (isset($_GET['month'])) {
                                     <div class="card-body">
                                         <h5 class="card-title"><?= $key->name; ?></h5>
                                         <p class="card-text"><?= $key->note; ?></p>
-                                        <p class="card-text"><label>Fasilitas : </label><?= $key->fasilitas; ?></p>
+                                        <p class="card-text small"><label>Fasilitas : </label><?= $key->fasilitas; ?></p>
                                     </div>
                                 </div>
                             </div>
@@ -86,7 +89,7 @@ if (isset($_GET['month'])) {
             <div class="col-lg-4 col-sm-12 aos-init aos-animate" data-aos="fade-right" data-aos-delay="100">
                 <h5>Harga Sewa Lapangan</h5>
                 <hr>
-                <table class="example2 table table-bordered table-hover dtr-inline" role="grid" aria-describedby="example2_info">
+                <table class="example2 table small table-bordered table-hover dtr-inline" role="grid" aria-describedby="example2_info">
                     <thead>
                         <tr role="row">
                             <th>No</th>
@@ -112,10 +115,15 @@ if (isset($_GET['month'])) {
         </div>
     </div>
 </section>
+<section id="about" class="about">
+    <div class="container-fluid aos-init aos-animate" data-aos="fade-up">
+        <?= $place->maps ?>
+    </div>
+</section>
 <section id="about" class="about project-tab">
     <div class="container aos-init aos-animate" data-aos="fade-up">
         <div class="section-title">
-            <h3>Jadwal Bulan <?= (isset($_GET['month'])) ? date("F", strtotime($_GET['month'])) : date("F") ?></h3>
+            <h3>Jadwal Bulan <?= (isset($_GET['month'])) ? $bulan_bahasa[date("n", strtotime($_GET['month']))-1] : $bulan_bahasa[date("n")-1] ?></h3>
         </div>
         <div class="form-group-row">
             <label class="col-sm-3">Pilih Bulan : </label>

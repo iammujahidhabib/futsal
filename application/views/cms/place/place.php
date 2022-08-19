@@ -61,7 +61,7 @@
                                         </div>
                                         <div class="form-group">
                                             <label for="maps">Embed Maps <small><a href="#" id="a_embed_maps">tutorial</a></small></label>
-                                            <textarea name="address" id="maps" required class="form-control"><?= $place->maps ?></textarea>
+                                            <textarea name="maps" id="maps" required class="form-control"><?= $place->maps ?></textarea>
                                         </div>
                                         <div class="form-group row">
                                             <div class="col-lg-7 col-sm-12">

@@ -39,6 +39,7 @@ class Place extends CI_Controller
         $phone = $this->input->post("phone");
         $desc = $this->input->post("desc");
         $address = $this->input->post("address");
+        $maps = str_replace('width="800"', 'style="width:100%"', $this->input->post('maps'));
         $bank = $this->input->post("bank");
         $bank_account = $this->input->post("bank_account");
         $bank_name = $this->input->post("bank_name");
@@ -49,6 +50,7 @@ class Place extends CI_Controller
             'phone'=>$phone,
             'desc'=>$desc,
             'address'=>$address,
+            'maps'=>$maps,
             'bank'=>$bank,
             'bank_account'=>$bank_account,
             'bank_name'=>$bank_name,

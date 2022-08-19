@@ -1,3 +1,6 @@
+<?php
+$bulan_bahasa = ['Januari', 'Februari','Maret','April','Mei','Juni','Juli','Agustus','September','Oktober','November','Desember'];
+?>
 <!-- ======= Pricing Section ======= -->
 <section id="pricing" class="pricing">
     <div class="container" data-aos="fade-up">
@@ -16,7 +19,7 @@
                             <img src="<?= base_url() ?>asset/image/event/<?= $key->poster ?>" class="img-fluid">
                         </a>
                         <hr>
-                        <p><?= $key->start ?></p>
+                        <p><?= date("d",strtotime($key->start))." ".$bulan_bahasa[date("n",strtotime($key->start))-1]." ".date("Y",strtotime($key->start)) ?></p>
                         <a href="<?= site_url('acara/detail/' . $key->id) ?>">
                             <h5 style="color: black;">
                                 <?= $key->title ?>

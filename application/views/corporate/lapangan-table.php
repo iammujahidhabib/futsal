@@ -1,6 +1,7 @@
 <?php
 $month = (isset($_GET['month'])) ? date("Y-m", strtotime($_GET['month'])) : date("Y-m");
 $days = date("t", strtotime($month));
+$bulan_bahasa = ['Januari', 'Februari','Maret','April','Mei','Juni','Juli','Agustus','September','Oktober','November','Desember'];
 ?>
 
 <!-- Vendor CSS Files -->
@@ -33,7 +34,7 @@ $days = date("t", strtotime($month));
     <thead>
         <tr>
             <th rowspan="2">Jam</th>
-            <th colspan="<?= $days ?>"><?= (isset($_GET['month'])) ? date("F", strtotime($_GET['month'])) : date("F") ?></th>
+            <th colspan="<?= $days ?>"><?= (isset($_GET['month'])) ? $bulan_bahasa[date("n", strtotime($_GET['month']))-1] : $bulan_bahasa[date("n")-1] ?></th>
         </tr>
         <tr>
             <?php for ($i = 1; $i <= $days; $i++) { ?>
