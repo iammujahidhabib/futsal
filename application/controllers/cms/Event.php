@@ -16,11 +16,12 @@ class Event extends CI_Controller
     }
     public function index()
     {
-        if($this->session->role == 1){
+        if ($this->session->role == 1) {
             $data['event'] = $this->M_templates->view('event')->result();
-        }else{
-            $data['event'] = $this->M_templates->view_where('event',['place_id'=>$this->session->place_id])->result();
-        }        $this->load->view('cms/event/index', $data);
+        } else {
+            $data['event'] = $this->M_templates->view_where('event', ['place_id' => $this->session->place_id])->result();
+        }
+        $this->load->view('cms/event/index', $data);
     }
     public function create()
     {
@@ -44,25 +45,25 @@ class Event extends CI_Controller
                 $data['poster'] = "default.png";
             }
 
-            if ($_FILES['form']['name'] != "") {
-                $config = array(
-                    'upload_path' => './asset/form/event/',
-                    'overwrite' => false,
-                    'remove_spaces' => true,
-                    'allowed_types' => 'doc|docx|pdf',
-                    'max_size' => 20000,
-                    'xss_clean' => true,
-                );
-                $this->load->library('upload');
-                $this->upload->initialize($config);
-                if ($this->upload->do_upload('form')) {
-                    // if ($_FILES['file']['name'] != "") {
-                    $file_data = $this->upload->data();
-                    $data['form'] = $file_data['file_name'];
-                } else {
-                    $data['form'] = "default.docx";
-                }
+            // if ($_FILES['form']['name'] != "") {
+            $config2 = array(
+                'upload_path' => './asset/form/event/',
+                // 'overwrite' => false,
+                // 'remove_spaces' => true,
+                'allowed_types' => 'doc|docx|pdf',
+                'max_size' => 200000,
+                // 'xss_clean' => true,
+            );
+            $this->load->library('upload');
+            $this->upload->initialize($config2);
+            if ($this->upload->do_upload('form')) {
+                // if ($_FILES['file']['name'] != "") {
+                $file_data2 = $this->upload->data();
+                $data['form'] = $file_data2['file_name'];
+            } else {
+                $data['form'] = "default.docx";
             }
+            // }
             $this->M_templates->insert('event', $data);
             redirect('cms/event');
         } else {
@@ -98,11 +99,8 @@ class Event extends CI_Controller
             if ($_FILES['form']['name'] != "") {
                 $config2 = array(
                     'upload_path' => './asset/form/event/',
-                    'overwrite' => false,
-                    'remove_spaces' => true,
                     'allowed_types' => 'doc|docx|pdf',
-                    'max_size' => 20000,
-                    'xss_clean' => true,
+                    'max_size' => 200000,
                 );
                 $this->load->library('upload');
                 $this->upload->initialize($config2);

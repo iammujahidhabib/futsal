@@ -30,9 +30,12 @@
 								</div>
 							</div>
 							<div class="form-group row">
-								<label for="inp-form" class="col-sm-2 col-form-label">Formulir</label>
-								<div class="col-sm-10">
-									<input type="file" class="form-control" name="form" id="inp-form">
+								<label for="inp-form" class="col-sm-2 col-form-label">Formulir <small>*doc|docx|pdf</small></label>
+								<div class="col-sm-5">
+									<input type="file" class="form-control" name="form" required id="inp-form">
+								</div>
+								<div class="col-sm-5">
+									<input type="text" class="form-control" name="form_url" required id="inp-formulir-name" placeholder="link google drive/docs">
 								</div>
 							</div>
 							<div class="form-group row">

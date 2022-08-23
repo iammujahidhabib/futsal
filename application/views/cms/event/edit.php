@@ -24,38 +24,41 @@
 								</div>
 							</div>
 							<div class="form-group row">
-								<div class="col-sm-4">
-									<label for="inp-poster" class="col-sm-2 col-form-label">Poster</label>
-								</div>
-								<div class="col-sm-8 row">
+								<label for="inp-poster" class="col-sm-2 col-form-label">Poster</label>
+								<div class="col-sm-5">
 									<img src="<?= base_url() ?>asset/image/event/<?= $event->poster ?>" class="img-fluid">
-									<div class="col-sm-10">
-										<input type="file" class="form-control" name="poster" id="inp-poster">
-									</div>
+								</div>
+								<div class="col-sm-5">
+									<input type="file" class="form-control" name="poster" id="inp-poster">
 								</div>
 							</div>
 							<div class="form-group row">
-								<label for="inp-form" class="col-sm-2 col-form-label">Formulir</label>
-								<div class="col-sm-10">
+								<label for="inp-form" class="col-sm-2 col-form-label">Formulir <small>*doc|docx|pdf</small></label>
+								<div class="col-sm-5">
 									<input type="file" class="form-control" name="form" id="inp-form">
+									<?= $event->form ?>
+									<iframe src="<?= base_url('asset/form/event/' . $event->form) ?>" style="width: 100%; height: 300px;"></iframe>
+								</div>
+								<div class="col-sm-5">
+									<input type="text" class="form-control" name="form_url" required id="inp-formulir-name" placeholder="link google drive/docs" value="<?= $event->form_url ?>">
 								</div>
 							</div>
 							<div class="form-group row">
 								<label for="inp-start" class="col-sm-2 col-form-label">Tanggal Mulai</label>
 								<div class="col-sm-10">
-									<input required type="date" class="form-control" name="start" id="inp-start" value="<?=$event->start?>">
+									<input required type="date" class="form-control" name="start" id="inp-start" value="<?= $event->start ?>">
 								</div>
 							</div>
 							<div class="form-group row">
 								<label for="inp-end" class="col-sm-2 col-form-label">Tanggal Selesai</label>
 								<div class="col-sm-10">
-									<input required type="date" class="form-control" name="end" id="inp-end" value="<?=$event->end?>">
+									<input required type="date" class="form-control" name="end" id="inp-end" value="<?= $event->end ?>">
 								</div>
 							</div>
 							<div class="form-group row">
 								<label for="inp-desc" class="col-sm-2 col-form-label">Deskripsi</label>
 								<div class="col-sm-10">
-									<textarea class="form-control" name="desc" id="inp-desc"><?=$event->desc?></textarea>
+									<textarea class="form-control" name="desc" id="inp-desc"><?= $event->desc ?></textarea>
 								</div>
 							</div>
 							<input required type="hidden" class="form-control" name="place_id" id="inp-writer_id" value="<?= $event->place_id ?>">
